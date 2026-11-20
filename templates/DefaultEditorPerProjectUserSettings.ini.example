@@ -1,0 +1,9 @@
+; Unreal Engine ModelContextProtocol editor preferences
+; Merge into <ProjectRoot>/Config/DefaultEditorPerProjectUserSettings.ini
+;
+; Configures automatic server startup upon editor launch, target port, and URL path.
+
+[/Script/ModelContextProtocolEngine.ModelContextProtocolSettings]
+bAutoStartServer=True
+ServerPortNumber=8000
+ServerUrlPath=/mcp

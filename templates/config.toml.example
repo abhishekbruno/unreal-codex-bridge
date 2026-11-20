@@ -1,0 +1,8 @@
+# Codex MCP Server Configuration for Unreal Engine
+# Copy or merge this into your project root: <ProjectRoot>/.codex/config.toml
+#
+# Note: Ensure the target Unreal project is in a trusted directory so Codex loads
+# project-scoped MCP servers.
+
+[mcp_servers.unreal-mcp]
+url = "http://127.0.0.1:8000/mcp"

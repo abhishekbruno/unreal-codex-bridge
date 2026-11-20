@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "unreal-codex",
+  "version": "0.1.0",
+  "description": "Run Codex against a local Unreal Editor via Epic's native Unreal MCP toolsets, with Unreal development skills.",
+  "author": {
+    "name": "Community adaptation of Epic Games' MIT-licensed Unreal Engine skills"
+  },
+  "license": "MIT",
+  "keywords": ["unreal-engine", "codex", "mcp", "blueprints", "game-development"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Unreal Engine for Codex",
+        "shortDescription": "Create and edit Unreal projects with live editor tools",
+        "longDescription": "Use Epic's built-in Unreal MCP server and Unreal-specialist skills so Codex can inspect, build and test content inside a running editor.",
+        "developerName": "Community adaptation (Epic source attributed)",
+        "category": "Developer Tools",
+        "capabilities": ["Read", "Write"],
+        "defaultPrompt": [
+          "Inspect my current Unreal level and report the available toolsets.",
+          "Create a simple playable scene in Unreal Engine using MCP tools, then verify and save it."
+        ]
+      }
+    }
+  }
+}

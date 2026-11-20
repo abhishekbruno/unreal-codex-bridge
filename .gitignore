@@ -1,0 +1,87 @@
+# Unreal Engine build artifacts and caches
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+Build/
+
+# Visual Studio and IDE files
+.vs/
+.idea/
+.vscode/
+*.sln
+*.vcxproj*
+
+# Node modules and package caches
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python bytecode, environments, and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Secrets, environment variables, credentials, and tokens
+.env
+.env.*
+*.env
+*.key
+*.pem
+*.token
+*token*
+*.secret
+credentials.json
+client_secrets.json
+
+# Local machine-specific configuration and backups
+*.backup-*
+*.local
+local_settings.py
+
+# Local Codex runtime state (exclude actual runtime configs; preserve templates)
+.codex/config.toml
+.codex-plugins/
+.agents/
+
+# Generated logs and telemetry
+*.log
+*.tmp
+logs/
+evidence/
+
+# Large generated assets and test levels
+*.umap
+*.uasset
+*.pak
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes

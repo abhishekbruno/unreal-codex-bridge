@@ -1,0 +1,8 @@
+; Unreal Engine HTTPServer listener configuration
+; Merge into <ProjectRoot>/Config/DefaultEngine.ini
+;
+; Enforces loopback (127.0.0.1) binding for the embedded HTTP server to prevent
+; exposing the unauthenticated MCP server to the local network or public internet.
+
+[HTTPServer.Listeners]
+DefaultBindAddress=127.0.0.1
