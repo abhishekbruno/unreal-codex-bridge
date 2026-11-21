@@ -1,0 +1,59 @@
+name: Cross-Platform CI
+
+on:
+  push:
+    branches:
+      - main
+      - 'hardening/**'
+      - 'feat/**'
+  pull_request:
+    branches:
+      - main
+      - 'hardening/**'
+
+jobs:
+  test:
+    name: Unit Tests (${{ matrix.os }} / Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, macos-13]
+        python-version: ['3.10', '3.11', '3.12']
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run full unit test suite
+        run: |
+          python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Validate native macOS adapter (Darwin runners only)
+        if: runner.os == 'macOS'
+        run: |
+          python -c "
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from platform_adapter.macos import MacOSAdapter
+
+          adapter = MacOSAdapter()
+          os_info = adapter.detect_os()
+          print(f'Native macOS Detection: {os_info}')
+          assert os_info['system'] == 'Darwin', f'Expected Darwin, got {os_info[\"system\"]}'
+          assert os_info['architecture'] in ('arm64', 'x86_64'), f'Unexpected architecture: {os_info[\"architecture\"]}'
+
+          # Test native OS-level executable resolution via libproc proc_pidpath on own PID
+          my_pid = os.getpid()
+          exe = adapter.get_process_executable(my_pid)
+          print(f'Native PID {my_pid} executable: {exe}')
+          assert exe is not None and exe.is_file(), f'Failed resolving executable for PID {my_pid}'
+          print('Native macOS libproc proc_pidpath verification PASSED.')
+          "
+

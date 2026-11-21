@@ -1,20 +1,20 @@
 # Cross-Platform Automated Test Results & Verification Matrix
 ## Integration Sprint 01 — Unreal Codex Bridge
 
-**Document Version:** 1.1.0  
+**Document Version:** 1.3.0  
 **Date:** 2026-11-21  
-**Total Automated Tests:** 148  
-**Passing Tests:** 148 (100% Pass Rate across 20 Test Modules)  
-**Execution Time:** ~5.90 seconds offline  
+**Total Automated Tests:** 163  
+**Passing Tests:** 163 (100% Pass Rate across 21 Test Modules)  
+**Execution Time:** ~5.45 seconds offline  
 
 ---
 
 ## 1. Automated Test Execution Summary
 
 ```
-....................................................................................................................................................
+...................................................................................................................................................................
 ----------------------------------------------------------------------
-Ran 148 tests in 5.899s
+Ran 163 tests in 5.445s
 
 OK
 ```
@@ -23,7 +23,7 @@ OK
 
 ## 2. Test Coverage Breakdown by Category
 
-### Category A: Platform Adapters & Cross-Platform Foundations (34 Tests)
+### Category A: Platform Adapters & Cross-Platform Foundations (40 Tests)
 - `tests/test_platform_detect.py` (6 tests):
   - `test_detect_system_windows`: Confirms Windows OS identification. **PASS**
   - `test_detect_system_darwin`: Confirms macOS Darwin identification. **PASS**
@@ -41,7 +41,7 @@ OK
   - `test_windows_verify_project_identity`: Verifies CIM command lines against target project. **PASS**
   - `test_windows_launch_editor_args`: Validates launch argument array with paths containing spaces. **PASS**
 
-- `tests/test_macos_adapter.py` (10 tests):
+- `tests/test_macos_adapter.py` (14 tests):
   - `test_macos_os_and_arch`: Tests Darwin detection, Apple Silicon (`arm64`), and Intel (`x86_64`). **PASS**
   - `test_macos_resolve_editor_executable`: Resolves `UnrealEditor.app/Contents/MacOS/UnrealEditor`. **PASS**
   - `test_macos_discover_engine_installations`: Discovers `/Users/Shared/Epic Games/UE_*` installations. **PASS**
@@ -52,6 +52,10 @@ OK
   - `test_regression_stale_log_fallback_rejected`: Rejects stale log fallback when listener process is not authentic UnrealEditor. **PASS**
   - `test_regression_unverified_process_name_rejected`: Rejects unverified process names and scripts spoofing `unrealeditor`. **PASS**
   - `test_regression_wrong_engine_rejected`: Rejects editor process launched from unexpected engine root. **PASS**
+  - `test_regression_os_level_executable_verification`: Validates authentic executable resolution via kernel `libproc.proc_pidpath`. **PASS**
+  - `test_regression_lookalike_engine_prefix_rejected`: Rejects lookalike engine prefixes (e.g. `UE_5.8_fake`). **PASS**
+  - `test_regression_ambiguous_relative_project_path_rejected`: Rejects ambiguous relative project paths lacking absolute canonical base. **PASS**
+  - `test_regression_multiple_uproject_args_rejected`: Rejects ambiguous or conflicting multiple `.uproject` arguments. **PASS**
 
 - `tests/test_editor_lifecycle.py` (5 tests):
   - `test_lifecycle_detect`: Tests `detect` subcommand data aggregation. **PASS**
@@ -60,13 +64,15 @@ OK
   - `test_lifecycle_status_reporting`: Tests status when server is offline vs online. **PASS**
   - `test_lifecycle_uninstall`: Verifies safe revert of `.codex/config.toml`. **PASS**
 
-- `tests/test_playtest.py` (6 tests):
+- `tests/test_playtest.py` (8 tests):
   - `test_find_project_log`: Resolves `Saved/Logs/<Game>.log`. **PASS**
   - `test_inspect_log_telemetry`: Extracts errors, warnings, and gameplay events using regex. **PASS**
   - `test_run_playtest_flow`: Simulates full PIE test lifecycle with mock MCP client. **PASS**
   - `test_regression_tool_error_fails_pie_and_clean_run`: Rejects PIE start when MCP tool returns `isError: True`. **PASS**
   - `test_regression_missing_log_never_reports_clean_run`: Guards clean_run against missing or empty runtime logs. **PASS**
   - `test_regression_unsuccessful_pie_distinguished_from_success`: Distinguishes unsuccessful PIE from completed runs. **PASS**
+  - `test_clean_run_never_implies_gameplay_success`: Enforces separation between 0 runtime errors (`clean_run`) and actual gameplay signal verification (`gameplay_verified`). **PASS**
+  - `test_stop_failure_records_reason_and_sets_indeterminate`: Records StopPIE failure reasons and transitions state to `INDETERMINATE`. **PASS**
 
 ### Category B: Plugin Packaging & Marketplace (4 Tests)
 - `tests/test_plugin_packaging.py` (4 tests):
@@ -94,6 +100,14 @@ OK
 ### Category E: Blueprint Specification & AST Authoring Baseline (32 Tests)
 - `tests/test_blueprint_authoring.py` (18 tests): Declarative node and wire schemas. **PASS (18/18)**
 - `tests/test_blueprint_mutation.py` (14 tests): Pre-flight validation, AST transformation guards. **PASS (14/14)**
+
+### Category F: Editor State Guards & Level Transaction Recovery (9 Tests)
+- `tests/test_level_transaction.py` (9 tests):
+  - Preflight checks, task-owned package saving, clean status verification.
+  - Safe level transitions with rollback prevention.
+  - Rejection of unsaved destination load errors with single guarded save-and-retry.
+  - Interrupted write outcome detection and reconciliation.
+  - Process identity delegation to platform adapters. **PASS (9/9)**
 
 ---
 

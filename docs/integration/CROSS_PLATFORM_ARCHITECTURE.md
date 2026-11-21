@@ -58,7 +58,7 @@ The Unreal Codex Bridge is engineered as a **single, unified cross-platform prod
 |  - scripts/bridge_mcp.py: JSON-RPC 2.0 / Streamable HTTP & SSE           |
 |  - scripts/unreal_session.py: Dynamic Toolset Catalog Discovery          |
 |  - scripts/project_index.py: Persistent SQLite + FTS5 Caching            |
-|  - scripts/project_dependencies.py: Reference DAG & Blast Radius         |
+|  - scripts/project_dependencies.py: Reference Graph & Blast Radius       |
 |  - scripts/blueprint_parser.py: S-Expression AST Visitor & Metrics       |
 |  - scripts/playtest.py: PIE Execution & Runtime Telemetry Harvester      |
 +------------------------------------+-------------------------------------+

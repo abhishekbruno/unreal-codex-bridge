@@ -191,6 +191,13 @@ class UnrealSession:
         self.identity={'project_file':str(project),'engine':str(engine),'listener':process,'mcp_log_entries':lines}
         return self.identity
 
+    def level_transaction(self, project, engine, target, journal, owned,
+                          complete_world_state_verified=False):
+        """Build a guarded level workflow using this connected transport."""
+        from level_transaction import LevelTransaction
+        return LevelTransaction(self, project, engine, target, journal, owned,
+                                complete_world_state_verified)
+
     def capability_report(self):
         # Absent annotations are not permission to treat a tool as read-only.
         verified_reads = {

@@ -135,6 +135,62 @@ class MacOSAdapterTests(unittest.TestCase):
                 engine = Path("/Users/Shared/Epic Games/UE_5.8")
                 self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine))
 
+    def test_regression_os_level_executable_verification(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=98765):
+            # Command line says UnrealEditor, but OS API reveals it's python
+            mock_cmd = (
+                "/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor "
+                "/Users/developer/Games/MyGame/MyGame.uproject"
+            )
+            mock_run = MagicMock(returncode=0, stdout=mock_cmd)
+            with patch.object(self.adapter, "get_process_executable", return_value=Path("/usr/local/bin/python3")):
+                with patch("subprocess.run", return_value=mock_run):
+                    proj = Path("/Users/developer/Games/MyGame/MyGame.uproject")
+                    engine = Path("/Users/Shared/Epic Games/UE_5.8")
+                    self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine),
+                                     "OS-level executable mismatch must reject process")
+
+    def test_regression_lookalike_engine_prefix_rejected(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=98765):
+            # Lookalike directory UE_5.8_fake has UE_5.8 as prefix string
+            fake_exe = Path("/Users/Shared/Epic Games/UE_5.8_fake/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor")
+            mock_cmd = f"{fake_exe} /Users/developer/Games/MyGame/MyGame.uproject -ModelContextProtocolStartServer"
+            mock_run = MagicMock(returncode=0, stdout=mock_cmd)
+            with patch.object(self.adapter, "get_process_executable", return_value=fake_exe):
+                with patch("subprocess.run", return_value=mock_run):
+                    proj = Path("/Users/developer/Games/MyGame/MyGame.uproject")
+                    engine = Path("/Users/Shared/Epic Games/UE_5.8")
+                    self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine),
+                                     "Lookalike engine prefix must be rejected")
+
+    def test_regression_ambiguous_relative_project_path_rejected(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=98765):
+            # Ambiguous relative path passed in command line without absolute resolution
+            mock_cmd = (
+                "/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor "
+                "MyGame.uproject -ModelContextProtocolStartServer"
+            )
+            mock_run = MagicMock(returncode=0, stdout=mock_cmd)
+            with patch("subprocess.run", return_value=mock_run):
+                proj = Path("/Users/developer/Games/MyGame/MyGame.uproject")
+                engine = Path("/Users/Shared/Epic Games/UE_5.8")
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine),
+                                 "Ambiguous relative project path must be rejected")
+
+    def test_regression_multiple_uproject_args_rejected(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=98765):
+            # Multiple conflicting uproject paths passed
+            mock_cmd = (
+                "/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor "
+                "/Users/developer/Games/MyGame/MyGame.uproject /Users/developer/Other/Other.uproject"
+            )
+            mock_run = MagicMock(returncode=0, stdout=mock_cmd)
+            with patch("subprocess.run", return_value=mock_run):
+                proj = Path("/Users/developer/Games/MyGame/MyGame.uproject")
+                engine = Path("/Users/Shared/Epic Games/UE_5.8")
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine),
+                                 "Conflicting uproject arguments must be rejected")
+
     def test_macos_launch_editor_args(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp).resolve()

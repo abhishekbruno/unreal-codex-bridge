@@ -31,7 +31,7 @@ Our goal for Integration Sprint 01 is to establish:
 | **Process Identity Verification** | `lsof` + `psutil` (Mac) | None | None | None | None | **Two-Factor (Windows CIM/WMI + macOS `lsof`/`ps` + Engine Logs)** |
 | **Engine Discovery** | macOS `/Users/Shared` | Hardcoded path | Hardcoded path | Environment var | Hardcoded | **Multi-tier (Launcher manifests, Registry, Environment, Associations)** |
 | **Project Intelligence** | None (Raw tool dumps) | In-memory cache | None | None | None | **Persistent SQLite + FTS5 Full-Text + AST Parser** |
-| **Dependency Graph / Cycles** | None | None | None | None | None | **Full DAG + Tarjan's SCC + Blast Radius** |
+| **Dependency Graph / Cycles** | None | None | None | None | None | **Full Reference Graph + Tarjan's SCC + Blast Radius** |
 | **Codex Plugin Packaging** | Local Marketplace (`plugin.json`) | None | None | Basic Skill | None | **Official OpenAI Manifest + Marketplace Catalog** |
 | **Game Development Skill** | `unreal-game` (Playground) | None | Custom Actions | Prompt guide | None | **Cross-Platform `unreal-game` + `unreal-playtest`** |
 | **External Dependencies** | `uv`, `psutil`, `httpx`, `mcp` | `fastmcp`, `pydantic` | `unreal` Python | Node.js | C++ Toolchain | **Zero external dependencies (Python stdlib only)** |
@@ -158,7 +158,7 @@ The provided reference archive `bridge-main.zip` (20,416 bytes) represents an ex
 |  - scripts/bridge_mcp.py (JSON-RPC 2.0 / Streamable HTTP & SSE)          |
 |  - scripts/unreal_session.py (Toolset Catalog & Verification)             |
 |  - scripts/project_index.py (SQLite + FTS5 Caching)                      |
-|  - scripts/project_dependencies.py (Asset DAG & Blast Radius)            |
+|  - scripts/project_dependencies.py (Asset Graph & Blast Radius)          |
 |  - scripts/blueprint_parser.py (S-Expression AST Analysis)               |
 +--------------------------------------------------------------------------+
 ```
