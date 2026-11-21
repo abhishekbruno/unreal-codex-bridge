@@ -218,6 +218,14 @@ class MacOSAdapterTests(unittest.TestCase):
                 self.assertIn("-ModelContextProtocolStartServer", cmd)
                 self.assertIn("-ModelContextProtocolPort=8200", cmd)
 
+    def test_validate_macos_contract(self):
+        """Regression test ensuring validate_macos uses adapter API correctly."""
+        from validate_macos import validate
+        with patch("platform.system", return_value="Darwin"), \
+             patch("platform.machine", return_value="arm64"), \
+             patch.object(MacOSAdapter, "get_process_executable", return_value=Path(sys.executable)):
+            self.assertTrue(validate())
+
 
 if __name__ == "__main__":
     unittest.main()
