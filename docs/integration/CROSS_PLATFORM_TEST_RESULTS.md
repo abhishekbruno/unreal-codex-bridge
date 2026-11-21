@@ -109,3 +109,4 @@ OK
 | **Playtest Session Execution** | **PASS** (Live Tested) | **BLOCKED** | **BLOCKED** | `scripts/playtest.py` tested live on Windows |
 
 *(Note: In accordance with audit integrity rules, live macOS execution is documented as BLOCKED because physical macOS hardware is not attached to this workspace. Unit tests cover 100% of the platform adapter logic).*
+

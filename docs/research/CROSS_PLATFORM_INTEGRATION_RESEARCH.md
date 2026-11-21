@@ -175,3 +175,4 @@ The provided reference archive `bridge-main.zip` (20,416 bytes) represents an ex
    - macOS path and process logic will be validated on Windows through isolated mocks; physical macOS testing will be documented accurately without false claims.
 3. **Preservation of ARC Baseline:**
    - All 110 existing baseline unit tests must pass without regressions.
+

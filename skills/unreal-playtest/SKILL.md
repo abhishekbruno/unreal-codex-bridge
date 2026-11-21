@@ -42,3 +42,4 @@ During and after the PIE session:
   - **Automated Verification:** Verified via log assertions or reflected gameplay variables.
   - **Manual Verification Required:** Input feel, camera responsiveness, visual styling, or animation blending where automated input simulation is unavailable.
 - Report exact log excerpts, duration of playtest, and observed variable states.
+

@@ -122,3 +122,4 @@ The `PlatformAdapter` abstract base class decouples operating-system-specific pr
 3. **Readback Verification Gate:**
    - Before any scene mutation is executed, the two-factor project identity check must pass.
    - If listener ownership is ambiguous (multiple listeners or unidentified processes), all write tools are blocked.
+
