@@ -63,13 +63,19 @@ local_settings.py
 # Local Codex runtime state (exclude actual runtime configs; preserve templates)
 .codex/config.toml
 .codex-plugins/
-.agents/
+.agents/*
+!.agents/plugins/
+!.agents/plugins/marketplace.json
 
 # Generated logs and telemetry
 *.log
 *.tmp
 logs/
 evidence/
+data/
+*.sqlite
+*.sqlite3
+*.db
 
 # Large generated assets and test levels
 *.umap

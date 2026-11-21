@@ -1,0 +1,1744 @@
+{
+  "timestamp_utc": "2026-11-20T19:32:21.156165+00:00",
+  "project": {
+    "name": "UnrealCodexTest",
+    "project_file": "D:\\newpproject\\UnrealCodexTest\\UnrealCodexTest.uproject",
+    "engine_version": "5.8.4",
+    "engine_changelist": 58902052,
+    "engine_path": "D:\\UE_5.8",
+    "active_level": "/Game/CodexBridgeTests/ARC01_TestLevel_003",
+    "listener": {
+      "LocalAddress": "127.0.0.1",
+      "ProcessId": 23088,
+      "ExecutablePath": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "CommandLine": "\"D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe\" \"D:\\newpproject\\UnrealCodexTest\\UnrealCodexTest.uproject\" -ExecCmds=\"ModelContextProtocol.StartServer 8000\" -ini:Engine:[HTTPServer.Listeners]:DefaultBindAddress=127.0.0.1 "
+    },
+    "startup_logs": [
+      "LogInit: Display: Running engine for game: UnrealCodexTest",
+      "LogInit: Engine Version: 5.8.4-58902052+++UE5+Release-5.8",
+      "LogInit: Compatible Engine Version: 5.8.0-55116800+++UE5+Release-5.8",
+      "LogInit: Base Directory: D:/UE_5.8/Engine/Binaries/Win64/"
+    ]
+  },
+  "toolsets": {
+    "total_discovered_toolsets": 53,
+    "toolset_names": [
+      "ToolsetRegistry.AgentSkillToolset",
+      "AIAssistant.AIAssistantToolset",
+      "AutomationTestToolset.AutomationTestToolset",
+      "ConfigSettingsToolset.ConfigSettingsToolset",
+      "DataRegistryToolset.DataRegistryTools",
+      "EditorToolset.EditorAppToolset",
+      "EditorToolset.LogsToolset",
+      "GameFeaturesToolset.GameFeaturesToolset",
+      "GameplayTagsToolset.GameplayTagsToolset",
+      "GASToolsets.GameplayCueToolset",
+      "GASToolsets.AttributeSetToolset",
+      "GASToolsets.AbilitySystemInspectorToolset",
+      "NiagaraToolsets.NiagaraToolset_Info",
+      "NiagaraToolsets.NiagaraToolset_Component",
+      "NiagaraToolsets.NiagaraToolset_Blueprint",
+      "NiagaraToolsets.NiagaraToolset_System",
+      "NiagaraToolsets.NiagaraToolset_Assets",
+      "PluginToolset.PluginToolset",
+      "SemanticSearchToolset.SemanticSearchToolset",
+      "DataflowAgent.DataflowAgentToolset",
+      "PCGToolset.PCGToolset",
+      "PCGToolset.PCGSpatialToolset",
+      "SlateInspectorToolset.SlateInspectorToolset",
+      "PhysicsToolsets.PhysicsAssetToolset",
+      "WorldConditionsToolset.WorldConditionTools",
+      "UMGToolSet.UMGToolSet",
+      "state_tree_toolset.toolsets.state_tree.StateTreeTools",
+      "editor_toolset.toolsets.actor.ActorTools",
+      "editor_toolset.toolsets.asset.AssetTools",
+      "editor_toolset.toolsets.blueprint.BlueprintTools",
+      "editor_toolset.toolsets.curve_table.CurveTableTools",
+      "editor_toolset.toolsets.data_asset.DataAssetTools",
+      "editor_toolset.toolsets.data_table.DataTableTools",
+      "editor_toolset.toolsets.material.MaterialTools",
+      "editor_toolset.toolsets.material_instance.MaterialInstanceTools",
+      "editor_toolset.toolsets.object.ObjectTools",
+      "editor_toolset.toolsets.primitive.PrimitiveTools",
+      "editor_toolset.toolsets.scene.SceneTools",
+      "editor_toolset.toolsets.skeletal_mesh.SkeletalMeshTools",
+      "editor_toolset.toolsets.static_mesh.StaticMeshTools",
+      "editor_toolset.toolsets.string_table.StringTableTools",
+      "editor_toolset.toolsets.programmatic.ProgrammaticToolset",
+      "editor_toolset.toolsets.texture.TextureTools",
+      "conversation_toolset.toolsets.conversation.ConversationTools",
+      "animation_toolset.toolsets.controlrig.ControlRigTools",
+      "animation_toolset.toolsets.sequencer.SequencerTools",
+      "animation_toolset.toolsets.keyframing.SequencerKeyframingTools",
+      "animation_toolset.toolsets.controlrig_sequencer.SequencerControlRigTools",
+      "animation_toolset.toolsets.outliner.SequencerOutlinerTools",
+      "animation_toolset.toolsets.conditions.SequencerConditionTools",
+      "animation_toolset.toolsets.custom_bindings.SequencerCustomBindingTools",
+      "animation_toolset.toolsets.import_export.SequencerImportExportTools",
+      "aimodule_toolset.toolsets.behavior_tree.BehaviorTreeTools"
+    ],
+    "cataloged_count": 6,
+    "catalog": [
+      {
+        "name": "EditorToolset.EditorAppToolset",
+        "short_name": "EditorAppToolset",
+        "tool_count": 21,
+        "tools": [
+          {
+            "name": "WorldPosToScreenCoords",
+            "description": "Converts a world-space position into normalized screen space based on the editor viewport camera."
+          },
+          {
+            "name": "StopPIE",
+            "description": "Stops the currently running play session (PIE or Simulate).\nRaises an error if no play session is running."
+          },
+          {
+            "name": "StartPIE",
+            "description": "Starts a Play-In-Editor or Simulate-In-Editor session using the current level.\nCompletes after the engine fires PostPIEStarted (session fully started,\nBeginPlay called) and Options.WarmupSeconds have elapsed, giving project-\nspecific initialization (services, authentication, plugin warmup) time to\nsettle before the agent inspects state or logs.\nRaises an error if a play session is already running."
+          },
+          {
+            "name": "SetContentBrowserPath",
+            "description": "Navigates the active content browser to the specified folder path."
+          },
+          {
+            "name": "SetCameraTransform",
+            "description": "Sets the position and rotation of the level viewport camera."
+          },
+          {
+            "name": "SelectAssets",
+            "description": "Selects the specified assets in the content browser.\nCompletes once the content browser has applied the selection."
+          },
+          {
+            "name": "SelectActors",
+            "description": "Selects the specified actors in the current scene."
+          },
+          {
+            "name": "SearchCVars",
+            "description": "Finds all console variables that contain a given name."
+          },
+          {
+            "name": "ScreenCoordsToWorld",
+            "description": "Finds the world position of the nearest solid object at a given set of normalized view space coords."
+          },
+          {
+            "name": "OpenEditorForAsset",
+            "description": "Opens an asset editor for the specified asset."
+          },
+          {
+            "name": "IsPIERunning",
+            "description": "Returns whether a Play In Editor session is currently running."
+          },
+          {
+            "name": "GetVisibleActors",
+            "description": "Returns all actors in the current level whose bounds intersect the viewport frustum."
+          },
+          {
+            "name": "GetSelectedAssets",
+            "description": "Gets the list of assets selected in the content browser."
+          },
+          {
+            "name": "GetSelectedActors",
+            "description": "Gets the currently selected actors in the level editor."
+          },
+          {
+            "name": "GetOpenAssets",
+            "description": "Gets the list of assets currently open in asset editors."
+          },
+          {
+            "name": "GetContentBrowserPath",
+            "description": "Gets the current path of the active content browser."
+          },
+          {
+            "name": "GetCameraTransform",
+            "description": "Returns the position and rotation of the level viewport camera."
+          },
+          {
+            "name": "FocusOnActors",
+            "description": "Repositions the level editor camera to focus on the specified actors.\nCannot be called while PIE is active."
+          },
+          {
+            "name": "CaptureViewport",
+            "description": "Captures the level viewport with optional annotations.\n\nAnnotations rendering overlays a projected 3D world-space grid plus\nname + position labels on visible actors. The grid is drawn at a configurable\nground-plane Z and projected through the camera, with coordinate numbers at\nintersections (shown in meters). Each labeled actor gets a crosshair at its\nprojected screen position with a leader-line callout placed to avoid overlap. This\ngives a vision-capable agent spatial awareness: it can reference grid\ncoordinates to direct placement and identify scene contents by label."
+          },
+          {
+            "name": "CaptureEditorImage",
+            "description": "Captures an image of the entire editor application as the user sees it."
+          },
+          {
+            "name": "CaptureAssetImage",
+            "description": "Renders a thumbnail for the specified asset (e.g. static meshes, skeletal meshes,\nskeletons, animations, montages, materials, textures)."
+          }
+        ]
+      },
+      {
+        "name": "EditorToolset.LogsToolset",
+        "short_name": "LogsToolset",
+        "tool_count": 4,
+        "tools": [
+          {
+            "name": "SetVerbosity",
+            "description": "Sets the verbosity level for a log category."
+          },
+          {
+            "name": "GetVerbosity",
+            "description": "Returns the current verbosity level for a log category."
+          },
+          {
+            "name": "GetLogEntries",
+            "description": "Returns log entries from the current session's log file."
+          },
+          {
+            "name": "GetLogCategories",
+            "description": "Returns a sorted list of registered log categories."
+          }
+        ]
+      },
+      {
+        "name": "editor_toolset.toolsets.actor.ActorTools",
+        "short_name": "ActorTools",
+        "tool_count": 17,
+        "tools": [
+          {
+            "name": "remove_component",
+            "description": "Removes a component from an actor instance or blueprint.\n\n        Args:\n            component: The component to remove.\n\n        Returns:\n            True if the component was successfully removed."
+          },
+          {
+            "name": "add_component",
+            "description": "Adds a component to an actor instance or blueprint.\n\n        Args:\n            owner: The actor blueprint, instance, or SceneComponent to add to.\n            component_type: The type of component to add.\n            name: The name of the new component.\n\n        Returns:\n            The newly added actor component."
+          },
+          {
+            "name": "get_components",
+            "description": "Returns the components that an actor contains.\n\n        Args:\n            actor: The actor to query.\n            component_type: If set, will only return components of this type.\n\n        Returns:\n            The components in the actor."
+          },
+          {
+            "name": "get_actor_bounds",
+            "description": "Returns the bounding box of an actor.\n\n        Args:\n            actor: The actor to query.\n\n        Returns:\n            The world space bounding box for the actor."
+          },
+          {
+            "name": "set_parent_component",
+            "description": "Sets the parent for the specified scene component.\n\n        For blueprint actors, passing a component as the parent of the root promotes it\n        to the scene root, making the current root a child of it. If the current root is a\n        DefaultSceneRoot, Unreal will automatically remove it.\n\n        Args:\n            component: The scene component to modify.\n            parent: The new parent component. None will detach the component from its current parent.\n\n        Returns:\n            True if the reparent succeeded."
+          },
+          {
+            "name": "get_parent_component",
+            "description": "Returns the parent component that this component is attached to, if any.\n\n        Args:\n            component: The scene component to query.\n\n        Returns:\n            The parent SceneComponent if attached to one, otherwise None."
+          },
+          {
+            "name": "get_component_actor",
+            "description": "Returns the actor that owns the specified component.\n\n        Args:\n            component: The component to query.\n\n        Returns:\n            The actor that owns this component."
+          },
+          {
+            "name": "get_root_component",
+            "description": "Returns the root component of an actor, if any.\n\n        Args:\n            actor: The actor to query.\n\n        Returns:\n            The actor's root SceneComponent, or None if it has no root component."
+          },
+          {
+            "name": "look_at",
+            "description": "Rotates an actor so its forward vector points at a world-space position.\n\n        Args:\n            actor: The actor to rotate.\n            target: The world-space position to face."
+          },
+          {
+            "name": "set_actor_transform",
+            "description": "Updates the position, rotation, and/or scale of an actor.\n\n        Args:\n            actor: The actor to modify.\n            xform: The new transform to apply to this actor.\n            worldspace: True means xform is in worldpace. False means relative to parent.\n                Has no effect on actors in blueprints, which only have a default\n                relative transform.\n\n        Returns:\n            True if an id matching the actor was found and it's position was set."
+          },
+          {
+            "name": "get_actor_transform",
+            "description": "Returns the position, rotation, and scale of an actor.\n\n        Args:\n            actor: The actor to query.\n\n        Returns:\n            The world space actor transform."
+          },
+          {
+            "name": "remove_tag",
+            "description": "Removes a tag from an actor.\n\n        Args:\n            actor: The actor to modify.\n            tag: The tag to remove."
+          },
+          {
+            "name": "add_tag",
+            "description": "Adds a tag to an actor.\n\n        Args:\n            actor: The actor to modify.\n            tag: The tag to add."
+          },
+          {
+            "name": "has_tag",
+            "description": "Returns whether an actor has a specific tag.\n\n        Args:\n            actor: The actor to query.\n            tag: The tag to check for.\n\n        Returns:\n            True if the actor has the tag, False otherwise."
+          },
+          {
+            "name": "get_tags",
+            "description": "Returns the list of tags on an actor.\n\n        Args:\n            actor: The actor to query.\n\n        Returns:\n            The tags on the actor as strings."
+          },
+          {
+            "name": "set_label",
+            "description": "Sets the human-friendly name of the actor.\n\n        Args:\n            actor: The actor to modify.\n            label: The new name for the actor.\n\n        Returns:\n            True if the label was updated correctly."
+          },
+          {
+            "name": "get_label",
+            "description": "Returns the actor's human friendly name as it appears in the editor.\n\n        Args:\n            actor: The actor to query.\n\n        Returns:\n            The label for the actor."
+          }
+        ]
+      },
+      {
+        "name": "editor_toolset.toolsets.asset.AssetTools",
+        "short_name": "AssetTools",
+        "tool_count": 21,
+        "tools": [
+          {
+            "name": "write_file",
+            "description": "Writes text content to a file on disk.\n\n        Only files under /Game/, an enabled plugin's Content/ directory, or\n        the project Saved/ directory may be written. Only plain text formats\n        are supported. Overwrites the file if it already exists.\n\n        Args:\n            file_path: The path to the file to write.\n            content: The text content to write."
+          },
+          {
+            "name": "read_file",
+            "description": "Reads a text file from disk and returns its contents.\n\n        Only files under /Game/, an enabled plugin's Content/ directory, or\n        the project Saved/ directory may be read. Only plain text formats are\n        supported.\n\n        Args:\n            file_path: The path to the file to read.\n\n        Returns:\n            The text content of the file."
+          },
+          {
+            "name": "get_plugin_content_paths",
+            "description": "Returns the root content paths for plugins that have content.\n\n        Args:\n            include_engine: When True, also includes content plugins under the Engine directory.\n\n        Returns:\n            A list of virtual content root paths (e.g. ['/PluginName/']) for each\n            in-scope plugin that has a content directory."
+          },
+          {
+            "name": "get_dependencies",
+            "description": "Lists assets that the specified asset depends on.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            A list of content paths for assets that the given asset depends on."
+          },
+          {
+            "name": "get_referencers",
+            "description": "Lists assets that reference the specified asset.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            A list of content paths for assets that reference the given asset."
+          },
+          {
+            "name": "is_checked_out",
+            "description": "Checks whether an asset is checked out by the current user.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            True if the asset is currently checked out by the current user."
+          },
+          {
+            "name": "can_edit_asset",
+            "description": "Checks whether an asset can be edited.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            True if the asset can be edited, False if it is checked out\n            or locked by another user in source control. Always True\n            when source control is not enabled."
+          },
+          {
+            "name": "is_dirty",
+            "description": "Checks whether an asset has unsaved changes.\n\n        Args:\n            asset_path: The path to the asset to check.\n\n        Returns:\n            True if the asset has unsaved changes, False if it is saved."
+          },
+          {
+            "name": "save_assets",
+            "description": "Saves assets to disk.\n\n        Args:\n            asset_paths: The paths to the assets to save. Pass an empty list to save\n                         all dirty assets.\n\n        Returns:\n            True if all assets were saved successfully."
+          },
+          {
+            "name": "load_asset",
+            "description": "Loads an asset from the project.\n\n        Args:\n            asset_path: The path to the asset to load.\n\n        Returns:\n            The loaded asset."
+          },
+          {
+            "name": "update_metadata_tags",
+            "description": "Sets or removes metadata tags on an asset.\n\n        Args:\n            asset_path: Content path to the asset.\n            set_tags: Tag names mapped to the values to set.\n            remove_tags: Tag names to remove. Removing a tag that does not\n                         exist is a no-op."
+          },
+          {
+            "name": "get_metadata_tags",
+            "description": "Gets the metadata tags for an asset.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            A dict mapping tag names to their string values."
+          },
+          {
+            "name": "get_asset_class",
+            "description": "Gets the class of an asset.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            The class name of the asset (e.g. 'StaticMesh', 'Material', 'HeroCharacter_C')."
+          },
+          {
+            "name": "get_asset_tags",
+            "description": "Gets the asset registry tags for an asset.\n\n        Args:\n            asset_path: Content path to the asset.\n\n        Returns:\n            A dict mapping tag names to their string values."
+          },
+          {
+            "name": "find_assets",
+            "description": "Searches the project for assets that match specific criteria.\n\n        Args:\n            folder_path: The folder to search within. Pass an empty string to search\n                         the entire project (/Game/ and all plugin content folders including\n                         project plugins and engine plugins).\n            name: If set, will only return assets whose name contains this string\n                  (case-insensitive).\n            asset_type: If set, will only return assets that are of this type.\n            recursive: Whether to search subfolders or not.\n            tags: If set, will only return assets whose asset registry tags contain\n                  all specified key-value pairs with exact value matches.\n\n        Returns:\n            A list of asset paths that match the criteria."
+          },
+          {
+            "name": "delete",
+            "description": "Deletes an asset or folder.\n\n        Args:\n            path: The current location of the folder or asset.\n\n        Returns:\n            True if the delete happened successfully. False otherwise."
+          },
+          {
+            "name": "move",
+            "description": "Moves or renames an asset or folder.\n\n        Args:\n            path: The current location of the folder or asset.\n            new_path: The new location and/or name.\n\n        Returns:\n            True if the rename happened successfully. False otherwise."
+          },
+          {
+            "name": "duplicate",
+            "description": "Makes a copy of a folder or asset.\n\n        Args:\n            path: The current location of folder or asset.\n            new_path: The location of the copy.\n\n        Returns:\n            True if the copy happened successfully. False otherwise."
+          },
+          {
+            "name": "exists",
+            "description": "Determines if a folder or asset exists.\n\n        Args:\n            path: The path at which an asset or folder might exist.\n\n        Returns:\n            True if an asset or folder exists at the path. False otherwise."
+          },
+          {
+            "name": "list_folders",
+            "description": "Lists the folders contained within a folder.\n\n        Args:\n            root: The project relative path to the folder to search from.\n            recursive: Subfolders will be searched when this is set to true.\n\n        Returns:\n            A list of paths to folders"
+          },
+          {
+            "name": "create_folder",
+            "description": "Creates a folder at the specified path.\n\n        Args:\n            path: The project relative path at which to create the folder.\n\n        Returns:\n            True if the folder could be created or already exists."
+          }
+        ]
+      },
+      {
+        "name": "editor_toolset.toolsets.object.ObjectTools",
+        "short_name": "ObjectTools",
+        "tool_count": 6,
+        "tools": [
+          {
+            "name": "reset_properties",
+            "description": "Resets one or more properties on an object to their default values,\n        removing any per-instance overrides.\n\n        Args:\n            instance: The object with the properties to reset.\n            properties: The names of the properties to reset to their defaults.\n\n        Returns:\n            True if all properties were reset. False otherwise."
+          },
+          {
+            "name": "set_properties",
+            "description": "Sets the values of properties on an object.\n\n        Args:\n            instance: The object with the property.\n            values: A JSON formatted string of the properties to set and their values.\n                For instanced sub-object properties, pass a class path as the instance member.\n\n        Returns:\n            True if the property was set. False otherwise."
+          },
+          {
+            "name": "get_properties",
+            "description": "Returns the values of one or more properties on an object.\n\n        Args:\n            instance: The the object to query.\n            properties: The names of the properties to query.\n\n        Returns:\n            A JSON formatted string of the properties and their values."
+          },
+          {
+            "name": "list_properties",
+            "description": "Returns a list of properties that are on the specified object.\n\n        Args:\n            instance: The object to query.\n\n        Returns:\n            A list of properties on the object."
+          },
+          {
+            "name": "get_class",
+            "description": "Returns the class of an Unreal object.\n\n        Args:\n            instance: The object instance to query.\n\n        Returns:\n            The class of the object."
+          },
+          {
+            "name": "search_subclasses",
+            "description": "Finds all subclasses of a given class.\n\n        Args:\n            base_class: The class to search subclasses of.\n            class_name: Optional case-insensitive substring filter on the class path.\n\n        Returns:\n            A list of subclasses matching the filter."
+          }
+        ]
+      },
+      {
+        "name": "editor_toolset.toolsets.scene.SceneTools",
+        "short_name": "SceneTools",
+        "tool_count": 20,
+        "tools": [
+          {
+            "name": "save_actor",
+            "description": "Saves the actor to disk.\n\n        Args:\n            actor: The actor to save."
+          },
+          {
+            "name": "is_checked_out",
+            "description": "Checks whether an actor is checked out by the current user.\n\n        Args:\n            actor: The actor to check.\n\n        Returns:\n            True if the actor is currently checked out by the current user."
+          },
+          {
+            "name": "can_edit",
+            "description": "Checks whether an actor can be edited.\n\n        Args:\n            actor: The actor to check.\n\n        Returns:\n            True if the actor can be edited, False if it is checked out\n            or locked by another user in source control."
+          },
+          {
+            "name": "commit_level_instance",
+            "description": "Saves or discards edits to a level instance and exits edit mode.\n\n        Args:\n            level_instance: The level instance actor to commit.\n            discard: If True, discards all changes without saving. Defaults to False."
+          },
+          {
+            "name": "edit_level_instance",
+            "description": "Opens a level instance for editing.\n\n        While in edit mode, scene tools such as add_to_scene_from_class and\n        remove_from_scene operate within the level instance's sub-level. Only one\n        level instance can be in edit mode at a time. Call commit_level_instance\n        when done to save or discard changes.\n\n        Args:\n            level_instance: The level instance actor to open for editing."
+          },
+          {
+            "name": "create_level_instance",
+            "description": "Creates a Level Instance actor in the scene referencing an existing level asset.\n\n        Args:\n            level_path: The content path to the level asset (e.g. '/Game/Maps/MyLevel').\n            name: The label for the new Level Instance actor.\n            xform: The transform for the new actor.\n            parent: If set, the new actor will be a child of this actor.\n\n        Returns:\n            The created LevelInstance actor."
+          },
+          {
+            "name": "merge_actors",
+            "description": "Merges multiple StaticMesh actors into a single mesh asset and actor.\n\n        Args:\n            actors: The StaticMeshActors to merge. All must be in the same level.\n            output_path: Content path for the merged mesh asset (e.g. '/Game/Meshes/Merged').\n            name: Label for the new merged actor. Defaults to the last segment of output_path.\n            destroy_source_actors: If True, removes the source actors after merging.\n\n        Returns:\n            The merged StaticMeshActor."
+          },
+          {
+            "name": "trace_world",
+            "description": "Traces a line through the world and returns the distance to the first hit.\n\n        Args:\n            start: The start point of the trace in world space.\n            end: The end point of the trace in world space.\n\n        Returns:\n            The distance from start to the hit point, or None if nothing was hit."
+          },
+          {
+            "name": "delete_folder",
+            "description": "Deletes a folder from the outliner.\n\n        Actors directly in the folder are moved to the parent folder. Sub-folders and\n        their actors are preserved by re-rooting them under the parent. For example,\n        deleting 'Lighting' with a sub-folder 'Lighting/Spotlights' leaves 'Spotlights'\n        intact under the parent.\n\n        Args:\n            folder_path: The folder path to delete (e.g. 'Lighting/Spotlights').\n\n        Returns:\n            The number of actors that were moved."
+          },
+          {
+            "name": "rename_folder",
+            "description": "Renames a folder in the outliner.\n\n        Updates the folder path for all actors in the folder and any sub-folders.\n        For example, renaming 'Lighting' to 'Lights' also updates actors in\n        'Lighting/Spotlights' to 'Lights/Spotlights'. If the new path already\n        exists then the affected actors will be merged into it.\n\n        Args:\n            old_path: The current folder path (e.g. 'Lighting').\n            new_path: The new folder path (e.g. 'Lights').\n\n        Returns:\n            The number of actors whose folder path was updated."
+          },
+          {
+            "name": "set_actor_folder",
+            "description": "Assigns an actor to the specified folder in the outliner.\n\n        Creates the folder implicitly if it does not already exist. Pass an empty string\n        to move the actor to the root of the outliner.\n\n        Args:\n            actor: The actor to move.\n            folder_path: The folder path to assign (e.g. 'Lighting/Spotlights').\n                         Pass an empty string to move the actor to the root."
+          },
+          {
+            "name": "get_actors_in_folder",
+            "description": "Returns the actors in the specified outliner folder.\n\n        Args:\n            folder_path: The folder path to query (e.g. 'Lighting/Spotlights').\n            recursive: If True, also includes actors in sub-folders.\n\n        Returns:\n            A list of actors in the specified folder."
+          },
+          {
+            "name": "get_folders",
+            "description": "Returns all folder paths currently in use in the outliner.\n\n        Includes all intermediate parent paths. For example, if an actor is assigned to\n        'Lighting/Spotlights', both 'Lighting' and 'Lighting/Spotlights' are returned.\n\n        Returns:\n            A sorted list of unique folder path strings."
+          },
+          {
+            "name": "remove_from_scene",
+            "description": "Deletes an actor from the scene.\n\n        Args:\n            actor: The actor to remove.\n\n        Returns:\n            True if the actor was removed."
+          },
+          {
+            "name": "add_to_scene_from_asset",
+            "description": "Creates a new actor in the scene from an asset.\n\n        Args:\n            asset_path: The path to the asset to spawn (e.g. '/Game/Blueprints/MyActor').\n            name: The name of the actor instance.\n            xform: The transform for the new actor. Parent-local when `parent` is set;\n                world-space otherwise.\n            parent: If set, the new actor will be a child of this actor. If unset the Actor will\n                be a child of the world.\n            snap_to_ground: If set to true, will attempt to adjust the actors Z position so that\n                the bottom of its bounding box is on the ground.\n\n        Returns:\n            The created actor or nothing if creation was unsuccessful."
+          },
+          {
+            "name": "add_to_scene_from_class",
+            "description": "Creates a new instance of the specified object at the specified transform.\n\n        Args:\n            actor_type: The Actor class to instantiate.\n            name: The name of the actor instance.\n            xform: The transform for the new actor. Parent-local when `parent` is set;\n                world-space otherwise.\n            parent: If set, the new actor will be a child of this actor. If unset the Actor will\n                be a child of the world.\n            snap_to_ground: If set to true, will attempt to adjust the actors Z position so that\n                the bottom of its bounding box is on the ground.\n\n        Returns:\n            The created actor or nothing if creation was unsuccessful."
+          },
+          {
+            "name": "find_actors",
+            "description": "Searches the scene for actors that match specific criteria.\n\n        Args:\n            root: If set, will only search this actor and its children.\n            name: If set, will only return actors whose label contains this string\n                (case-insensitive).\n            actor_type: If set, will only return actors that are of this type.\n            tag: If set, will only return actors that have this tag.\n            bounds: If set, only returns actors whose bounds overlap this world-space AABB.\n            collision_channels: If set, bounds checks will uses a native physics overlap query\n                restricted to these channels. Non-collision actors will be ignored.\n\n        Returns:\n            A list of actors that match the criteria."
+          },
+          {
+            "name": "get_collision_channels",
+            "description": "Returns all available collision channels for use with find_actors.\n\n        Returns:\n            A list of all collision channels."
+          },
+          {
+            "name": "get_current_level",
+            "description": "Returns the path to the current level asset.\n\n        Returns:\n            The name of the loaded level, if any."
+          },
+          {
+            "name": "load_level",
+            "description": "Loads a level in the editor.\n\n        Args:\n            level_path: The path to the level asset."
+          }
+        ]
+      }
+    ]
+  },
+  "scene": {
+    "active_level": "/Game/CodexBridgeTests/ARC01_TestLevel_003",
+    "total_actors_found": 16,
+    "actors_inspected_count": 16,
+    "actor_limit_applied": 50,
+    "class_distribution": {
+      "StaticMeshActor": 3,
+      "WorldSettings": 1,
+      "Brush": 1,
+      "DirectionalLight": 1,
+      "SkyAtmosphere": 1,
+      "SkyLight": 1,
+      "ExponentialHeightFog": 1,
+      "VolumetricCloud": 1,
+      "PlayerStart": 1,
+      "BuoyancyManager": 1,
+      "DefaultPhysicsVolume": 1,
+      "GameplayDebuggerPlayerManager": 1,
+      "Actor": 1,
+      "AbstractNavData": 1
+    },
+    "actors": [
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.WorldSettings_1",
+        "label": "WorldSettings1",
+        "class": "/Script/Engine.WorldSettings",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 0,
+        "components": [],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.Brush_1",
+        "label": "Brush1",
+        "class": "/Script/Engine.Brush",
+        "transform": {
+          "location": {
+            "x": -90,
+            "y": 110,
+            "z": 20
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.Brush_1.BrushComponent0",
+            "class": "/Script/Engine.BrushComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DirectionalLight_0",
+        "label": "DirectionalLight",
+        "class": "/Script/Engine.DirectionalLight",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 400
+          },
+          "rotation": {
+            "pitch": -49.51711035415601,
+            "yaw": -10.308600787602971,
+            "roll": 112.36067200001975
+          },
+          "scale": {
+            "x": 1,
+            "y": 1.0000000149011612,
+            "z": 1.0000000149011612
+          }
+        },
+        "component_count": 3,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DirectionalLight_0.LightComponent0",
+            "class": "/Script/Engine.DirectionalLightComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DirectionalLight_0.ArrowComponent0",
+            "class": "/Script/Engine.ArrowComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DirectionalLight_0.BillboardComponent_0",
+            "class": "/Script/Engine.BillboardComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyAtmosphere_0",
+        "label": "SkyAtmosphere",
+        "class": "/Script/Engine.SkyAtmosphere",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": -6000
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 3,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyAtmosphere_0.Sprite",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyAtmosphere_0.SkyAtmosphereComponent",
+            "class": "/Script/Engine.SkyAtmosphereComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+            "class": "/Script/Engine.ArrowComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyLight_0",
+        "label": "SkyLight",
+        "class": "/Script/Engine.SkyLight",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 600
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 3,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyLight_0.Sprite",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyLight_0.SkyLightComponent0",
+            "class": "/Script/Engine.SkyLightComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.SkyLight_0.BillboardComponent_0",
+            "class": "/Script/Engine.BillboardComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.ExponentialHeightFog_0",
+        "label": "ExponentialHeightFog",
+        "class": "/Script/Engine.ExponentialHeightFog",
+        "transform": {
+          "location": {
+            "x": -5600,
+            "y": -50,
+            "z": -6850
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 2,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.ExponentialHeightFog_0.Sprite",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.ExponentialHeightFog_0.HeightFogComponent0",
+            "class": "/Script/Engine.ExponentialHeightFogComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.VolumetricCloud_0",
+        "label": "VolumetricCloud",
+        "class": "/Script/Engine.VolumetricCloud",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 700
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 2,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.VolumetricCloud_0.Sprite",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.VolumetricCloud_0.VolumetricCloudComponent",
+            "class": "/Script/Engine.VolumetricCloudComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.PlayerStart_0",
+        "label": "PlayerStart",
+        "class": "/Script/Engine.PlayerStart",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 92
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 4,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.PlayerStart_0.CollisionCapsule",
+            "class": "/Script/Engine.CapsuleComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.PlayerStart_0.Sprite",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.PlayerStart_0.Sprite2",
+            "class": "/Script/Engine.BillboardComponent"
+          },
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.PlayerStart_0.Arrow",
+            "class": "/Script/Engine.ArrowComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.StaticMeshActor_0",
+        "label": "SM_SkySphere",
+        "class": "/Script/Engine.StaticMeshActor",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 400,
+            "y": 400,
+            "z": 400
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.StaticMeshActor_0.StaticMeshComponent0",
+            "class": "/Script/Engine.StaticMeshComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.Floor_0",
+        "label": "Floor",
+        "class": "/Script/Engine.StaticMeshActor",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": -0.5
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 8,
+            "y": 8,
+            "z": 8
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.Floor_0.StaticMeshComponent0",
+            "class": "/Script/Engine.StaticMeshComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.StaticMeshActor_1",
+        "label": "Codex_Test_Cube",
+        "class": "/Script/Engine.StaticMeshActor",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 150
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.StaticMeshActor_1.StaticMeshComponent0",
+            "class": "/Script/Engine.StaticMeshComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.BuoyancyManager_0",
+        "label": "BuoyancyManager0",
+        "class": "/Script/Water.BuoyancyManager",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 0,
+        "components": [],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DefaultPhysicsVolume_0",
+        "label": "DefaultPhysicsVolume0",
+        "class": "/Script/Engine.DefaultPhysicsVolume",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.DefaultPhysicsVolume_0.BrushComponent0",
+            "class": "/Script/Engine.BrushComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.GameplayDebuggerPlayerManager_0",
+        "label": "GameplayDebuggerPlayerManager0",
+        "class": "/Script/GameplayDebugger.GameplayDebuggerPlayerManager",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.GameplayDebuggerPlayerManager_0.GameplayDebug_Input",
+            "class": "/Script/Engine.InputComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.ChaosDebugDrawActor",
+        "label": "Actor",
+        "class": "/Script/Engine.Actor",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.ChaosDebugDrawActor.ChaosDebugDrawComponent_0",
+            "class": "/Script/ChaosSolverEngine.ChaosDebugDrawComponent"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.AbstractNavData-Default",
+        "label": "AbstractNavData-Default",
+        "class": "/Script/NavigationSystem.AbstractNavData",
+        "transform": {
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "pitch": 0,
+            "yaw": 0,
+            "roll": 0
+          },
+          "scale": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+        },
+        "component_count": 1,
+        "components": [
+          {
+            "refPath": "/Game/CodexBridgeTests/ARC01_TestLevel_003.ARC01_TestLevel_003:PersistentLevel.AbstractNavData-Default.SceneComp",
+            "class": "/Script/Engine.SceneComponent"
+          }
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "assets": {
+    "root_folder": "/Game",
+    "total_assets_found": 290,
+    "assets_inspected_count": 50,
+    "asset_limit_applied": 50,
+    "class_distribution": {
+      "AnimSequence": 20,
+      "Texture2D": 11,
+      "InputAction": 4,
+      "InputMappingContext": 2,
+      "CR_Mannequin_FootIK_C": 1,
+      "BP_FirstPersonCameraManager_C": 1,
+      "BPI_TouchInterface_C": 1,
+      "DataLayerAsset": 1,
+      "BP_SaveData_C": 1,
+      "Skeleton": 1,
+      "CtrlRig_FPWarp_C": 1,
+      "ABP_FP_Copy_C": 1,
+      "PhysicsAsset": 1,
+      "Material": 1,
+      "UI_InGame_C": 1,
+      "BlendSpace": 1,
+      "ABP_Unarmed_C": 1
+    },
+    "asset_sample": [
+      {
+        "path": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+        "name": "CR_Mannequin_FootIK",
+        "class": "CR_Mannequin_FootIK_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+          "BlueprintType": "BPTYPE_Normal",
+          "ItemTypeDisplayName": "Control Rig"
+        }
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/Transform",
+        "name": "Transform",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_Outliner",
+        "name": "T_Outliner",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_CollList",
+        "name": "T_DetailsPanel_CollList",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_Coll",
+        "name": "T_DetailsPanel_Coll",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Tab",
+        "name": "T_ContentDrawer_Tab",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Asset",
+        "name": "T_ContentDrawer_Asset",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer",
+        "name": "T_ContentDrawer",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/IMC_MouseLook",
+        "name": "IMC_MouseLook",
+        "class": "InputMappingContext",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/IMC_Default",
+        "name": "IMC_Default",
+        "class": "InputMappingContext",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+        "name": "BP_FirstPersonCameraManager",
+        "class": "BP_FirstPersonCameraManager_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'",
+          "BlueprintType": "BPTYPE_Normal"
+        }
+      },
+      {
+        "path": "/Game/Input/Actions/IA_Move",
+        "name": "IA_Move",
+        "class": "InputAction",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/Actions/IA_MouseLook",
+        "name": "IA_MouseLook",
+        "class": "InputAction",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/Actions/IA_Look",
+        "name": "IA_Look",
+        "class": "InputAction",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/Actions/IA_Jump",
+        "name": "IA_Jump",
+        "class": "InputAction",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Input/Touch/BPI_TouchInterface",
+        "name": "BPI_TouchInterface",
+        "class": "BPI_TouchInterface_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'",
+          "BlueprintType": "BPTYPE_Interface"
+        }
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+        "name": "DL_DevCom",
+        "class": "DataLayerAsset",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/BP_SaveData",
+        "name": "BP_SaveData",
+        "class": "BP_SaveData_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'",
+          "BlueprintType": "BPTYPE_Normal"
+        }
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+        "name": "SK_Mannequin",
+        "class": "Skeleton",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+        "name": "CtrlRig_FPWarp",
+        "class": "CtrlRig_FPWarp_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+          "BlueprintType": "BPTYPE_Normal",
+          "ItemTypeDisplayName": "Control Rig"
+        }
+      },
+      {
+        "path": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+        "name": "ABP_FP_Copy",
+        "class": "ABP_FP_Copy_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+          "BlueprintType": "BPTYPE_Normal"
+        }
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+        "name": "PA_Mannequin",
+        "class": "PhysicsAsset",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/M_Gradient",
+        "name": "M_Gradient",
+        "class": "Material",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+        "name": "UI_InGame",
+        "class": "UI_InGame_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'",
+          "BlueprintType": "BPTYPE_Normal"
+        }
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+        "name": "MM_Fall_Loop",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+        "name": "MM_Jump",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+        "name": "MM_Land",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+        "name": "MM_Idle",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+        "name": "MF_Unarmed_Jog_Bwd",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+        "name": "MF_Unarmed_Jog_Bwd_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right",
+        "name": "MF_Unarmed_Jog_Bwd_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd",
+        "name": "MF_Unarmed_Jog_Fwd",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left",
+        "name": "MF_Unarmed_Jog_Fwd_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right",
+        "name": "MF_Unarmed_Jog_Fwd_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left",
+        "name": "MF_Unarmed_Jog_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right",
+        "name": "MF_Unarmed_Jog_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd",
+        "name": "MF_Unarmed_Walk_Bwd",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left",
+        "name": "MF_Unarmed_Walk_Bwd_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right",
+        "name": "MF_Unarmed_Walk_Bwd_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd",
+        "name": "MF_Unarmed_Walk_Fwd",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left",
+        "name": "MF_Unarmed_Walk_Fwd_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right",
+        "name": "MF_Unarmed_Walk_Fwd_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left",
+        "name": "MF_Unarmed_Walk_Left",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right",
+        "name": "MF_Unarmed_Walk_Right",
+        "class": "AnimSequence",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+        "name": "BS_Idle_Walk_Run",
+        "class": "BlendSpace",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+        "name": "ABP_Unarmed",
+        "class": "ABP_Unarmed_C",
+        "tags_summary": {
+          "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+          "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+          "BlueprintType": "BPTYPE_Normal"
+        }
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_BN",
+        "name": "T_Manny_01_BN",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_D",
+        "name": "T_Manny_01_D",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_01_MRA",
+        "name": "T_Manny_01_MRA",
+        "class": "Texture2D",
+        "tags_summary": {}
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Textures/Manny/T_Manny_02_BN",
+        "name": "T_Manny_02_BN",
+        "class": "Texture2D",
+        "tags_summary": {}
+      }
+    ]
+  },
+  "blueprints": {
+    "toolset_status": {
+      "name": "editor_toolset.toolsets.blueprint.BlueprintTools",
+      "available": true,
+      "tool_count": 53,
+      "key_tools": [
+        "read_graph_dsl",
+        "write_graph_dsl",
+        "get_graph_dsl_docs",
+        "list_event_dispatchers",
+        "add_event_dispatcher",
+        "remove_variable",
+        "set_variable_category",
+        "get_variable_category",
+        "set_variable_replication",
+        "get_variable_replication",
+        "set_variable_instance_editable",
+        "list_variables"
+      ]
+    },
+    "graph_dsl_available": true,
+    "graph_dsl_summary": "GRAMMAR OVERVIEW\n\n    (event EventName\n      stmt ...)\n    (event EventName (Param1 Param2 ...)\n      stmt ...)\n\n    (fn FunctionName (Param1 Param2 ...)\n      stmt ...)\n\nSTATEMENTS\n\n    bind          (bind var expr)\n                  (bind (a b) (NodeType|Id args...))\n    exec          (NodeType|Id args...)\n    return        (return)  (return expr)  (return e1 e2)\n    if            (if cond\n     ",
+    "blueprints_found_in_sample": 8,
+    "blueprints_inspected_count": 8,
+    "blueprint_limit_applied": 15,
+    "blueprints": [
+      {
+        "path": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+        "name": "CR_Mannequin_FootIK",
+        "class": "CR_Mannequin_FootIK_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "item_type": "Control Rig",
+        "graphs": [
+          "CR_Mannequin_FootIK:FootTrace_SubGraph",
+          "CR_Mannequin_FootIK:Rig"
+        ],
+        "variables": [
+          "ZOffset_L_Target",
+          "ZOffset_R_Target",
+          "ZOffset_L",
+          "ZOffset_R",
+          "ZOffset_Pelvis",
+          "ShouldDoIKTrace"
+        ],
+        "functions": [
+          {
+            "name": "FootTrace_SubGraph",
+            "description": "",
+            "bIsImplemented": true
+          }
+        ]
+      },
+      {
+        "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+        "name": "BP_FirstPersonCameraManager",
+        "class": "BP_FirstPersonCameraManager_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'",
+        "item_type": "",
+        "graphs": [
+          "BP_FirstPersonCameraManager:UserConstructionScript",
+          "BP_FirstPersonCameraManager:EventGraph"
+        ],
+        "variables": [],
+        "functions": [
+          {
+            "name": "UserConstructionScript",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "PhotographyCameraModify",
+            "description": "Implementable blueprint hook to allow a PlayerCameraManager subclass to\nconstrain or otherwise modify the camera during free-camera photography.\nFor example, a blueprint may wish to limit the distance from the camera's\noriginal point, or forbid the camera from passing through walls.\nNewCameraLocation contains the proposed new camera location.\nPreviousCameraLocation contains the camera location in the previous frame.\nOriginalCameraLocation contains the camera location before the game was put\ninto photography mode.\nReturn ResultCameraLocation as modified according to your constraints.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "BlueprintUpdateCamera",
+            "description": "Blueprint hook to allow blueprints to override existing camera behavior or implement custom cameras.\nIf this function returns true, we will use the given returned values and skip further calculations to determine\nfinal camera POV.",
+            "bIsImplemented": false
+          }
+        ]
+      },
+      {
+        "path": "/Game/Input/Touch/BPI_TouchInterface",
+        "name": "BPI_TouchInterface",
+        "class": "BPI_TouchInterface_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'",
+        "item_type": "",
+        "graphs": [
+          "BPI_TouchInterface:Primary Thumbstick",
+          "BPI_TouchInterface:Secondary Thumbstick",
+          "BPI_TouchInterface:Touch Jump Start",
+          "BPI_TouchInterface:Touch Jump End"
+        ],
+        "variables": [],
+        "functions": [
+          {
+            "name": "Primary Thumbstick",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "Secondary Thumbstick",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "Touch Jump Start",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "Touch Jump End",
+            "description": "",
+            "bIsImplemented": true
+          }
+        ]
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/BP_SaveData",
+        "name": "BP_SaveData",
+        "class": "BP_SaveData_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'",
+        "item_type": "",
+        "graphs": [
+          "BP_SaveData:EventGraph"
+        ],
+        "variables": [
+          "SpawnPoint"
+        ],
+        "functions": []
+      },
+      {
+        "path": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+        "name": "CtrlRig_FPWarp",
+        "class": "CtrlRig_FPWarp_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "item_type": "Control Rig",
+        "graphs": [
+          "CtrlRig_FPWarp:Rig"
+        ],
+        "variables": [],
+        "functions": []
+      },
+      {
+        "path": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+        "name": "ABP_FP_Copy",
+        "class": "ABP_FP_Copy_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+        "item_type": "",
+        "graphs": [
+          "ABP_FP_Copy:AnimGraph",
+          "ABP_FP_Copy:EventGraph"
+        ],
+        "variables": [],
+        "functions": [
+          {
+            "name": "AnimGraph",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "BlueprintThreadSafeUpdateAnimation",
+            "description": "Executed when the Animation Blueprint is updated on a worker thread, just prior to graph update",
+            "bIsImplemented": false
+          }
+        ]
+      },
+      {
+        "path": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+        "name": "UI_InGame",
+        "class": "UI_InGame_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'",
+        "item_type": "",
+        "graphs": [
+          "UI_InGame:EventGraph"
+        ],
+        "variables": [],
+        "functions": [
+          {
+            "name": "OnTouchStarted",
+            "description": "Called when a touchpad touch is started (finger down)\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param InTouchEvent  The touch event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnTouchMoved",
+            "description": "Called when a touchpad touch is moved  (finger moved)\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param InTouchEvent  The touch event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnTouchGesture",
+            "description": "Called when the user performs a gesture on trackpad. This event is bubbled.\n\n@param MyGeometry     The geometry of the widget receiving the event.\n@param  GestureEvent  gesture event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnTouchForceChanged",
+            "description": "Called when a touchpad force has changed (user pressed down harder or let up)\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param InTouchEvent   The touch event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnTouchFirstMove",
+            "description": "Called when a touchpad touch is first moved (initial finger movement)\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param InTouchEvent   The touch event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnTouchEnded",
+            "description": "Called when a touchpad touch is ended (finger lifted)\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param InTouchEvent  The touch event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnPreviewMouseButtonDown",
+            "description": "Just like OnMouseButtonDown, but tunnels instead of bubbling.\nIf this event is handled, OnMouseButtonDown will not be sent.\n\nUse this event sparingly as preview events generally make UIs more\ndifficult to reason about.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param MouseEvent Information about the input event\n@return Whether the event was handled along with possible requests for the system to take action.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnPreviewKeyDown",
+            "description": "Called after a key (keyboard, controller, ...) is pressed when this widget or a child of this widget has focus\nIf a widget handles this event, OnKeyDown will *not* be passed to the focused widget.\n\nThis event is primarily to allow parent widgets to consume an event before a child widget processes\nit and it should be used only when there is no better design alternative.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param  InKeyEvent  Key event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnPaint",
+            "description": "On Paint",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMouseWheel",
+            "description": "Called when the mouse wheel is spun. This event is bubbled.\n\n@param  MouseEvent  Mouse event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMouseMove",
+            "description": "The system calls this method to notify the widget that a mouse moved within it. This event is bubbled.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param MouseEvent Information about the input event\n@return Whether the event was handled along with possible requests for the system to take action.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMouseButtonUp",
+            "description": "The system calls this method to notify the widget that a mouse button was release within it. This event is bubbled.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param MouseEvent Information about the input event\n@return Whether the event was handled along with possible requests for the system to take action.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMouseButtonDown",
+            "description": "The system calls this method to notify the widget that a mouse button was pressed within it. This event is bubbled.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param MouseEvent Information about the input event\n@return Whether the event was handled along with possible requests for the system to take action.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMouseButtonDoubleClick",
+            "description": "Called when a mouse button is double clicked.  Override this in derived classes.\n\n@param  InMyGeometry  Widget geometry\n@param  InMouseEvent  Mouse button event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnMotionDetected",
+            "description": "Called when motion is detected (controller or device)\ne.g. Someone tilts or shakes their controller.\n\n@param MyGeometry    The geometry of the widget receiving the event.\n@param MotionEvent   The motion event generated",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnKeyUp",
+            "description": "Called after a key (keyboard, controller, ...) is released when this widget has focus\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param  InKeyEvent  Key event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnKeyDown",
+            "description": "Called after a key (keyboard, controller, ...) is pressed when this widget has focus (this event bubbles if not handled)\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param  InKeyEvent  Key event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnKeyChar",
+            "description": "Called after a character is entered while this widget has focus\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param  InCharacterEvent  Character event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnFocusReceived",
+            "description": "Called when keyboard focus is given to this widget.  This event does not bubble.\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param InFocusEvent  FocusEvent\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnDrop",
+            "description": "Called when the user is dropping something onto a widget.  Ends the drag and drop operation, even if no widget handles this.\n\n@param MyGeometry     The geometry of the widget receiving the event.\n@param PointerEvent   The mouse event from when the drag occurred over the widget.\n@param Operation      The drag operation over the widget.\n\n@return 'true' to indicate you handled the drop operation.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnDragOver",
+            "description": "Called during drag and drop when the the mouse is being dragged over a widget.\n\n@param MyGeometry     The geometry of the widget receiving the event.\n@param PointerEvent   The mouse event from when the drag occurred over the widget.\n@param Operation      The drag operation over the widget.\n\n@return 'true' to indicate that you handled the drag over operation.  Returning 'false' will cause the operation to continue to bubble up.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnDragDetected",
+            "description": "Called when Slate detects that a widget started to be dragged.\n\n@param  InMyGeometry  Widget geometry\n@param  PointerEvent  MouseMove that triggered the drag\n@param  Operation     The drag operation that was detected.",
+            "bIsImplemented": false
+          },
+          {
+            "name": "OnAnalogValueChanged",
+            "description": "Called when an analog value changes on a button that supports analog\n\n@param MyGeometry The Geometry of the widget receiving the event\n@param  InAnalogInputEvent  Analog Event\n@return  Returns whether the event was handled, along with other possible actions",
+            "bIsImplemented": false
+          },
+          {
+            "name": "IsInteractable",
+            "description": "Gets a value indicating if the widget is interactive.",
+            "bIsImplemented": false
+          }
+        ]
+      },
+      {
+        "path": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+        "name": "ABP_Unarmed",
+        "class": "ABP_Unarmed_C",
+        "parent_class": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+        "native_parent_class": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+        "item_type": "",
+        "graphs": [
+          "ABP_Unarmed:AnimGraph",
+          "Locomotion",
+          "Idle",
+          "Walk / Run",
+          "Transition",
+          "Transition",
+          "Main States",
+          "Locomotion",
+          "Jump",
+          "Transition",
+          "Fall Loop",
+          "Transition",
+          "Transition",
+          "Land",
+          "Transition",
+          "Transition",
+          "Transition",
+          "ABP_Unarmed:EventGraph"
+        ],
+        "variables": [
+          "Character",
+          "MovementComponent",
+          "Velocity",
+          "GroundSpeed",
+          "Direction",
+          "ShouldMove",
+          "IsFalling"
+        ],
+        "functions": [
+          {
+            "name": "AnimGraph",
+            "description": "",
+            "bIsImplemented": true
+          },
+          {
+            "name": "BlueprintThreadSafeUpdateAnimation",
+            "description": "Executed when the Animation Blueprint is updated on a worker thread, just prior to graph update",
+            "bIsImplemented": false
+          }
+        ]
+      }
+    ]
+  },
+  "safety_assessment": {
+    "read_only_verified": true,
+    "mutations_performed": 0,
+    "safety_policy": "STRICT_READ_ONLY_INSPECTION"
+  }
+}

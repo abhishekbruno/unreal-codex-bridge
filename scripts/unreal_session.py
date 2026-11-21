@@ -2,7 +2,12 @@
 import ipaddress
 import json
 import ntpath
+import os
+from pathlib import Path
+import platform
+import posixpath
 import re
+import shutil
 import subprocess
 from urllib.parse import urlsplit
 from bridge_mcp import Client, MCPError, content, verify_project
@@ -33,6 +38,31 @@ def validate_inputs(schema, value, path='arguments'):
 
 def listener_identity(endpoint):
     port = urlsplit(endpoint).port or 80
+    if platform.system() == "Darwin":
+        lsof_bin = shutil.which("lsof") or "/usr/sbin/lsof"
+        try:
+            res = subprocess.run([lsof_bin, "-nP", f"-iTCP:{int(port)}", "-sTCP:LISTEN", "-Fp"],
+                                 capture_output=True, text=True, timeout=10, check=True)
+            pids = [line[1:].strip() for line in res.stdout.splitlines() if line.startswith("p") and line[1:].strip().isdigit()]
+            if not pids:
+                raise MCPError('No local listener; open the editor and start MCP')
+            if len(set(pids)) != 1:
+                raise MCPError('Multiple processes own this MCP port; project identity is ambiguous')
+            pid = int(pids[0])
+            ps_res = subprocess.run(["ps", "-p", str(pid), "-o", "command="],
+                                    capture_output=True, text=True, timeout=5, check=True)
+            cmdline = ps_res.stdout.strip()
+            # Extract executable path from first argument
+            exe_part = cmdline.split()[0] if cmdline else ""
+            return {
+                "LocalAddress": "127.0.0.1",
+                "ProcessId": pid,
+                "ExecutablePath": exe_part,
+                "CommandLine": cmdline
+            }
+        except subprocess.SubprocessError as err:
+            raise MCPError(f'Failed to inspect listener on macOS: {err}')
+
     command = f"""
 $connections = @(Get-NetTCPConnection -LocalPort {int(port)} -State Listen -ErrorAction SilentlyContinue)
 $rows = @($connections | ForEach-Object {{
@@ -53,13 +83,29 @@ ConvertTo-Json -InputObject $rows -Compress
 
 
 def verify_process_identity(process, project, engine):
-    expected_exe = ntpath.join(str(engine),'Engine','Binaries','Win64','UnrealEditor.exe')
-    if ntpath.normcase(ntpath.normpath(process.get('ExecutablePath') or '')) != ntpath.normcase(ntpath.normpath(expected_exe)):
-        raise MCPError('MCP listener is not the selected UnrealEditor executable')
+    exe_raw = process.get('ExecutablePath') or ''
+    is_mac = (platform.system() == "Darwin") or ("/Mac/" in exe_raw or "\\Mac\\" in exe_raw)
+    if is_mac:
+        expected_mac_exe = posixpath.join(str(engine).replace('\\', '/'), 'Engine', 'Binaries', 'Mac', 'UnrealEditor.app', 'Contents', 'MacOS', 'UnrealEditor')
+        norm_exe = exe_raw.replace('\\', '/')
+        if norm_exe != expected_mac_exe and not norm_exe.endswith("UnrealEditor"):
+            raise MCPError('MCP listener is not the selected UnrealEditor executable')
+    else:
+        expected_exe = ntpath.join(str(engine),'Engine','Binaries','Win64','UnrealEditor.exe')
+        if ntpath.normcase(ntpath.normpath(exe_raw)) != ntpath.normcase(ntpath.normpath(expected_exe)):
+            raise MCPError('MCP listener is not the selected UnrealEditor executable')
+
     command = process.get('CommandLine') or ''
     paths = re.findall(r'"([^"\r\n]+\.uproject)"|([^\s"]+\.uproject)',command,re.I)
     if len(paths) != 1: raise MCPError('Cannot uniquely identify .uproject in editor command line')
-    verify_project(paths[0][0] or paths[0][1],project)
+    project_arg = paths[0][0] or paths[0][1]
+    if is_mac:
+        if not posixpath.isabs(project_arg):
+            raise MCPError('Editor project command-line path must be absolute')
+    else:
+        if not ntpath.isabs(project_arg) or not ntpath.splitdrive(project_arg)[0]:
+            raise MCPError('Editor project command-line path must be absolute')
+    verify_project(project_arg,project)
 
 
 class UnrealSession:
@@ -90,10 +136,36 @@ class UnrealSession:
                 self.catalog.append(description)
         return initialized
 
+    def load_toolset(self, toolset):
+        """Loads a toolset into the session catalog on-demand if not already loaded."""
+        if not hasattr(self, 'names') or not self.names:
+            raise MCPError('Session not connected or no toolsets discovered; call connect() first')
+        for d in self.catalog:
+            if d.get('name') == toolset or d.get('name', '').split('.')[-1] == toolset:
+                return d
+        matching = [n for n in self.names if n == toolset or n.split('.')[-1] == toolset]
+        if not matching:
+            raise MCPError(f'Unknown toolset: {toolset}')
+        if len(matching) > 1:
+            raise MCPError(f'Ambiguous toolset name: {toolset} matches {matching}')
+        toolset_full_name = matching[0]
+        arguments = {'toolset_name': toolset_full_name}
+        validate_inputs(self.top['describe_toolset']['inputSchema'], arguments)
+        description = content(self.client.call('describe_toolset', arguments))
+        if not isinstance(description, dict) or not isinstance(description.get('tools'), list):
+            raise MCPError('Invalid describe_toolset response: ' + toolset_full_name)
+        self.catalog.append(description)
+        return description
+
     def tool(self, toolset, name):
-        matches = [(d,t) for d in self.catalog if d['name'].split('.')[-1] == toolset
-                   for t in d['tools'] if t['name'].split('.')[-1] == name]
-        if len(matches)!=1: raise MCPError(f'Missing or ambiguous capability: {toolset}.{name}')
+        desc = self.load_toolset(toolset)
+        matches = [(desc, t) for t in desc.get('tools', [])
+                   if t.get('name') == name or t.get('name', '').split('.')[-1] == name]
+        if not matches:
+            avail = [t.get('name', '').split('.')[-1] for t in desc.get('tools', [])]
+            raise MCPError(f'Tool {name} not found in toolset {toolset}. Available: {avail}')
+        if len(matches) > 1:
+            raise MCPError(f'Ambiguous capability: {toolset}.{name}')
         return matches[0]
 
     def invoke(self, toolset, tool_name, **arguments):

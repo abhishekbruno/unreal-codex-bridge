@@ -1,0 +1,19 @@
+{
+  "name": "unreal-codex-bridge",
+  "version": "1.0.0",
+  "description": "Cross-platform bridge connecting OpenAI Codex to Unreal Engine 5.8 via native Model Context Protocol.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Unreal Codex Bridge",
+    "shortDescription": "Connect OpenAI Codex to Unreal Engine 5.8 editor via native MCP",
+    "longDescription": "Inspect scenes, query project intelligence, analyze asset dependencies and circular references, parse Blueprint graph S-expressions, author gameplay, and execute Play-In-Editor tests across Windows and macOS.",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "defaultPrompt": [
+      "Inspect my Unreal project and summarize active level assets.",
+      "Check asset dependencies and circular references for the player character.",
+      "Build a small game where the player collects five stars to unlock a gate and test it in PIE."
+    ]
+  }
+}

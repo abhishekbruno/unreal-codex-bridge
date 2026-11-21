@@ -1,0 +1,175 @@
+[
+  {
+    "output_pins": [
+      {
+        "value": "",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Output",
+          "index_id": 0,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_Event_4"
+          }
+        },
+        "type_id": "Delegate",
+        "name": "OutputDelegate"
+      },
+      {
+        "value": "",
+        "connected_pins": [
+          {
+            "direction": "EGPD_Input",
+            "index_id": 0,
+            "node": {
+              "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+            }
+          }
+        ],
+        "pin_id": {
+          "direction": "EGPD_Output",
+          "index_id": 1,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_Event_4"
+          }
+        },
+        "type_id": "Exec",
+        "name": "then"
+      }
+    ],
+    "input_pins": [],
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "node": {
+      "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_Event_4"
+    },
+    "type_id": "AddEvent|EventBeginPlay"
+  },
+  {
+    "output_pins": [
+      {
+        "value": "",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Output",
+          "index_id": 0,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Exec",
+        "name": "then"
+      }
+    ],
+    "input_pins": [
+      {
+        "value": "",
+        "connected_pins": [
+          {
+            "direction": "EGPD_Output",
+            "index_id": 1,
+            "node": {
+              "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_Event_4"
+            }
+          }
+        ],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 0,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Exec",
+        "name": "execute"
+      },
+      {
+        "value": "Unreal Codex Bridge: Blueprint execution successful",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 1,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "String",
+        "name": "InString"
+      },
+      {
+        "value": "true",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 2,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Boolean",
+        "name": "bPrintToScreen"
+      },
+      {
+        "value": "true",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 3,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Boolean",
+        "name": "bPrintToLog"
+      },
+      {
+        "value": "(R=0.000000,G=0.660000,B=1.000000,A=1.000000)",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 4,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Linear Color Structure",
+        "name": "TextColor"
+      },
+      {
+        "value": "2.000000",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 5,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Float (single-precision)",
+        "name": "Duration"
+      },
+      {
+        "value": "None",
+        "connected_pins": [],
+        "pin_id": {
+          "direction": "EGPD_Input",
+          "index_id": 6,
+          "node": {
+            "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+          }
+        },
+        "type_id": "Name",
+        "name": "Key"
+      }
+    ],
+    "position": {
+      "x": 280,
+      "y": 0
+    },
+    "node": {
+      "refPath": "/Game/CodexBridgeTests/Blueprints/BP_CodexBridge_Test_8573bb760e8e.BP_CodexBridge_Test_8573bb760e8e:EventGraph.K2Node_CallFunction_1"
+    },
+    "type_id": "Development|PrintString"
+  }
+]

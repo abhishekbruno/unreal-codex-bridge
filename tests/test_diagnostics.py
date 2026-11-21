@@ -45,5 +45,39 @@ class DiagnosticTests(unittest.TestCase):
                  'CommandLine':'UnrealEditor.exe "D:/Wrong/Test.uproject"'}
         with self.assertRaises(MCPError): verify_process_identity(process,Path('D:/Right/Test.uproject'),Path('D:/UE'))
 
+    def test_dynamic_toolset_loading(self):
+        from unreal_session import UnrealSession
+        session = UnrealSession()
+        session.names = ['editor_toolset.toolsets.blueprint.BlueprintTools', 'editor_toolset.toolsets.actor.ActorTools']
+        session.catalog = [{'name': 'editor_toolset.toolsets.actor.ActorTools', 'tools': [{'name': 'get_label', 'inputSchema': {'type': 'object'}}]}]
+        session.top = {'describe_toolset': {'inputSchema': {'type': 'object', 'properties': {'toolset_name': {'type': 'string'}}}}}
+
+        def mock_call(tool, args):
+            if tool == 'describe_toolset' and args.get('toolset_name') == 'editor_toolset.toolsets.blueprint.BlueprintTools':
+                return {'content': [{'type': 'text', 'text': json.dumps({'name': 'editor_toolset.toolsets.blueprint.BlueprintTools', 'tools': [{'name': 'get_graph_dsl_docs', 'inputSchema': {'type': 'object'}}]})}]}
+            raise MCPError(f'Unexpected call: {tool}')
+
+        session.client.call = mock_call
+        desc, tool = session.tool('BlueprintTools', 'get_graph_dsl_docs')
+        self.assertEqual(tool['name'], 'get_graph_dsl_docs')
+        self.assertEqual(desc['name'], 'editor_toolset.toolsets.blueprint.BlueprintTools')
+        self.assertEqual(len(session.catalog), 2)
+
+    def test_unknown_toolset_raises_mcperror(self):
+        from unreal_session import UnrealSession
+        session = UnrealSession()
+        session.names = ['editor_toolset.toolsets.actor.ActorTools']
+        session.catalog = []
+        with self.assertRaisesRegex(MCPError, 'Unknown toolset'):
+            session.load_toolset('NonExistentToolset')
+
+    def test_missing_tool_in_toolset_raises_mcperror(self):
+        from unreal_session import UnrealSession
+        session = UnrealSession()
+        session.names = ['editor_toolset.toolsets.actor.ActorTools']
+        session.catalog = [{'name': 'editor_toolset.toolsets.actor.ActorTools', 'tools': [{'name': 'get_label', 'inputSchema': {'type': 'object'}}]}]
+        with self.assertRaisesRegex(MCPError, 'Tool non_existent_tool not found'):
+            session.tool('ActorTools', 'non_existent_tool')
+
 
 if __name__=='__main__': unittest.main()

@@ -1,0 +1,3030 @@
+{
+  "nodes": {
+    "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK": {
+      "path": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "name": "CR_Mannequin_FootIK",
+      "class": "CR_Mannequin_FootIK_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "ItemTypeDisplayName": "Control Rig"
+      }
+    },
+    "/Script/CoreUObject": {
+      "path": "/Script/CoreUObject",
+      "name": "CoreUObject",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/Engine": {
+      "path": "/Script/Engine",
+      "name": "Engine",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/UnrealEd": {
+      "path": "/Script/UnrealEd",
+      "name": "UnrealEd",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/ControlRig": {
+      "path": "/Script/ControlRig",
+      "name": "ControlRig",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/RigVM": {
+      "path": "/Script/RigVM",
+      "name": "RigVM",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/ControlRigDeveloper": {
+      "path": "/Script/ControlRigDeveloper",
+      "name": "ControlRigDeveloper",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/RigVMDeveloper": {
+      "path": "/Script/RigVMDeveloper",
+      "name": "RigVMDeveloper",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/ControlRig/Controls/DefaultGizmoLibraryNormalized": {
+      "path": "/ControlRig/Controls/DefaultGizmoLibraryNormalized",
+      "name": "DefaultGizmoLibraryNormalized",
+      "class": "Unknown",
+      "category": "project",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/PBIK": {
+      "path": "/Script/PBIK",
+      "name": "PBIK",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Meshes/SK_Mannequin": {
+      "path": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "name": "SK_Mannequin",
+      "class": "Skeleton",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple": {
+      "path": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "name": "SKM_Manny_Simple",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/Animated/ABP_Copycat": {
+      "path": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "name": "ABP_Copycat",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "name": "ABP_Unarmed",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/Transform": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/Transform",
+      "name": "Transform",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/InterchangeEngine": {
+      "path": "/Script/InterchangeEngine",
+      "name": "InterchangeEngine",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/UI_InGame": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "name": "UI_InGame",
+      "class": "UI_InGame_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/UMG.UserWidget'"
+      }
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_Outliner": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_Outliner",
+      "name": "T_Outliner",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_CollList": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_CollList",
+      "name": "T_DetailsPanel_CollList",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_Coll": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_Coll",
+      "name": "T_DetailsPanel_Coll",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Tab": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Tab",
+      "name": "T_ContentDrawer_Tab",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Asset": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Asset",
+      "name": "T_ContentDrawer_Asset",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer",
+      "name": "T_ContentDrawer",
+      "class": "Texture2D",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/IMC_MouseLook": {
+      "path": "/Game/Input/IMC_MouseLook",
+      "name": "IMC_MouseLook",
+      "class": "InputMappingContext",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/EnhancedInput": {
+      "path": "/Script/EnhancedInput",
+      "name": "EnhancedInput",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/Actions/IA_MouseLook": {
+      "path": "/Game/Input/Actions/IA_MouseLook",
+      "name": "IA_MouseLook",
+      "class": "InputAction",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController": {
+      "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController",
+      "name": "BP_FirstPersonPlayerController",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/IMC_Default": {
+      "path": "/Game/Input/IMC_Default",
+      "name": "IMC_Default",
+      "class": "InputMappingContext",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/Actions/IA_Jump": {
+      "path": "/Game/Input/Actions/IA_Jump",
+      "name": "IA_Jump",
+      "class": "InputAction",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/Actions/IA_Look": {
+      "path": "/Game/Input/Actions/IA_Look",
+      "name": "IA_Look",
+      "class": "InputAction",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/Actions/IA_Move": {
+      "path": "/Game/Input/Actions/IA_Move",
+      "name": "IA_Move",
+      "class": "InputAction",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager": {
+      "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "name": "BP_FirstPersonCameraManager",
+      "class": "BP_FirstPersonCameraManager_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.PlayerCameraManager'"
+      }
+    },
+    "/Script/BlueprintGraph": {
+      "path": "/Script/BlueprintGraph",
+      "name": "BlueprintGraph",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter": {
+      "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "name": "BP_FirstPersonCharacter",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Input/Touch/BPI_TouchInterface": {
+      "path": "/Game/Input/Touch/BPI_TouchInterface",
+      "name": "BPI_TouchInterface",
+      "class": "BPI_TouchInterface_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/CoreUObject.Interface'"
+      }
+    },
+    "/Game/Input/Touch/UI_TouchSimple": {
+      "path": "/Game/Input/Touch/UI_TouchSimple",
+      "name": "UI_TouchSimple",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/DevCom/DL_DevCom": {
+      "path": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "name": "DL_DevCom",
+      "class": "DataLayerAsset",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/C/7R/YACF62JNVMZYVY3334J0OQ": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/C/7R/YACF62JNVMZYVY3334J0OQ",
+      "name": "YACF62JNVMZYVY3334J0OQ",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/1/W2/ZF5PMJCP4U9N1CPDFSC8IJ": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/1/W2/ZF5PMJCP4U9N1CPDFSC8IJ",
+      "name": "ZF5PMJCP4U9N1CPDFSC8IJ",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/2/XT/G1C5O4RD7ZZB51ACDGBZ4U": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/2/XT/G1C5O4RD7ZZB51ACDGBZ4U",
+      "name": "G1C5O4RD7ZZB51ACDGBZ4U",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/57/ZQQMXVKAQUSF2JKOL728FT": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/57/ZQQMXVKAQUSF2JKOL728FT",
+      "name": "ZQQMXVKAQUSF2JKOL728FT",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/J6/T4G6T6O18TKXLGC8QZLXVH": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/J6/T4G6T6O18TKXLGC8QZLXVH",
+      "name": "T4G6T6O18TKXLGC8QZLXVH",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/KE/LLB78ESZ4C30B9Y1SVRL25": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/KE/LLB78ESZ4C30B9Y1SVRL25",
+      "name": "LLB78ESZ4C30B9Y1SVRL25",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/NT/H3KA6TQ1D3QS95AGWZNKZ6": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/NT/H3KA6TQ1D3QS95AGWZNKZ6",
+      "name": "H3KA6TQ1D3QS95AGWZNKZ6",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/PZ/DLRRTLPXFXSDV81A1PP605": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/PZ/DLRRTLPXFXSDV81A1PP605",
+      "name": "DLRRTLPXFXSDV81A1PP605",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/YI/XMR7P3670RX724DDXNQQK9": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/YI/XMR7P3670RX724DDXNQQK9",
+      "name": "XMR7P3670RX724DDXNQQK9",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/5/DO/QJAR2ZOBCOVCNSYLC3KCQZ": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/5/DO/QJAR2ZOBCOVCNSYLC3KCQZ",
+      "name": "QJAR2ZOBCOVCNSYLC3KCQZ",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/6/Y6/L7A4CA3SEC68MZ4R4V7N3O": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/6/Y6/L7A4CA3SEC68MZ4R4V7N3O",
+      "name": "L7A4CA3SEC68MZ4R4V7N3O",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/7/IB/PRC7VFU3BI1G9WSP0VZ91S": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/7/IB/PRC7VFU3BI1G9WSP0VZ91S",
+      "name": "PRC7VFU3BI1G9WSP0VZ91S",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/AL/C8U2PN4PLE8VTV87NR8OC3": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/AL/C8U2PN4PLE8VTV87NR8OC3",
+      "name": "C8U2PN4PLE8VTV87NR8OC3",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/L4/74R0XY220Y247RQXPOPWDC": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/L4/74R0XY220Y247RQXPOPWDC",
+      "name": "74R0XY220Y247RQXPOPWDC",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/FA/BCOHC2U8OS5QHD2OHCDDM1": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/FA/BCOHC2U8OS5QHD2OHCDDM1",
+      "name": "BCOHC2U8OS5QHD2OHCDDM1",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/JP/UWNAS1Y2RQXDTTKL98LGED": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/JP/UWNAS1Y2RQXDTTKL98LGED",
+      "name": "UWNAS1Y2RQXDTTKL98LGED",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/9H/95JH8GH6YVUQ3QXT25VLKM": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/9H/95JH8GH6YVUQ3QXT25VLKM",
+      "name": "95JH8GH6YVUQ3QXT25VLKM",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/NP/JLVWJWVUJ4Y1WYZR0PYAUA": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/NP/JLVWJWVUJ4Y1WYZR0PYAUA",
+      "name": "JLVWJWVUJ4Y1WYZR0PYAUA",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/B9/QSQTR6QCEHNEGKMPIOYA1E": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/B9/QSQTR6QCEHNEGKMPIOYA1E",
+      "name": "QSQTR6QCEHNEGKMPIOYA1E",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/II/OUN3GDB573W1ASFW9THNGN": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/II/OUN3GDB573W1ASFW9THNGN",
+      "name": "OUN3GDB573W1ASFW9THNGN",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/WR/OEEZGJHVX5FDL3ODABBU4S": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/WR/OEEZGJHVX5FDL3ODABBU4S",
+      "name": "OEEZGJHVX5FDL3ODABBU4S",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/E/UZ/M8PJF740KIAJQOH6BQP1ZK": {
+      "path": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/E/UZ/M8PJF740KIAJQOH6BQP1ZK",
+      "name": "M8PJF740KIAJQOH6BQP1ZK",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/BP_SaveData": {
+      "path": "/Game/DemoTemplate/_Core/BP_SaveData",
+      "name": "BP_SaveData",
+      "class": "BP_SaveData_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.SaveGame'"
+      }
+    },
+    "/Game/DemoTemplate/_Core/BP_GM_Template": {
+      "path": "/Game/DemoTemplate/_Core/BP_GM_Template",
+      "name": "BP_GM_Template",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple": {
+      "path": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "name": "SKM_Quinn_Simple",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "name": "BS_Idle_Walk_Run",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "name": "MM_Idle",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "name": "MM_Fall_Loop",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "name": "MM_Jump",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "name": "MM_Land",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/FirstPerson/Anims/ABP_FP_Copy": {
+      "path": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "name": "ABP_FP_Copy",
+      "class": "ABP_FP_Copy_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.AnimInstance'"
+      }
+    },
+    "/Game/FirstPerson/Anims/CtrlRig_FPWarp": {
+      "path": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "name": "CtrlRig_FPWarp",
+      "class": "CtrlRig_FPWarp_C",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {
+        "ParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "NativeParentClass": "/Script/CoreUObject.Class'/Script/ControlRig.ControlRig'",
+        "ItemTypeDisplayName": "Control Rig"
+      }
+    },
+    "/Game/Characters/Mannequins/Rigs/CR_Mannequin_Procedural": {
+      "path": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_Procedural",
+      "name": "CR_Mannequin_Procedural",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Back_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Back_01",
+      "name": "MM_Death_Back_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_01",
+      "name": "MM_Death_Front_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_02": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_02",
+      "name": "MM_Death_Front_02",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_03": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_03",
+      "name": "MM_Death_Front_03",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Left_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Left_01",
+      "name": "MM_Death_Left_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Death/MM_Death_Right_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Right_01",
+      "name": "MM_Death_Right_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
+      "name": "MF_Pistol_Idle_ADS",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_DryFire": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_DryFire",
+      "name": "MM_Pistol_DryFire",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Equip": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Equip",
+      "name": "MM_Pistol_Equip",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire",
+      "name": "MM_Pistol_Fire",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire_Montage": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire_Montage",
+      "name": "MM_Pistol_Fire_Montage",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Reload": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Reload",
+      "name": "MM_Pistol_Reload",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS",
+      "name": "MF_Rifle_Idle_ADS",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_DryFire": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_DryFire",
+      "name": "MM_Rifle_DryFire",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Equip": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Equip",
+      "name": "MM_Rifle_Equip",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Fire": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Fire",
+      "name": "MM_Rifle_Fire",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Reload": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Reload",
+      "name": "MM_Rifle_Reload",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "name": "MF_Unarmed_Jog_Bwd",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "name": "MF_Unarmed_Jog_Bwd_Left",
+      "class": "AnimSequence",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right",
+      "name": "MF_Unarmed_Jog_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd",
+      "name": "MF_Unarmed_Jog_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left",
+      "name": "MF_Unarmed_Jog_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right",
+      "name": "MF_Unarmed_Jog_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left",
+      "name": "MF_Unarmed_Jog_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right",
+      "name": "MF_Unarmed_Jog_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd",
+      "name": "MF_Unarmed_Walk_Bwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left",
+      "name": "MF_Unarmed_Walk_Bwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right",
+      "name": "MF_Unarmed_Walk_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd",
+      "name": "MF_Unarmed_Walk_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left",
+      "name": "MF_Unarmed_Walk_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right",
+      "name": "MF_Unarmed_Walk_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left",
+      "name": "MF_Unarmed_Walk_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right",
+      "name": "MF_Unarmed_Walk_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol",
+      "name": "AO_Pistol",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1",
+      "name": "MF_Pistol_Idle_ADS1",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD",
+      "name": "MF_Pistol_Idle_ADS_AO_CD",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU",
+      "name": "MF_Pistol_Idle_ADS_AO_CU",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd",
+      "name": "MF_Pistol_Jog_Bwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Left",
+      "name": "MF_Pistol_Jog_Bwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Right",
+      "name": "MF_Pistol_Jog_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd",
+      "name": "MF_Pistol_Jog_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Left",
+      "name": "MF_Pistol_Jog_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Right",
+      "name": "MF_Pistol_Jog_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Left",
+      "name": "MF_Pistol_Jog_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Right",
+      "name": "MF_Pistol_Jog_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Fall_Loop": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Fall_Loop",
+      "name": "MM_Pistol_Jump_Fall_Loop",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_RecoveryAdditive": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_RecoveryAdditive",
+      "name": "MM_Pistol_Jump_RecoveryAdditive",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Start": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Start",
+      "name": "MM_Pistol_Jump_Start",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd",
+      "name": "MF_Pistol_Walk_Bwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Left",
+      "name": "MF_Pistol_Walk_Bwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Right",
+      "name": "MF_Pistol_Walk_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd",
+      "name": "MF_Pistol_Walk_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Left",
+      "name": "MF_Pistol_Walk_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Right",
+      "name": "MF_Pistol_Walk_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Left",
+      "name": "MF_Pistol_Walk_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Right",
+      "name": "MF_Pistol_Walk_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle",
+      "name": "AO_Rifle",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC",
+      "name": "MM_Rifle_Idle_ADS_AO_CC",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD",
+      "name": "MM_Rifle_Idle_ADS_AO_CD",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU",
+      "name": "MM_Rifle_Idle_ADS_AO_CU",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Back_Med_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Back_Med_01",
+      "name": "MM_HitReact_Back_Med_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Hvy_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Hvy_01",
+      "name": "MM_HitReact_Front_Hvy_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_01",
+      "name": "MM_HitReact_Front_Lgt_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_02": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_02",
+      "name": "MM_HitReact_Front_Lgt_02",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_03": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_03",
+      "name": "MM_HitReact_Front_Lgt_03",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_04": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_04",
+      "name": "MM_HitReact_Front_Lgt_04",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_01",
+      "name": "MM_HitReact_Front_Med_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_02": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_02",
+      "name": "MM_HitReact_Front_Med_02",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd",
+      "name": "MF_Rifle_Jog_Bwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Left",
+      "name": "MF_Rifle_Jog_Bwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Right",
+      "name": "MF_Rifle_Jog_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd",
+      "name": "MF_Rifle_Jog_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Left",
+      "name": "MF_Rifle_Jog_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Right",
+      "name": "MF_Rifle_Jog_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Left",
+      "name": "MF_Rifle_Jog_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Right",
+      "name": "MF_Rifle_Jog_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Apex": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Apex",
+      "name": "MM_Rifle_Jump_Apex",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Land": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Land",
+      "name": "MM_Rifle_Jump_Fall_Land",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Loop": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Loop",
+      "name": "MM_Rifle_Jump_Fall_Loop",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_RecoveryAdditive": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_RecoveryAdditive",
+      "name": "MM_Rifle_Jump_RecoveryAdditive",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start",
+      "name": "MM_Rifle_Jump_Start",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start_Loop": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start_Loop",
+      "name": "MM_Rifle_Jump_Start_Loop",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd",
+      "name": "MF_Rifle_Walk_Bwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Left",
+      "name": "MF_Rifle_Walk_Bwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Right",
+      "name": "MF_Rifle_Walk_Bwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd",
+      "name": "MF_Rifle_Walk_Fwd",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Left",
+      "name": "MF_Rifle_Walk_Fwd_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Right",
+      "name": "MF_Rifle_Walk_Fwd_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Left": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Left",
+      "name": "MF_Rifle_Walk_Left",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Right": {
+      "path": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Right",
+      "name": "MF_Rifle_Walk_Right",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_01": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_01",
+      "name": "MM_Attack_01",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_02": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_02",
+      "name": "MM_Attack_02",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_03": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_03",
+      "name": "MM_Attack_03",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_ChargedAttack": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_ChargedAttack",
+      "name": "MM_ChargedAttack",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Dash": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Dash",
+      "name": "MM_Dash",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_WallJump": {
+      "path": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_WallJump",
+      "name": "MM_WallJump",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/AnimationCore": {
+      "path": "/Script/AnimationCore",
+      "name": "AnimationCore",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/AnimGraph": {
+      "path": "/Script/AnimGraph",
+      "name": "AnimGraph",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/AnimGraphRuntime": {
+      "path": "/Script/AnimGraphRuntime",
+      "name": "AnimGraphRuntime",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/Characters/Mannequins/Rigs/PA_Mannequin": {
+      "path": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+      "name": "PA_Mannequin",
+      "class": "PhysicsAsset",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/M_Gradient": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/M_Gradient",
+      "name": "M_Gradient",
+      "class": "Material",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator": {
+      "path": "/Engine/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator",
+      "name": "CustomRotator",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Functions/Engine_MaterialFunctions03/Math/RemapValueRange": {
+      "path": "/Engine/Functions/Engine_MaterialFunctions03/Math/RemapValueRange",
+      "name": "RemapValueRange",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/UMG": {
+      "path": "/Script/UMG",
+      "name": "UMG",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/UMGEditor": {
+      "path": "/Script/UMGEditor",
+      "name": "UMGEditor",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/MovieSceneTracks": {
+      "path": "/Script/MovieSceneTracks",
+      "name": "MovieSceneTracks",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/MovieScene": {
+      "path": "/Script/MovieScene",
+      "name": "MovieScene",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Game/DemoTemplate/_Core/EditorUI/BP_UI_Update": {
+      "path": "/Game/DemoTemplate/_Core/EditorUI/BP_UI_Update",
+      "name": "BP_UI_Update",
+      "class": "Unknown",
+      "category": "game_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/AnimationModifiers": {
+      "path": "/Script/AnimationModifiers",
+      "name": "AnimationModifiers",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Animation/DefaultAnimBoneCompressionSettings": {
+      "path": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "name": "DefaultAnimBoneCompressionSettings",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Animation/DefaultAnimCurveCompressionSettings": {
+      "path": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "name": "DefaultAnimCurveCompressionSettings",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Animation/DefaultVariableFrameStrippingSettings": {
+      "path": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "name": "DefaultVariableFrameStrippingSettings",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Script/AnimationData": {
+      "path": "/Script/AnimationData",
+      "name": "AnimationData",
+      "class": "NativePackage",
+      "category": "native_script",
+      "exists": true,
+      "metadata": {}
+    },
+    "/ACLPlugin/ACLAnimCurveCompressionSettings": {
+      "path": "/ACLPlugin/ACLAnimCurveCompressionSettings",
+      "name": "ACLAnimCurveCompressionSettings",
+      "class": "Unknown",
+      "category": "project",
+      "exists": true,
+      "metadata": {}
+    },
+    "/Engine/Animation/DefaultRecorderBoneCompression": {
+      "path": "/Engine/Animation/DefaultRecorderBoneCompression",
+      "name": "DefaultRecorderBoneCompression",
+      "class": "Unknown",
+      "category": "engine_asset",
+      "exists": true,
+      "metadata": {}
+    }
+  },
+  "edges": [
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/RigVMDeveloper",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/CoreUObject",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/PBIK",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/ControlRig/Controls/DefaultGizmoLibraryNormalized",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/ControlRigDeveloper",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/Animated/ABP_Copycat",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_FootIK",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/ABP_Unarmed",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/Transform",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/Transform",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Asset",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_Coll",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_CollList",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_Outliner",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/M_Gradient",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Tab",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Script/UMG",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "target": "/Script/UMGEditor",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_Outliner",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_CollList",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_DetailsPanel_Coll",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Tab",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer_Asset",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/T_ContentDrawer",
+      "target": "/Script/InterchangeEngine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/IMC_MouseLook",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/IMC_MouseLook",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/IMC_MouseLook",
+      "target": "/Game/Input/Actions/IA_MouseLook",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController",
+      "target": "/Game/Input/IMC_MouseLook",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController",
+      "target": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonPlayerController",
+      "target": "/Game/Input/IMC_Default",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Input/IMC_Default",
+      "target": "/Game/Input/Actions/IA_Jump",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Input/IMC_Default",
+      "target": "/Game/Input/Actions/IA_Move",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Input/IMC_Default",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/IMC_Default",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/IMC_Default",
+      "target": "/Game/Input/Actions/IA_Look",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "target": "/Script/CoreUObject",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "target": "/Script/BlueprintGraph",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCameraManager",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Move",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Move",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/Input/Actions/IA_Jump",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/Input/Actions/IA_Look",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/Input/Actions/IA_MouseLook",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/Input/Actions/IA_Move",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+      "target": "/Game/Input/Touch/BPI_TouchInterface",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_MouseLook",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_MouseLook",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Look",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Look",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Jump",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Actions/IA_Jump",
+      "target": "/Script/EnhancedInput",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Touch/BPI_TouchInterface",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Touch/BPI_TouchInterface",
+      "target": "/Script/CoreUObject",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Touch/BPI_TouchInterface",
+      "target": "/Script/BlueprintGraph",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Input/Touch/UI_TouchSimple",
+      "target": "/Game/Input/Touch/BPI_TouchInterface",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/C/7R/YACF62JNVMZYVY3334J0OQ",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/1/W2/ZF5PMJCP4U9N1CPDFSC8IJ",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/2/XT/G1C5O4RD7ZZB51ACDGBZ4U",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/57/ZQQMXVKAQUSF2JKOL728FT",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/J6/T4G6T6O18TKXLGC8QZLXVH",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/KE/LLB78ESZ4C30B9Y1SVRL25",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/3/NT/H3KA6TQ1D3QS95AGWZNKZ6",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/PZ/DLRRTLPXFXSDV81A1PP605",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/4/YI/XMR7P3670RX724DDXNQQK9",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/5/DO/QJAR2ZOBCOVCNSYLC3KCQZ",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/6/Y6/L7A4CA3SEC68MZ4R4V7N3O",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/7/IB/PRC7VFU3BI1G9WSP0VZ91S",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/AL/C8U2PN4PLE8VTV87NR8OC3",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/8/L4/74R0XY220Y247RQXPOPWDC",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/FA/BCOHC2U8OS5QHD2OHCDDM1",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/A/JP/UWNAS1Y2RQXDTTKL98LGED",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/9H/95JH8GH6YVUQ3QXT25VLKM",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/B/NP/JLVWJWVUJ4Y1WYZR0PYAUA",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/B9/QSQTR6QCEHNEGKMPIOYA1E",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/II/OUN3GDB573W1ASFW9THNGN",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/D/WR/OEEZGJHVX5FDL3ODABBU4S",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/__ExternalActors__/DemoTemplate/_Core/Lvl_IntroRoom/E/UZ/M8PJF740KIAJQOH6BQP1ZK",
+      "target": "/Game/DemoTemplate/_Core/DevCom/DL_DevCom",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/BP_GM_Template",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/BP_GM_Template",
+      "target": "/Game/DemoTemplate/_Core/BP_SaveData",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "target": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/BS_Idle_Walk_Run",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/MM_Idle",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Fall_Loop",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Jump",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Land",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "target": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/CoreUObject",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/BlueprintGraph",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/AnimGraphRuntime",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/AnimGraph",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/ControlRigDeveloper",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/ABP_FP_Copy",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/RigVMDeveloper",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/CoreUObject",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/ControlRig/Controls/DefaultGizmoLibraryNormalized",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/ControlRigDeveloper",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/AnimationCore",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/FirstPerson/Anims/CtrlRig_FPWarp",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "target": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/CR_Mannequin_Procedural",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Back_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_02",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Front_03",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Left_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Death/MM_Death_Right_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MF_Pistol_Idle_ADS",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_DryFire",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Equip",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Fire_Montage",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/MM_Pistol_Reload",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/MF_Rifle_Idle_ADS",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_DryFire",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Equip",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Fire",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/MM_Rifle_Reload",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/UnrealEd",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Engine/Animation/DefaultAnimBoneCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Engine/Animation/DefaultAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Engine/Animation/DefaultRecorderBoneCompression",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/MovieScene",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/AnimationData",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/AnimationModifiers",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Engine/Animation/DefaultVariableFrameStrippingSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/ControlRig",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/MovieSceneTracks",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/Engine",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Quinn_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/ACLPlugin/ACLAnimCurveCompressionSettings",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Left",
+      "target": "/Script/RigVM",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jog/MF_Unarmed_Jog_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Walk/MF_Unarmed_Walk_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Aim/AO_Pistol",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS1",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CD",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Aim/MF_Pistol_Idle_ADS_AO_CU",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Fall_Loop",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_RecoveryAdditive",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Jump/MM_Pistol_Jump_Start",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Pistol/Walk/MF_Pistol_Walk_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/AIM/AO_Rifle",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CC",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CD",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/AIM/MM_Rifle_Idle_ADS_AO_CU",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Back_Med_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Hvy_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_02",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_03",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Lgt_04",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/HitReact/MM_HitReact_Front_Med_02",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jog/MF_Rifle_Jog_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Apex",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Land",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Fall_Loop",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_RecoveryAdditive",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Jump/MM_Rifle_Jump_Start_Loop",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Bwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Fwd_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Left",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Rifle/Walk/MF_Rifle_Walk_Right",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_01",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_02",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_Attack_03",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Attack/MM_ChargedAttack",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_Dash",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Anims/Unarmed/Jump/MM_WallJump",
+      "target": "/Game/Characters/Mannequins/Meshes/SK_Mannequin",
+      "type": "referencer"
+    },
+    {
+      "source": "/Game/Characters/Mannequins/Rigs/PA_Mannequin",
+      "target": "/Game/Characters/Mannequins/Meshes/SKM_Manny_Simple",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/M_Gradient",
+      "target": "/Engine/Functions/Engine_MaterialFunctions02/Texturing/CustomRotator",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/M_Gradient",
+      "target": "/Engine/Functions/Engine_MaterialFunctions03/Math/RemapValueRange",
+      "type": "dependency"
+    },
+    {
+      "source": "/Game/DemoTemplate/_Core/EditorUI/BP_UI_Update",
+      "target": "/Game/DemoTemplate/_Core/EditorUI/UI_InGame",
+      "type": "referencer"
+    }
+  ],
+  "statistics": {
+    "total_nodes": 185,
+    "total_edges": 303,
+    "cycles_detected": 3,
+    "strongly_connected_components": 1
+  }
+}

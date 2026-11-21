@@ -1,5 +1,6 @@
 """Backed-up project configuration. Does not install plugins or change global Codex settings."""
 import argparse
+import ipaddress
 import json
 import re
 import shutil
@@ -12,6 +13,103 @@ from bridge_mcp import validate_endpoint
 
 def read(path):
     return path.read_bytes().decode('utf-8-sig') if path.exists() else ''
+
+
+def backup(path):
+    """Create a timestamped backup copy of path and return the backup Path."""
+    path = Path(path)
+    if path.exists():
+        stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+        backup_path = path.with_name(path.name + '.backup-' + stamp)
+        shutil.copy2(path, backup_path)
+        return backup_path
+    return None
+
+
+def is_valid_loopback_host(host):
+    """Validate whether host is strictly a loopback address."""
+    if not host or not isinstance(host, str):
+        return False
+    clean = host.strip().strip('"').strip("'").lower()
+    if clean == 'localhost':
+        return True
+    if clean in ('any', '0.0.0.0', '::', '*', ''):
+        return False
+    try:
+        addr = ipaddress.ip_address(clean)
+        return addr.is_loopback
+    except ValueError:
+        return False
+
+
+def parse_listener_override(entry):
+    """Parse Unreal sub-object syntax like (Port=8000,BindAddress="127.0.0.1")."""
+    content = entry.strip()
+    if content.startswith('(') and content.endswith(')'):
+        content = content[1:-1]
+    tokens = [t.strip() for t in re.split(r',(?=(?:[^"]*"[^"]*")*[^"]*$)', content) if t.strip()]
+    params = {}
+    for token in tokens:
+        if '=' in token:
+            k, v = token.split('=', 1)
+            params[k.strip()] = v.strip().strip('"').strip("'")
+    return params
+
+
+def guard_listener_overrides(paths, target_port):
+    """Inspect INI files for HTTPServer.Listeners and reject unsafe or conflicting listener overrides."""
+    target_port_int = int(target_port)
+    seen_bindings = {}
+
+    for path in paths:
+        path = Path(path)
+        if not path.exists():
+            continue
+        text = read(path)
+        if not text:
+            continue
+
+        in_section = False
+        for line_num, line in enumerate(text.splitlines(), start=1):
+            line_str = line.strip()
+            if not line_str or line_str.startswith(';') or line_str.startswith('#'):
+                continue
+            if line_str.startswith('[') and line_str.endswith(']'):
+                section_name = line_str[1:-1].strip()
+                in_section = (section_name.lower() == 'httpserver.listeners')
+                continue
+
+            if in_section and '=' in line_str:
+                key, val = line_str.split('=', 1)
+                key_clean = key.strip().lstrip('+-.~').strip()
+                val_clean = val.strip()
+
+                if key_clean.lower() == 'defaultbindaddress':
+                    bind_val = val_clean.strip('"').strip("'")
+                    if not is_valid_loopback_host(bind_val):
+                        raise ValueError(f'Unsafe DefaultBindAddress in ListenerOverrides section ({path.name}:{line_num}): {bind_val}')
+
+                if key_clean.lower() == 'listeneroverrides':
+                    params = parse_listener_override(val_clean)
+                    port_val = params.get('Port')
+                    if port_val is not None:
+                        try:
+                            port_int = int(port_val)
+                        except ValueError:
+                            raise ValueError(f'Malformed Port in ListenerOverrides ({path.name}:{line_num}): {port_val}')
+
+                        if port_int == target_port_int:
+                            bind_addr = params.get('BindAddress')
+                            if bind_addr is None:
+                                raise ValueError(f'ListenerOverrides for port {target_port_int} missing BindAddress ({path.name}:{line_num})')
+
+                            if not is_valid_loopback_host(bind_addr):
+                                raise ValueError(f'Unsafe public/non-loopback ListenerOverrides on port {target_port_int} ({path.name}:{line_num}): BindAddress={bind_addr}')
+
+                            norm_addr = bind_addr.lower()
+                            if target_port_int in seen_bindings and seen_bindings[target_port_int] != norm_addr:
+                                raise ValueError(f'Conflicting ListenerOverrides for port {target_port_int}: {seen_bindings[target_port_int]} vs {norm_addr}')
+                            seen_bindings[target_port_int] = norm_addr
 
 
 def write_backed_up(path, text):
@@ -120,6 +218,8 @@ def main():
         cfg = root / '.codex/config.toml'
         ini = root / 'Config/DefaultEditorPerProjectUserSettings.ini'
         engine_ini = root / 'Config/DefaultEngine.ini'
+        # Enforce listener override security before applying any changes
+        guard_listener_overrides([engine_ini, ini], p.port or 80)
         # Validate all planned content before the first write.
         changes = {
             project: plugin_content(read(project)),

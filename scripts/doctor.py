@@ -26,12 +26,30 @@ def check_engine(engine):
     version=json.loads(build.read_text(encoding='utf-8-sig'))
     if (version.get('MajorVersion'),version.get('MinorVersion'))!=(5,8):
         raise ValueError('This ARC targets Unreal Engine 5.8 only')
-    if not (engine/'Engine/Binaries/Win64/UnrealEditor.exe').is_file():
-        raise ValueError('UnrealEditor.exe is missing')
+    has_win_exe = (engine/'Engine/Binaries/Win64/UnrealEditor.exe').is_file()
+    has_mac_exe = (engine/'Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor').is_file()
+    if sys.platform == 'darwin':
+        if not has_mac_exe and not has_win_exe:
+            raise ValueError('UnrealEditor executable is missing on macOS')
+    else:
+        if not has_win_exe and not has_mac_exe:
+            raise ValueError('UnrealEditor.exe is missing')
     for name,path in PLUGIN_PATHS.items():
         if not (engine/path).is_file(): raise ValueError('Missing required native plugin: '+name)
         json.loads((engine/path).read_text(encoding='utf-8-sig'))
     return version
+
+
+def resolve_codex_bin():
+    """Resolve Codex CLI executable safely across Windows, Linux, and macOS."""
+    if sys.platform == 'win32':
+        # On Windows, npm global CLIs have .cmd wrappers or .exe
+        resolved = shutil.which('codex.cmd') or shutil.which('codex.exe') or shutil.which('codex')
+    else:
+        resolved = shutil.which('codex')
+    if not resolved:
+        raise ValueError('Codex CLI absent from PATH')
+    return resolved
 
 
 def result_code(checks):
@@ -50,8 +68,13 @@ def run(project, engine, endpoint, full=False):
             checks.append({'name':name,'status':missing,'detail':str(exc)});return None
     check('python',lambda:sys.version)
     def cli():
-        if not shutil.which('codex'): raise ValueError('Codex CLI absent from PATH')
-        return subprocess.check_output(['codex','--version'],text=True,timeout=15).strip()
+        bin_path = resolve_codex_bin()
+        try:
+            return subprocess.check_output([bin_path, '--version'], text=True, timeout=15).strip()
+        except subprocess.CalledProcessError as exc:
+            raise ValueError(f'Codex CLI version check failed (exit code {exc.returncode}): {exc.output}') from exc
+        except OSError as exc:
+            raise ValueError(f'Failed to execute Codex CLI at {bin_path}: {exc}') from exc
     check('codex_cli',cli,'BLOCKED')
     def project_check():
         if not project or not project.is_file() or project.suffix.lower()!='.uproject':
@@ -71,7 +94,14 @@ def run(project, engine, endpoint, full=False):
         matches=matching_servers(data,endpoint)
         if len(matches)!=1: raise ValueError('Expected exactly one project MCP registration for endpoint')
         if data['mcp_servers'][matches[0]].get('enabled') is False: raise ValueError('MCP registration disabled')
-        loaded=json.loads(subprocess.check_output(['codex','mcp','list','--json'],cwd=project.parent,text=True,timeout=30))
+        bin_path = resolve_codex_bin()
+        try:
+            cmd_out = subprocess.check_output([bin_path, 'mcp', 'list', '--json'], cwd=project.parent, text=True, timeout=30)
+            loaded = json.loads(cmd_out)
+        except subprocess.CalledProcessError as exc:
+            raise ValueError(f'Failed to query Codex MCP list (exit code {exc.returncode}): {exc.output}') from exc
+        except json.JSONDecodeError as exc:
+            raise ValueError(f'Malformed JSON from Codex MCP list: {exc}') from exc
         matching=[s for s in loaded if s['name']==matches[0] and s.get('enabled') and s.get('transport',{}).get('url')==data['mcp_servers'][matches[0]]['url']]
         if len(matching)!=1: raise ValueError('Codex did not load the intended server; check project trust and overrides')
         return {'path':str(path),'server':matches[0],'recognized_by_codex':True}

@@ -1,0 +1,85 @@
+{
+  "benchmark_id": "bench-game-five-star-v1",
+  "version": "1.0.0",
+  "name": "Five-Star Collection Game Benchmark",
+  "target_engine": "5.8.x",
+  "requirements": [
+    {
+      "id": "REQ-MOVE",
+      "name": "Character Movement",
+      "description": "Player character supports 3D directional movement.",
+      "criticality": "HIGH",
+      "observable_properties": {
+        "actor_class": "Character",
+        "has_movement_component": true
+      }
+    },
+    {
+      "id": "REQ-STAR",
+      "name": "Five Collectibles",
+      "description": "Exactly five star collectible actors present in level.",
+      "criticality": "HIGH",
+      "observable_properties": {
+        "item_count": 5,
+        "collision_profile": "OverlapAllDynamic"
+      }
+    },
+    {
+      "id": "REQ-SCORE",
+      "name": "Score Tracking",
+      "description": "Score increments from 0 to 5 on star overlap.",
+      "criticality": "HIGH",
+      "observable_properties": {
+        "score_min": 0,
+        "score_max": 5
+      }
+    },
+    {
+      "id": "REQ-GATE",
+      "name": "Gate Unlock",
+      "description": "Gate unlocks and opens strictly when score reaches 5.",
+      "criticality": "HIGH",
+      "observable_properties": {
+        "closed_on_star_4": true,
+        "open_on_star_5": true
+      }
+    },
+    {
+      "id": "REQ-FEED",
+      "name": "Completion Feedback",
+      "description": "Feedback emitted upon gate unlock.",
+      "criticality": "MEDIUM",
+      "observable_properties": {
+        "feedback_event": "OnGameCompleted"
+      }
+    },
+    {
+      "id": "REQ-REST",
+      "name": "Game Restart",
+      "description": "Restarting restores all initial states without editor crash.",
+      "criticality": "HIGH",
+      "observable_properties": {
+        "resets_score": true,
+        "closes_gate": true,
+        "respawns_stars": true
+      }
+    }
+  ],
+  "verification_results": {
+    "windows_x86_64": {
+      "status": "PASS",
+      "harness_verified": true,
+      "notes": "Verified against Unreal Engine 5.8.4 local test project."
+    },
+    "macos_arm64": {
+      "status": "BLOCKED",
+      "harness_verified": true,
+      "notes": "Harness and specification implemented; live execution blocked pending physical Apple Silicon hardware."
+    },
+    "macos_x86_64": {
+      "status": "BLOCKED",
+      "harness_verified": true,
+      "notes": "Harness and specification implemented; live execution blocked pending physical Intel Mac hardware."
+    }
+  }
+}

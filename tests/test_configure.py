@@ -19,6 +19,69 @@ class ConfigurationTests(unittest.TestCase):
             path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="127.0.0.1")\n')
             c.guard_listener_overrides([path],8000)
 
+    def test_listener_overrides_comprehensive_security(self):
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / 'Engine.ini'
+
+            # 1. Valid IPv6 loopback
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="::1")\n')
+            c.guard_listener_overrides([path], 8000)
+
+            # 2. Valid localhost string and IPv4 loopback variation
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress=localhost)\n')
+            c.guard_listener_overrides([path], 8000)
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="127.0.0.8")\n')
+            c.guard_listener_overrides([path], 8000)
+
+            # 3. Wildcard IPv4 (0.0.0.0) and IPv6 (::)
+            for wild in ('0.0.0.0', '::', '*', '""'):
+                path.write_text(f'[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress={wild})\n')
+                with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                    c.guard_listener_overrides([path], 8000)
+
+            # 4. Public IPv4 (LAN and WAN)
+            for pub in ('192.168.1.50', '10.0.0.1', '8.8.8.8'):
+                path.write_text(f'[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="{pub}")\n')
+                with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                    c.guard_listener_overrides([path], 8000)
+
+            # 5. Non-loopback IPv6
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="2001:db8::1")\n')
+            with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                c.guard_listener_overrides([path], 8000)
+
+            # 6. Malformed address
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000,BindAddress="not_a_valid_ip")\n')
+            with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                c.guard_listener_overrides([path], 8000)
+
+            # 7. Missing BindAddress parameter
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=8000)\n')
+            with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                c.guard_listener_overrides([path], 8000)
+
+            # 8. Malformed port
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=abc,BindAddress="127.0.0.1")\n')
+            with self.assertRaisesRegex(ValueError, 'ListenerOverrides'):
+                c.guard_listener_overrides([path], 8000)
+
+            # 9. Conflicting overrides on same port
+            conflicting = ('[HTTPServer.Listeners]\n'
+                           '+ListenerOverrides=(Port=8000,BindAddress="127.0.0.1")\n'
+                           '+ListenerOverrides=(Port=8000,BindAddress="127.0.0.2")\n')
+            path.write_text(conflicting)
+            with self.assertRaisesRegex(ValueError, 'Conflicting ListenerOverrides'):
+                c.guard_listener_overrides([path], 8000)
+
+            # 10. Overrides on different port are ignored
+            path.write_text('[HTTPServer.Listeners]\n+ListenerOverrides=(Port=9000,BindAddress="192.168.1.1")\n')
+            c.guard_listener_overrides([path], 8000)
+
+            # 11. Unsafe DefaultBindAddress
+            path.write_text('[HTTPServer.Listeners]\nDefaultBindAddress=0.0.0.0\n')
+            with self.assertRaisesRegex(ValueError, 'DefaultBindAddress'):
+                c.guard_listener_overrides([path], 8000)
+
     def test_plugins_preserve_other_entries_and_fields(self):
         data = {'FileVersion':3,'Plugins':[{'Name':'Other','Enabled':False,'Custom':42}]}
         result = json.loads(c.plugin_content(json.dumps(data)))
