@@ -84,6 +84,57 @@ class MacOSAdapterTests(unittest.TestCase):
                 self.assertTrue(self.adapter.verify_project_identity(8000, proj, engine))
                 self.assertFalse(self.adapter.verify_project_identity(8000, Path("/Other/Other.uproject"), engine))
 
+    def test_regression_stale_log_fallback_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            temp_path = Path(temp)
+            proj = temp_path / "MyGame/MyGame.uproject"
+            proj.parent.mkdir(parents=True)
+            proj.write_text('{"FileVersion": 3}')
+
+            # Create a recent log file in Saved/Logs
+            logs_dir = proj.parent / "Saved/Logs"
+            logs_dir.mkdir(parents=True)
+            log_file = logs_dir / "MyGame.log"
+            log_file.write_text("recent log")
+
+            # Fake process that is NOT UnrealEditor
+            with patch.object(self.adapter, "inspect_port_owner", return_value=1234):
+                mock_run = MagicMock(returncode=0, stdout="python other_server.py --port 8000")
+                with patch("subprocess.run", return_value=mock_run):
+                    res = self.adapter.verify_project_identity(8000, proj, Path("/Users/Shared/Epic Games/UE_5.8"))
+                    self.assertFalse(res, "Stale or unverified log fallback must be rejected")
+
+    def test_regression_unverified_process_name_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            temp_path = Path(temp)
+            proj = temp_path / "MyGame/MyGame.uproject"
+            proj.parent.mkdir(parents=True)
+            proj.write_text('{"FileVersion": 3}')
+
+            # Create a recent log file
+            logs_dir = proj.parent / "Saved/Logs"
+            logs_dir.mkdir(parents=True)
+            (logs_dir / "MyGame.log").write_text("recent log")
+
+            with patch.object(self.adapter, "inspect_port_owner", return_value=1234):
+                # Process with 'unrealeditor' in name but is a python script
+                mock_run = MagicMock(returncode=0, stdout="python unrealeditor_fake.py --port 8000")
+                with patch("subprocess.run", return_value=mock_run):
+                    res = self.adapter.verify_project_identity(8000, proj, Path("/Users/Shared/Epic Games/UE_5.8"))
+                    self.assertFalse(res, "Process with unverified executable must not be accepted")
+
+    def test_regression_wrong_engine_rejected(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=98765):
+            mock_cmd = (
+                "/Other/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor "
+                "/Users/developer/Games/MyGame/MyGame.uproject -ModelContextProtocolStartServer"
+            )
+            mock_run = MagicMock(returncode=0, stdout=mock_cmd)
+            with patch("subprocess.run", return_value=mock_run):
+                proj = Path("/Users/developer/Games/MyGame/MyGame.uproject")
+                engine = Path("/Users/Shared/Epic Games/UE_5.8")
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, engine))
+
     def test_macos_launch_editor_args(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp).resolve()

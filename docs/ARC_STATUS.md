@@ -25,7 +25,7 @@ Completed               Completed                 Completed                PAUSE
                                                                    - Lifecycle CLI
                                                                    - unreal-game & playtest skills
                                                                    - Five-Star Benchmark
-                                                                   - 142 Unit Tests (100% Pass)
+                                                                   - 148 Unit Tests (100% Pass across 20 Modules)
 ```
 
 ---
@@ -72,7 +72,7 @@ Completed               Completed                 Completed                PAUSE
   - Implemented unified Cross-Platform Editor Lifecycle CLI (`scripts/editor_lifecycle.py`) with `detect`, `prepare`, `launch`, `connect`, `doctor`, `status`, and `uninstall`.
   - Authored shared developer skills: `unreal-game` and `unreal-playtest`.
   - Authored Five-Star Collection Game Benchmark (`benchmarks/five_star_game/README.md` and `acceptance.json`).
-  - Expanded automated test suite from 110 to **142 unit tests across 18 test modules (100% passing in 5.26s)**.
+  - Expanded automated test suite from 110 to **148 unit tests across 20 test modules (100% passing in 5.90s)**.
   - Comprehensive documentation created across `docs/integration/`.
 
 ---

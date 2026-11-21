@@ -103,10 +103,10 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | :--- | :--- | :--- |
 | `test_platform_detect.py` | 6 tests: OS detection, Windows/Darwin factory routing, unsupported OS rejection. | **Passing (6/6)** |
 | `test_windows_adapter.py` | 7 tests: Windows detection, x86_64/arm64 arch, Launcher manifests, codex.cmd, netstat PID, CIM. | **Passing (7/7)** |
-| `test_macos_adapter.py` | 7 tests: Darwin detection, Apple Silicon vs Intel arch, .app bundle discovery, unix codex, lsof PID, ps. | **Passing (7/7)** |
+| `test_macos_adapter.py` | 10 tests: Darwin detection, Apple Silicon vs Intel arch, .app bundle discovery, unix codex, lsof PID, ps, authentic process ownership, stale log rejection. | **Passing (10/10)** |
 | `test_editor_lifecycle.py` | 5 tests: Lifecycle detect, prepare with backups, launch args, status offline/online, uninstall revert. | **Passing (5/5)** |
 | `test_plugin_packaging.py` | 4 tests: .codex-plugin/plugin.json schema, marketplace.json catalog, .mcp.json, skill frontmatter. | **Passing (4/4)** |
-| `test_playtest.py` | 3 tests: Saved/Logs resolution, regex telemetry parsing, mock PIE execution flow. | **Passing (3/3)** |
+| `test_playtest.py` | 6 tests: Saved/Logs resolution, regex telemetry parsing, mock PIE execution flow, MCP error validation, evidence requirement, clean run guards. | **Passing (6/6)** |
 | `test_configure.py` | 8 tests: Plugin preservation, TOML idempotence, backup creation, IPv4/IPv6 loopback acceptance, public override rejection. | **Passing (8/8)** |
 | `test_diagnostics.py` | 9 tests: Engine checks, version validation, process identity rejection, schema validation, dynamic on-demand toolset discovery. | **Passing (9/9)** |
 | `test_inspect_project.py` | 7 tests: Project metadata, bounded scene limits, property error resilience, asset inventory, Blueprint graphs, read-only guarantees. | **Passing (7/7)** |
@@ -115,13 +115,13 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | `test_project_index.py` | 7 tests: Schema initialization, asset upsert, Blueprint metadata, dependency storage, stale marking, FTS5 search, version migration. | **Passing (7/7)** |
 | `test_query_index.py` | 9 tests: Exact path, exact name, variable lookup, function lookup, class filtering, FTS fallback, relationship enrichment, JSON & Markdown. | **Passing (9/9)** |
 | `test_digest.py` | 4 tests: 10-section digest structure, strict character budgeting, empty database resilience, metadata relevance. | **Passing (4/4)** |
-| `test_blueprint_authoring.py`| 19 tests: Declarative Blueprint node and wire specifications, pin types, graph validation. | **Passing (19/19)** |
-| `test_blueprint_mutation.py` | 16 tests: Pre-flight AST validation, transaction guards, safety verification. | **Passing (16/16)** |
+| `test_blueprint_authoring.py`| 18 tests: Declarative Blueprint node and wire specifications, pin types, graph validation. | **Passing (18/18)** |
+| `test_blueprint_mutation.py` | 14 tests: Pre-flight AST validation, transaction guards, safety verification. | **Passing (14/14)** |
 | `test_bridge.py` | 8 tests: Protocol handling, response unpacking, loopback validation, error mapping. | **Passing (8/8)** |
 | `test_transport.py` | 6 tests: HTTP/SSE transport, redirect refusal, session headers, pagination. | **Passing (6/6)** |
 | `test_install.py` | 4 tests: Plugin enablement, backup generation, INI and marketplace merging. | **Passing (4/4)** |
 | `test_live_guards.py` | 3 tests: Non-colliding map name selection, transform assertions. | **Passing (3/3)** |
-| **Total Test Suite** | **142 unit tests across 20 test modules** | **Passing (142/142 - 100%)** |
+| **Total Test Suite** | **148 unit tests across 20 test modules** | **Passing (148/148 - 100%)** |
 
 ---
 
@@ -199,9 +199,9 @@ The primary milestones across ARC 01, ARC 01.5, and ARC 02 Phase 2 establish a r
 - **Project Context Digest Generator:** Implemented token-budgeted Markdown digest generator (`scripts/generate_project_digest.py`) producing structured context for Codex prompts (~1,410 tokens) in 81ms (`reports/project_digest.md`).
 
 ### Current Test Suite Status:
-- **Total Tests:** 142 unit tests across 20 modules (`tests/`).
-- **Passing:** 142 tests (100% pass rate).
-- **Execution Time:** ~5.26 seconds offline.
+- **Total Tests:** 148 unit tests across 20 modules (`tests/`).
+- **Passing:** 148 tests (100% pass rate).
+- **Execution Time:** ~5.90 seconds offline.
 - **Cross-Platform Support:** Clean platform adapters for Windows 10/11 (`x86_64`, `arm64`) and macOS (`arm64` Apple Silicon & `x86_64` Intel).
 - **Security Hardening:** Completed `guard_listener_overrides` in `scripts/configure.py`, rejecting wildcard and public listener configurations.
 - **Windows CLI Detection:** Resolved `codex.cmd` in `scripts/doctor.py` without `shell=True`.

@@ -1,20 +1,20 @@
 # Cross-Platform Automated Test Results & Verification Matrix
 ## Integration Sprint 01 — Unreal Codex Bridge
 
-**Document Version:** 1.0.0  
+**Document Version:** 1.1.0  
 **Date:** 2026-11-21  
-**Total Automated Tests:** 142  
-**Passing Tests:** 142 (100% Pass Rate across 18 Test Modules)  
-**Execution Time:** ~5.26 seconds offline  
+**Total Automated Tests:** 148  
+**Passing Tests:** 148 (100% Pass Rate across 20 Test Modules)  
+**Execution Time:** ~5.90 seconds offline  
 
 ---
 
 ## 1. Automated Test Execution Summary
 
 ```
-..............................................................................................................................................
+....................................................................................................................................................
 ----------------------------------------------------------------------
-Ran 142 tests in 5.267s
+Ran 148 tests in 5.899s
 
 OK
 ```
@@ -23,7 +23,7 @@ OK
 
 ## 2. Test Coverage Breakdown by Category
 
-### Category A: Platform Adapters & Cross-Platform Foundations (28 Tests)
+### Category A: Platform Adapters & Cross-Platform Foundations (34 Tests)
 - `tests/test_platform_detect.py` (6 tests):
   - `test_detect_system_windows`: Confirms Windows OS identification. **PASS**
   - `test_detect_system_darwin`: Confirms macOS Darwin identification. **PASS**
@@ -41,14 +41,17 @@ OK
   - `test_windows_verify_project_identity`: Verifies CIM command lines against target project. **PASS**
   - `test_windows_launch_editor_args`: Validates launch argument array with paths containing spaces. **PASS**
 
-- `tests/test_macos_adapter.py` (7 tests):
+- `tests/test_macos_adapter.py` (10 tests):
   - `test_macos_os_and_arch`: Tests Darwin detection, Apple Silicon (`arm64`), and Intel (`x86_64`). **PASS**
   - `test_macos_resolve_editor_executable`: Resolves `UnrealEditor.app/Contents/MacOS/UnrealEditor`. **PASS**
   - `test_macos_discover_engine_installations`: Discovers `/Users/Shared/Epic Games/UE_*` installations. **PASS**
   - `test_macos_resolve_codex_binary_rejects_cmd`: Resolves unix `codex` and strictly rejects `.cmd`. **PASS**
   - `test_macos_inspect_port_owner`: Parses `lsof` stdout (`p<PID>`). **PASS**
-  - `test_macos_verify_project_identity`: Verifies project match via `ps` arguments and log inspection. **PASS**
+  - `test_macos_verify_project_identity`: Verifies project match via `ps` arguments and authentic executable check. **PASS**
   - `test_macos_launch_editor_args`: Validates macOS application bundle launch command arrays. **PASS**
+  - `test_regression_stale_log_fallback_rejected`: Rejects stale log fallback when listener process is not authentic UnrealEditor. **PASS**
+  - `test_regression_unverified_process_name_rejected`: Rejects unverified process names and scripts spoofing `unrealeditor`. **PASS**
+  - `test_regression_wrong_engine_rejected`: Rejects editor process launched from unexpected engine root. **PASS**
 
 - `tests/test_editor_lifecycle.py` (5 tests):
   - `test_lifecycle_detect`: Tests `detect` subcommand data aggregation. **PASS**
@@ -57,10 +60,13 @@ OK
   - `test_lifecycle_status_reporting`: Tests status when server is offline vs online. **PASS**
   - `test_lifecycle_uninstall`: Verifies safe revert of `.codex/config.toml`. **PASS**
 
-- `tests/test_playtest.py` (3 tests):
+- `tests/test_playtest.py` (6 tests):
   - `test_find_project_log`: Resolves `Saved/Logs/<Game>.log`. **PASS**
   - `test_inspect_log_telemetry`: Extracts errors, warnings, and gameplay events using regex. **PASS**
   - `test_run_playtest_flow`: Simulates full PIE test lifecycle with mock MCP client. **PASS**
+  - `test_regression_tool_error_fails_pie_and_clean_run`: Rejects PIE start when MCP tool returns `isError: True`. **PASS**
+  - `test_regression_missing_log_never_reports_clean_run`: Guards clean_run against missing or empty runtime logs. **PASS**
+  - `test_regression_unsuccessful_pie_distinguished_from_success`: Distinguishes unsuccessful PIE from completed runs. **PASS**
 
 ### Category B: Plugin Packaging & Marketplace (4 Tests)
 - `tests/test_plugin_packaging.py` (4 tests):
@@ -69,7 +75,7 @@ OK
   - `test_mcp_json_schema`: Validates `.mcp.json` loopback URL and timeout. **PASS**
   - `test_all_skills_have_valid_frontmatter`: Validates frontmatter across all 5 skills. **PASS**
 
-### Category C: Project Intelligence, Dependency Graph & Search (37 Tests)
+### Category C: Project Intelligence, Dependency Graph & Search (40 Tests)
 - `tests/test_dependencies.py` (8 tests): Directed graph, BFS, Tarjan's SCC cycle detection, blast radius. **PASS (8/8)**
 - `tests/test_blueprint_parser.py` (5 tests): S-expression tokenizer, nested list AST, complexity metrics. **PASS (5/5)**
 - `tests/test_project_index.py` (7 tests): SQLite schema, FTS5 full-text, `mtime` incremental caching. **PASS (7/7)**
@@ -85,9 +91,9 @@ OK
 - `tests/test_install.py` (4 tests): Auto-start INI configuration, skill frontmatter, backups. **PASS (4/4)**
 - `tests/test_live_guards.py` (3 tests): Non-colliding map name selection, transform assertions. **PASS (3/3)**
 
-### Category E: Blueprint Specification & AST Authoring Baseline (35 Tests)
-- `tests/test_blueprint_authoring.py` (19 tests): Declarative node and wire schemas. **PASS (19/19)**
-- `tests/test_blueprint_mutation.py` (16 tests): Pre-flight validation, AST transformation guards. **PASS (16/16)**
+### Category E: Blueprint Specification & AST Authoring Baseline (32 Tests)
+- `tests/test_blueprint_authoring.py` (18 tests): Declarative node and wire schemas. **PASS (18/18)**
+- `tests/test_blueprint_mutation.py` (14 tests): Pre-flight validation, AST transformation guards. **PASS (14/14)**
 
 ---
 

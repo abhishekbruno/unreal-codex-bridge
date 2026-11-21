@@ -174,6 +174,15 @@ class MacOSAdapter(PlatformAdapter):
         return processes
 
     def verify_project_identity(self, port: int, project_path: Path, engine_root: Path = None) -> bool:
+        """Verify authentic Unreal Editor listener ownership, binary path, and project identity on macOS.
+
+        Requires:
+        1. An authentic listening process on the specified port.
+        2. Process executable is an authentic UnrealEditor binary inside a macOS application bundle.
+        3. Executable matches the expected engine_root when provided.
+        4. Reliable project identity verified via .uproject argument matching target project.
+        Zero fallback to unverified process names or stale log files.
+        """
         pid = self.inspect_port_owner(port)
         if not pid:
             return False
@@ -184,41 +193,68 @@ class MacOSAdapter(PlatformAdapter):
             if res.returncode != 0 or not res.stdout.strip():
                 return False
             cmdline = res.stdout.strip()
-            cmd_lower = cmdline.lower()
 
-            if "unrealeditor" not in cmd_lower:
+            # 1. Extract authentic executable token from command line
+            found_exe = None
+            if cmdline.strip().startswith('"'):
+                m = re.match(r'^\s*"([^"]+)"', cmdline)
+                if m:
+                    found_exe = m.group(1)
+            else:
+                m = re.match(r'^\s*(.*?UnrealEditor(?:\.app[/\\]Contents[/\\]MacOS[/\\]UnrealEditor)?)(?:\s+|$)', cmdline, re.IGNORECASE)
+                if m:
+                    found_exe = m.group(1)
+                else:
+                    found_exe = cmdline.split()[0]
+
+            if not found_exe:
                 return False
 
+            norm_exe = re.sub(r'^[a-zA-Z]:', '', found_exe.replace('\\', '/')).lower()
+            exe_basename = Path(norm_exe).name.lower()
+
+            # Binary name must be UnrealEditor (not python, not a shell script)
+            if not (exe_basename == "unrealeditor" or exe_basename.startswith("unrealeditor-")):
+                return False
+
+            # Require executable to be in Mac application bundle or Engine/Binaries/Mac
+            if "unrealeditor.app/contents/macos" not in norm_exe and "engine/binaries/mac" not in norm_exe:
+                return False
+
+            # 2. If engine_root specified, verify executable is strictly within expected engine
             if engine_root:
                 expected_bin = self.resolve_editor_executable(Path(engine_root))
                 norm_expected = re.sub(r'^[a-zA-Z]:', '', str(expected_bin).replace('\\', '/')).lower()
                 norm_engine = re.sub(r'^[a-zA-Z]:', '', str(Path(engine_root)).replace('\\', '/')).lower()
-                if norm_expected not in cmd_lower and norm_engine not in cmd_lower and "unrealeditor" not in cmd_lower:
+                if norm_exe != norm_expected and not norm_exe.startswith(norm_engine):
                     return False
 
-            # Verify project path exists in command line
-            norm_proj = re.sub(r'^[a-zA-Z]:', '', str(proj_path).replace('\\', '/')).lower()
-            if norm_proj in cmd_lower:
+            # 3. Require authentic project argument matching target project
+            remainder = cmdline[len(found_exe):]
+            proj_matches = re.findall(r'"([^"\r\n]*\.uproject)"|(?:-project=)?([^\s"]*\.uproject)', remainder, re.IGNORECASE)
+            if not proj_matches:
+                # Also check whole command line in case project path preceded executable or was parsed differently
+                proj_matches = re.findall(r'"([^"\r\n]*\.uproject)"|(?:-project=)?([^\s"]*\.uproject)', cmdline, re.IGNORECASE)
+
+            if not proj_matches:
+                return False
+
+            found_proj = proj_matches[0][0] or proj_matches[0][1]
+            if found_proj.lower().startswith("-project="):
+                found_proj = found_proj.split("=", 1)[1].strip('\'"')
+
+            norm_found = re.sub(r'^[a-zA-Z]:', '', found_proj.replace('\\', '/')).lower()
+            norm_target = re.sub(r'^[a-zA-Z]:', '', str(proj_path).replace('\\', '/')).lower()
+
+            if norm_found == norm_target:
                 return True
 
-            # Check if project stem matches if relative argument used
-            if f"{proj_path.stem.lower()}.uproject" in cmd_lower:
+            # If relative path supplied on command line, verify filename matches and is relative
+            if Path(norm_found).name == Path(norm_target).name and not Path(found_proj).is_absolute():
                 return True
 
         except Exception:
             return False
-
-        # Fallback check: Inspect project log files in Saved/Logs or ~/Library/Logs
-        try:
-            saved_log = proj_path.parent / "Saved/Logs" / f"{proj_path.stem}.log"
-            mac_log = Path.home() / f"Library/Logs/Unreal Engine/{proj_path.stem}Editor/{proj_path.stem}.log"
-            for log_candidate in (saved_log, mac_log):
-                if log_candidate.is_file():
-                    # If log was modified recently (within 5 minutes)
-                    if (log_candidate.stat().st_mtime > (log_candidate.stat().st_ctime - 300)):
-                        return True
-        except Exception:
-            pass
 
         return False
 

@@ -70,6 +70,63 @@ class PlaytestTests(unittest.TestCase):
                 self.assertTrue(res["evaluation"]["clean_run"])
                 self.assertEqual(res["evaluation"]["gameplay_signals_found"], 1)
 
+    def test_regression_tool_error_fails_pie_and_clean_run(self):
+        with tempfile.TemporaryDirectory() as temp:
+            proj = Path(temp) / "Game.uproject"
+            proj.write_text('{"FileVersion": 3}')
+
+            logs_dir = Path(temp) / "Saved/Logs"
+            logs_dir.mkdir(parents=True)
+            log_file = logs_dir / "Game.log"
+            log_file.write_text("LogInit: Engine started.\n")
+
+            with patch("playtest.Client") as mock_client_cls, \
+                 patch("playtest.time.sleep", return_value=None):
+                mock_client = MagicMock()
+                mock_client.tools.return_value = [{"name": "call_tool"}]
+                # Simulate tool error
+                mock_client.call.return_value = {"content": [{"type": "text", "text": "Failed to enter PIE"}], "isError": True}
+                mock_client_cls.return_value = mock_client
+
+                res = playtest.run_playtest(proj, duration=1)
+                self.assertEqual(res["status"], "failed")
+                self.assertFalse(res["pie_invoked"])
+                self.assertFalse(res["evaluation"]["clean_run"])
+
+    def test_regression_missing_log_never_reports_clean_run(self):
+        with tempfile.TemporaryDirectory() as temp:
+            proj = Path(temp) / "GameWithoutLogs.uproject"
+            proj.write_text('{"FileVersion": 3}')
+            # Notice: NO log file created!
+
+            with patch("playtest.Client") as mock_client_cls, \
+                 patch("playtest.time.sleep", return_value=None):
+                mock_client = MagicMock()
+                mock_client.tools.return_value = [{"name": "call_tool"}]
+                mock_client.call.return_value = {"content": [], "isError": False}
+                mock_client_cls.return_value = mock_client
+
+                res = playtest.run_playtest(proj, duration=1)
+                # When runtime evidence is missing, clean_run MUST NEVER be True
+                self.assertFalse(res["evaluation"]["clean_run"])
+                self.assertIn("UNAVAILABLE", res["evaluation"].get("evidence_status", ""))
+
+    def test_regression_unsuccessful_pie_distinguished_from_success(self):
+        with tempfile.TemporaryDirectory() as temp:
+            proj = Path(temp) / "Game.uproject"
+            proj.write_text('{"FileVersion": 3}')
+
+            with patch("playtest.Client") as mock_client_cls, \
+                 patch("playtest.time.sleep", return_value=None):
+                mock_client = MagicMock()
+                mock_client.tools.return_value = [{"name": "other_tool"}] # call_tool not available
+                mock_client_cls.return_value = mock_client
+
+                res = playtest.run_playtest(proj, duration=1)
+                self.assertEqual(res["status"], "failed")
+                self.assertFalse(res["pie_invoked"])
+                self.assertFalse(res["evaluation"]["clean_run"])
+
 
 if __name__ == "__main__":
     unittest.main()

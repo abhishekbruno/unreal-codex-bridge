@@ -89,27 +89,36 @@ def run_playtest(project_path: Path, endpoint: str = "http://127.0.0.1:8000/mcp"
     # Discover available tools
     tools = {t["name"]: t for t in client.tools()}
     pie_started = False
+    failure_reason = None
 
     # Attempt to start PIE
     try:
         if "call_tool" in tools:
-            # Check if LevelEditorTools or EditorTools are available
             try:
                 res = client.call("call_tool", {
                     "toolset_name": "editor_toolset.toolsets.level_editor.LevelEditorTools",
                     "tool_name": "start_pie",
                     "arguments": {}
                 })
-                pie_started = True
-            except Exception:
-                # Fallback to general automation or console command
-                pass
+                # Validate MCP tool response
+                if isinstance(res, dict) and res.get("isError"):
+                    err_msg = "Unknown error entering PIE"
+                    if res.get("content") and isinstance(res["content"], list):
+                        err_msg = res["content"][0].get("text", err_msg)
+                    failure_reason = f"start_pie tool error: {err_msg}"
+                else:
+                    pie_started = True
+            except Exception as exc:
+                failure_reason = f"start_pie invocation error: {exc}"
+        else:
+            failure_reason = "Required call_tool not found in advertised MCP tools"
     except Exception as exc:
-        pass
+        failure_reason = f"Tool discovery failed: {exc}"
 
     # Wait designated playtest duration while sampling logs
     start_time = time.time()
-    time.sleep(min(duration, 30))
+    if pie_started:
+        time.sleep(min(duration, 30))
     elapsed = round(time.time() - start_time, 2)
 
     # Attempt to stop PIE
@@ -126,14 +135,27 @@ def run_playtest(project_path: Path, endpoint: str = "http://127.0.0.1:8000/mcp"
     # Harvest log telemetry
     telemetry = inspect_log_telemetry(log_file, initial_offset)
 
+    # Validate runtime evidence availability
+    evidence_available = bool(
+        log_file and log_file.is_file() and
+        telemetry.get("total_lines", 0) > 0 and
+        "error" not in telemetry
+    )
+    evidence_status = "VERIFIED" if evidence_available else "UNAVAILABLE: No runtime log file or telemetry entries captured during session"
+
+    status = "completed" if pie_started else "failed"
+    clean_run = bool(pie_started and evidence_available and len(telemetry.get("errors", [])) == 0)
+
     return {
-        "status": "completed",
+        "status": status,
         "project": str(proj),
         "pie_invoked": pie_started,
+        "failure_reason": failure_reason,
         "duration_seconds": elapsed,
         "log_telemetry": telemetry,
         "evaluation": {
-            "clean_run": len(telemetry.get("errors", [])) == 0,
+            "clean_run": clean_run,
+            "evidence_status": evidence_status,
             "errors_detected": len(telemetry.get("errors", [])),
             "warnings_detected": len(telemetry.get("warnings", [])),
             "gameplay_signals_found": len(telemetry.get("gameplay_events", []))
