@@ -42,23 +42,5 @@ jobs:
       - name: Validate native macOS adapter (Darwin runners only)
         if: runner.os == 'macOS'
         run: |
-          python -c "
-          import os, sys
-          from pathlib import Path
-          sys.path.insert(0, 'scripts')
-          from platform_adapter.macos import MacOSAdapter
-
-          adapter = MacOSAdapter()
-          os_info = adapter.detect_os()
-          print(f'Native macOS Detection: {os_info}')
-          assert os_info['system'] == 'Darwin', f'Expected Darwin, got {os_info[\"system\"]}'
-          assert os_info['architecture'] in ('arm64', 'x86_64'), f'Unexpected architecture: {os_info[\"architecture\"]}'
-
-          # Test native OS-level executable resolution via libproc proc_pidpath on own PID
-          my_pid = os.getpid()
-          exe = adapter.get_process_executable(my_pid)
-          print(f'Native PID {my_pid} executable: {exe}')
-          assert exe is not None and exe.is_file(), f'Failed resolving executable for PID {my_pid}'
-          print('Native macOS libproc proc_pidpath verification PASSED.')
-          "
+          python scripts/validate_macos.py
 

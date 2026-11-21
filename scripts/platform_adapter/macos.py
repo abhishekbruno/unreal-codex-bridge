@@ -181,18 +181,38 @@ class MacOSAdapter(PlatformAdapter):
         falling back to lsof -p <PID> -d txt -Fn.
         Does not rely on user-controlled argv / command lines.
         """
-        # 1. Primary: libproc C API (proc_pidpath)
+        # 1. Primary: Darwin kernel proc_pidpath via libSystem or libproc
         try:
             import ctypes
             import ctypes.util
-            libproc_name = ctypes.util.find_library("proc") or "/usr/lib/libproc.dylib"
-            libproc = ctypes.CDLL(libproc_name)
-            buf = ctypes.create_string_buffer(4096)
-            res = libproc.proc_pidpath(ctypes.c_int(pid), buf, ctypes.c_uint32(len(buf)))
-            if res > 0:
-                raw_path = buf.value.decode("utf-8").strip()
-                if raw_path:
-                    return Path(raw_path).resolve()
+            lib = None
+            for name in ("libSystem.B.dylib", "libproc.dylib", "/usr/lib/libproc.dylib"):
+                try:
+                    cand = ctypes.CDLL(name)
+                    if hasattr(cand, "proc_pidpath"):
+                        lib = cand
+                        break
+                except Exception:
+                    continue
+            if lib is None:
+                try:
+                    cand = ctypes.CDLL(None)
+                    if hasattr(cand, "proc_pidpath"):
+                        lib = cand
+                except Exception:
+                    pass
+
+            if lib and hasattr(lib, "proc_pidpath"):
+                lib.proc_pidpath.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_uint32]
+                lib.proc_pidpath.restype = ctypes.c_int
+                buf = ctypes.create_string_buffer(4096)
+                res = lib.proc_pidpath(ctypes.c_int(pid), buf, ctypes.c_uint32(len(buf)))
+                if res > 0:
+                    raw_path = buf.value.decode("utf-8").strip()
+                    if raw_path:
+                        p = Path(raw_path)
+                        if p.is_file():
+                            return p.resolve()
         except Exception:
             pass
 
@@ -206,7 +226,9 @@ class MacOSAdapter(PlatformAdapter):
             if res.returncode == 0 and res.stdout:
                 for line in res.stdout.splitlines():
                     if line.startswith("n/"):
-                        return Path(line[1:].strip()).resolve()
+                        p = Path(line[1:].strip())
+                        if p.is_file():
+                            return p.resolve()
         except Exception:
             pass
 
