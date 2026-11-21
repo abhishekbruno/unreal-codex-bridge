@@ -90,6 +90,7 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | `install.py` | Portable installer for registering skills and MCP configuration into an Unreal project. | **Implemented & Verified** |
 | `editor_state_guard.py` | Guarded package-saving and level-transition preflight checks with dirtiness verification. | **Implemented & Verified** |
 | `level_transaction.py` | Resumable save-before-load level transaction manager with file locking and journaling. | **Implemented & Verified** |
+| `auto_save_manager.py` | Centralized automatic entity save system for Actors, Blueprints, Materials, Components, and Assets with multi-step transaction checkpoints and persistence verification. | **Implemented & Verified** |
 
 ### Codex Skills (`skills/`)
 | Skill | Description | Status |
@@ -124,7 +125,8 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | `test_install.py` | 4 tests: Plugin enablement, backup generation, INI and marketplace merging. | **Passing (4/4)** |
 | `test_live_guards.py` | 3 tests: Non-colliding map name selection, transform assertions. | **Passing (3/3)** |
 | `test_level_transaction.py` | 9 tests: Guarded save before load, transaction journaling, interrupt recovery. | **Passing (9/9)** |
-| **Total Test Suite** | **163 unit tests across 21 test modules** | **Passing (163/163 - 100%)** |
+| `test_auto_save_manager.py` | 32 tests: Package path normalization, actor/level/OFPA saving, Blueprint/Material/Component auto-save, multi-step transaction checkpoints, uninterrupted graph construction, dirty/exists persistence verification, EditorStateGuard reuse. | **Passing (32/32)** |
+| **Total Test Suite** | **206 unit tests across 22 test modules** | **Passing (206/206 - 100%)** |
 
 ---
 

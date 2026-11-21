@@ -4,11 +4,13 @@ import os
 from pathlib import Path
 from bridge_mcp import MCPError
 from editor_state_guard import EditorStateGuard
+from auto_save_manager import AutoSaveManager
 
 class LevelTransaction:
     def __init__(self, session, project, engine, target, journal, owned, complete_world_state_verified=False):
         self.s, self.target = session, target
         self.guard = EditorStateGuard(session, project, engine, owned)
+        self.auto_saver = AutoSaveManager(session, guard=self.guard, project=project, engine=engine)
         self.path = Path(journal)
         self.world_verified = complete_world_state_verified
         self.state = {'project': str(Path(project)), 'target': target, 'events': []}

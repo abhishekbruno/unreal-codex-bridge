@@ -10,6 +10,12 @@ class EditorStateGuard:
         if not self.owned or any(not p.startswith('/Game/') or '..' in p for p in self.owned):
             raise ValueError('Explicit /Game/ task-owned package paths required')
 
+    def authorize(self, path):
+        if not path.startswith('/Game/') or '..' in path:
+            raise ValueError('Explicit /Game/ task-owned package paths required')
+        self.owned = frozenset(self.owned | {path})
+        return self.owned
+
     def inspect(self, target):
         s = self.session
         identity = s.verify_identity(self.project, self.engine)

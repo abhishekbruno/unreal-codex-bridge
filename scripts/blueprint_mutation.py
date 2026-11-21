@@ -12,6 +12,7 @@ from blueprint_codegen import generate_dsl
 from blueprint_verify import compare_graph, read_graph, compile_and_verify, verify_components, verify_variables
 from unreal_session import UnrealSession
 from editor_state_guard import EditorStateGuard
+from auto_save_manager import AutoSaveManager
 
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_PROJECT = Path('D:/newpproject/UnrealCodexTest/UnrealCodexTest.uproject')
@@ -113,6 +114,7 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
         s.load_toolset(ts)
 
     guard = EditorStateGuard(s, target_project, target_engine, owned=[spec['asset_path']])
+    auto_saver = AutoSaveManager(s, guard=guard, project=target_project, engine=target_engine)
 
     if mode == 'inspect':
         b = s.invoke('AssetTools', 'load_asset', asset_path=spec['asset_path'])
@@ -129,6 +131,8 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
     lock_key = str(target_project) + spec['asset_path']
 
     with AssetLock(REPO / 'evidence' / 'blueprint-locks', lock_key):
+        tx = auto_saver.transaction(name='blueprint_creation', entity_type='blueprint', package_path=spec['asset_path'])
+        tx.__enter__()
         try:
             journal.data['identity'] = ident
 
@@ -170,6 +174,7 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
                                  values=json.dumps(comp['properties']))
                 result['timings']['components'] = time.perf_counter() - t_comp
                 journal.step('components_added', count=len(spec['components']))
+                tx.checkpoint('components_added')
 
             # Add variables if specified
             if spec.get('variables'):
@@ -187,6 +192,7 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
                     s.invoke('ObjectTools', 'set_properties', instance=cdo, values=json.dumps(defaults))
                 result['timings']['variables'] = time.perf_counter() - t_var
                 journal.step('variables_added', count=len(spec['variables']))
+                tx.checkpoint('variables_added')
 
             # Clean factory graph and build graph
             g = s.invoke('BlueprintTools', 'get_graph', blueprint=b, graph_name='EventGraph')
@@ -227,10 +233,10 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
             if verification['compilation_result'] != 'COMPILED':
                 raise RuntimeError(f"Compilation verification failed: {verification.get('compiler_errors')}")
 
-            # Save asset using EditorStateGuard
+            # Save asset using AutoSaveManager transaction
             journal.step('save_intent')
             t_save = time.perf_counter()
-            guard.save(spec['asset_path'])
+            tx.commit()
             result['timings']['save'] = time.perf_counter() - t_save
             journal.data['save_status'] = 'SAVED'
             journal.step('saved', dirty=False)
@@ -265,6 +271,7 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
             journal.data['reloaded_asset'] = reloaded
 
         except Exception as exc:
+            tx.abort(str(exc))
             journal.data['status'] = 'FAILED'
             journal.data['error'] = str(exc)
             journal.data['write_outcome_uncertain'] = any(x['stage'].endswith('_intent') for x in journal.data['steps'])
@@ -273,6 +280,8 @@ def run(spec, mode='dry-run', session=None, project=None, engine=None, endpoint=
             except Exception:
                 pass
         finally:
+            if tx.status == 'ACTIVE':
+                tx.__exit__(None, None, None)
             journal.data['timings'] = result['timings']
             journal.data['mcp_calls'] = len(s.client.transcript) if hasattr(s, 'client') and hasattr(s.client, 'transcript') else 0
             journal.data['recovery'] = 'No automatic rollback. Inspect this exact asset. If discarded manually, verify absence/dirty state before retrying under a new name.'
