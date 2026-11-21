@@ -40,7 +40,7 @@ class WindowsAdapter(PlatformAdapter):
         seen_roots = set()
 
         # 1. Inspect Epic Games Launcher Manifests
-        manifest_dir = Path(os.environ.get("PROGRAMDATA", r"C:\ProgramData")) / r"Epic\EpicGamesLauncher\Data\Manifests"
+        manifest_dir = Path(os.environ.get("PROGRAMDATA", "C:/ProgramData")) / "Epic" / "EpicGamesLauncher" / "Data" / "Manifests"
         if manifest_dir.is_dir():
             for item in manifest_dir.glob("*.item"):
                 try:
@@ -108,21 +108,25 @@ class WindowsAdapter(PlatformAdapter):
             return installs[0]["path"]
 
         # Default fallback
-        fallback = Path(r"D:\UE_5.8").resolve()
+        fallback = Path("D:/UE_5.8").resolve() if os.name == 'nt' else Path("D:/UE_5.8")
         if (fallback / "Engine/Build/Build.version").is_file():
             return fallback
 
         raise FileNotFoundError("Could not discover an installed Unreal Engine root on Windows. Specify --engine explicitly.")
 
     def resolve_editor_executable(self, engine_root: Path) -> Path:
-        root = Path(engine_root).resolve()
+        root = Path(engine_root)
+        if os.name == 'nt':
+            root = root.resolve()
         return root / "Engine/Binaries/Win64/UnrealEditor.exe"
 
     def resolve_codex_binary(self) -> Path:
         for candidate_name in ("codex.cmd", "codex.exe", "codex"):
             found = shutil.which(candidate_name)
             if found:
-                return Path(found).resolve()
+                norm = found.replace("\\", "/") if os.name != 'nt' else found
+                p = Path(norm)
+                return p.resolve() if os.name == 'nt' else p
 
         appdata = os.environ.get("APPDATA")
         if appdata:
@@ -179,7 +183,10 @@ class WindowsAdapter(PlatformAdapter):
         if not pid:
             return False
 
-        proj_path = Path(project_path).resolve()
+        proj_path = Path(project_path)
+        if os.name == 'nt':
+            proj_path = proj_path.resolve()
+
         ps_cmd = f"Get-CimInstance Win32_Process -Filter \"ProcessId = {pid}\" | Select-Object ProcessId, ExecutablePath, CommandLine | ConvertTo-Json -Compress"
         try:
             res = subprocess.run(["powershell", "-NoProfile", "-Command", ps_cmd],
@@ -187,28 +194,32 @@ class WindowsAdapter(PlatformAdapter):
             if res.returncode != 0 or not res.stdout.strip():
                 return False
             data = json.loads(res.stdout.strip())
-            exe = Path(data.get("ExecutablePath") or "").resolve()
+            exe_raw = data.get("ExecutablePath") or ""
             cmdline = str(data.get("CommandLine") or "")
 
-            if exe.name.lower() != "unrealeditor.exe":
+            norm_exe = exe_raw.replace("\\", "/").rstrip("/").lower()
+            if Path(norm_exe).name != "unrealeditor.exe":
                 return False
 
             if engine_root:
                 expected_bin = self.resolve_editor_executable(Path(engine_root))
-                if exe != expected_bin.resolve():
+                norm_expected = str(expected_bin).replace("\\", "/").rstrip("/").lower()
+                if norm_exe != norm_expected:
                     return False
 
-            # Check if project path is in command line
-            norm_proj_str = str(proj_path).lower()
-            norm_proj_fwd = str(proj_path).replace("\\", "/").lower()
-            cmd_lower = cmdline.lower()
+            # Extract .uproject tokens strictly to prevent substring or prefix spoofing
+            paths = re.findall(r'"([^"\r\n]+\.uproject)"|([^\s"]+\.uproject)', cmdline, re.I)
+            if len(paths) != 1:
+                return False
 
-            if norm_proj_str in cmd_lower or norm_proj_fwd in cmd_lower:
-                return True
+            project_arg = paths[0][0] or paths[0][1]
+            # Require absolute path: must have drive or leading root
+            norm_arg = project_arg.replace("\\", "/")
+            if not (norm_arg.startswith("/") or (len(norm_arg) >= 2 and norm_arg[1] == ":")):
+                return False
 
-            # Check if project stem matches if command line used relative path
-            if f'"{proj_path.stem}.uproject"' in cmd_lower or f"'{proj_path.stem}.uproject'" in cmd_lower:
-                return True
+            norm_proj_str = str(proj_path).replace("\\", "/").rstrip("/").lower()
+            return norm_arg.rstrip("/").lower() == norm_proj_str
 
         except Exception:
             return False
@@ -223,7 +234,7 @@ class WindowsAdapter(PlatformAdapter):
             result["compiler_path"] = str(Path(cl_path).resolve())
             result["details"].append("MSVC cl.exe detected on PATH.")
 
-        vswhere = Path(os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)")) / r"Microsoft Visual Studio\Installer\vswhere.exe"
+        vswhere = Path(os.environ.get("ProgramFiles(x86)", "C:/Program Files (x86)")) / "Microsoft Visual Studio" / "Installer" / "vswhere.exe"
         if vswhere.is_file():
             result["details"].append("Visual Studio Installer (vswhere) present.")
 

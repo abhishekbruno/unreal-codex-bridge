@@ -29,7 +29,8 @@ class PlaytestTests(unittest.TestCase):
             expected_log.touch()
 
             found = playtest.find_project_log(proj)
-            self.assertEqual(found, expected_log)
+            self.assertIsNotNone(found)
+            self.assertEqual(found.resolve(), expected_log.resolve())
 
     def test_inspect_log_telemetry(self):
         with tempfile.TemporaryDirectory() as temp:
