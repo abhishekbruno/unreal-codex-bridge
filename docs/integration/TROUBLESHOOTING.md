@@ -116,3 +116,4 @@ In `.mcp.json`, the tool timeout is set to 180 seconds by default. When calling 
 ```bash
 python scripts/editor_lifecycle.py connect --timeout 180
 ```
+

@@ -1,7 +1,13 @@
 import json
 import sys
 import tempfile
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:
+    try:
+        import tomli as tomllib
+    except ModuleNotFoundError:
+        from compat_toml import tomllib
 import unittest
 from pathlib import Path
 

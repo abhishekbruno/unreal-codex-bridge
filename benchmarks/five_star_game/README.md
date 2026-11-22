@@ -51,3 +51,4 @@ python scripts/playtest.py run --project "/path/to/Game.uproject" --duration 15
 | **Gameplay State Readback** | **PASS** (Live Tested) | **NOT TESTED** | **NOT TESTED** |
 
 *(Note: Physical macOS verification is marked BLOCKED where host hardware is unavailable; specifications and test logic remain 100% cross-platform).*
+

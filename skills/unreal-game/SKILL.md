@@ -67,3 +67,4 @@ After authoring gameplay:
    python scripts/playtest.py run --project "/path/to/Game.uproject" --seconds 10
    ```
 4. Report observable outcomes: player controls, active level, pickup verification, and playtest logs.
+

@@ -4,7 +4,13 @@ import ipaddress
 import json
 import re
 import shutil
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:
+    try:
+        import tomli as tomllib
+    except ModuleNotFoundError:
+        from compat_toml import tomllib
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit

@@ -31,3 +31,7 @@ Summarize created asset paths, important decisions, validation performed, and an
 ## Setup and recovery
 
 See `references/setup.md` for UE 5.9 panel and external-client setup. See `references/operations.md` for server recovery, toolset discovery, multi-editor ports, and security.
+
+## Level transitions
+
+Use `editor_state_guard.EditorStateGuard` and `level_transaction.LevelTransaction` with the existing UnrealSession transport. Duplicate/create -> save exact task-owned package -> verify clean -> guarded load -> verify current level -> reconcile/create actors -> save exact packages -> verify. Never call save_assets with an empty array. Reconcile interrupted writes before retrying. A matching unsaved-target load error permits one guarded save/retry only. Never discard dirty startup maps. The current native package checks do not establish complete world/sublevel/external-actor dirtiness; obtain independent evidence before setting complete_world_state_verified. Never infer that evidence from a clean current package alone. Native Windows/macOS identity verification remains delegated to UnrealSession.

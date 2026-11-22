@@ -14,7 +14,7 @@
 [ARC 01] -------------> [ARC 01.5] -------------> [ARC 02 Phase 2] ------> [ARC 02 Phase 3]
 Completed               Completed                 Completed                PAUSED
 (MCP Handshake,         (Security Hardening,      (Project Intelligence,   (Declarative S-Expr
- Actor Spawn/Save,       Loopback Guards,          Asset DAG & Cycles,      Authoring & Compile
+ Actor Spawn/Save,       Loopback Guards,          Asset Graph & Cycles,      Authoring & Compile
  Map Persistence)        Doctor CLI Exit Codes)    SQLite Index, Digest)    Deferred)
                                                                                   |
                                                                                   v
@@ -25,7 +25,7 @@ Completed               Completed                 Completed                PAUSE
                                                                    - Lifecycle CLI
                                                                    - unreal-game & playtest skills
                                                                    - Five-Star Benchmark
-                                                                   - 142 Unit Tests (100% Pass)
+                                                                   - 163 Unit Tests (100% Pass across 21 Modules)
 ```
 
 ---
@@ -52,7 +52,7 @@ Completed               Completed                 Completed                PAUSE
 ### ARC 02 Phase 2 — Project Intelligence, Dependency Graph & Context Engine
 - **Status:** **COMPLETE & VERIFIED**
 - **Achievements:**
-  - Implemented Asset Dependency DAG builder (`scripts/project_dependencies.py`) with Tarjan's SCC cycle detection (found 185 nodes, 303 edges, and 3 cycles in mannequin assets).
+  - Implemented Asset Dependency Graph builder (`scripts/project_dependencies.py`) with Tarjan's SCC cycle detection (found 185 nodes, 303 edges, and 3 cycles in mannequin assets).
   - Implemented Epic S-expression Blueprint AST parser and cyclomatic complexity calculator (`scripts/blueprint_parser.py`).
   - Implemented persistent SQLite project index with FTS5 full-text search and `mtime` incremental caching (`scripts/project_index.py`), delivering 46% faster indexing.
   - Implemented sub-10ms context retrieval engine (`scripts/query_project_index.py`) scoring exact paths, names, variables, functions, and FTS5.
@@ -72,7 +72,7 @@ Completed               Completed                 Completed                PAUSE
   - Implemented unified Cross-Platform Editor Lifecycle CLI (`scripts/editor_lifecycle.py`) with `detect`, `prepare`, `launch`, `connect`, `doctor`, `status`, and `uninstall`.
   - Authored shared developer skills: `unreal-game` and `unreal-playtest`.
   - Authored Five-Star Collection Game Benchmark (`benchmarks/five_star_game/README.md` and `acceptance.json`).
-  - Expanded automated test suite from 110 to **142 unit tests across 18 test modules (100% passing in 5.26s)**.
+  - Expanded automated test suite to **163 unit tests across 21 test modules (100% passing in 5.45s)**.
   - Comprehensive documentation created across `docs/integration/`.
 
 ---
@@ -80,3 +80,4 @@ Completed               Completed                 Completed                PAUSE
 ## 3. Readiness to Resume ARC 02 Phase 3
 
 Integration Sprint 01 is fully complete with zero regressions on existing Windows ARC 01 and ARC 02 functionality. The codebase is fully prepared and conditionally ready to resume ARC 02 Phase 3 (Declarative Blueprint Authoring & AST Mutation Engine) whenever authorized.
+

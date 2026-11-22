@@ -70,7 +70,7 @@ During **ARC 01.5**, all pre-requisite blockers (`BUG-01`, `BUG-02`, and `DES-01
 +-------------------------------------------------------------+
 | Phase 4: Asset Dependency & Relationship Mapping            |
 | - Extract hard and soft object references                   |
-| - Build asset dependency graph (DAG)                        |
+| - Build asset dependency graph (Directed Graph)           |
 +------------------------------+------------------------------+
                                |
                                v

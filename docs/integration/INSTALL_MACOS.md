@@ -90,3 +90,4 @@ Run the actor creation verification script:
 python3 scripts/live_test.py --project "/path/to/MyGame/MyGame.uproject" --engine "/Users/Shared/Epic Games/UE_5.8"
 ```
 Confirms clean map duplication, actor spawning, transform modification, saving, and reload.
+

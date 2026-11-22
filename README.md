@@ -81,13 +81,16 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | `unreal_session.py` | Toolset catalog discovery, input schema validation, dynamic on-demand toolset loading, and process identity verification. | **Implemented & Verified** |
 | `configure.py` | Backed-up configuration utility with preflight listener security guards for `.uproject`, editor INI settings, and `.codex/config.toml`. | **Implemented & Verified** |
 | `inspect_project.py` | Read-only project discovery, scene intelligence, asset inventory, Blueprint graph/variable extraction, and structured JSON output. | **Implemented & Verified** |
-| `project_dependencies.py` | Asset dependency DAG builder with Tarjan's SCC cycle detection, transitive traversal, and blast radius impact analysis. | **Implemented & Verified** |
+| `project_dependencies.py` | Asset dependency graph engine with Tarjan's SCC cycle detection, transitive traversal, and blast radius impact analysis. | **Implemented & Verified** |
 | `blueprint_parser.py` | Native S-expression tokenizer, nested list AST visitor, cyclomatic complexity calculator, and compact prompt summarizer. | **Implemented & Verified** |
 | `project_index.py` | Persistent SQLite project index engine with FTS5 full-text search, deterministic SHA-256 IDs, and incremental `mtime` refresh. | **Implemented & Verified** |
 | `query_project_index.py` | Sub-10ms deterministic multi-tier context retrieval engine with dependency/referencer relationship enrichment. | **Implemented & Verified** |
 | `generate_project_digest.py` | Compact, token-budgeted project digest generator producing structured Markdown for agent system prompts. | **Implemented & Verified** |
 | `live_test.py` | End-to-end live testing script for verifying level duplication, actor spawning, transform setting, and persistence. | **Implemented & Verified** |
 | `install.py` | Portable installer for registering skills and MCP configuration into an Unreal project. | **Implemented & Verified** |
+| `editor_state_guard.py` | Guarded package-saving and level-transition preflight checks with dirtiness verification. | **Implemented & Verified** |
+| `level_transaction.py` | Resumable save-before-load level transaction manager with file locking and journaling. | **Implemented & Verified** |
+| `auto_save_manager.py` | Centralized automatic entity save system for Actors, Blueprints, Materials, Components, and Assets with multi-step transaction checkpoints and persistence verification. | **Implemented & Verified** |
 
 ### Codex Skills (`skills/`)
 | Skill | Description | Status |
@@ -103,25 +106,27 @@ For full technical details, see [`docs/architecture.md`](docs/architecture.md) a
 | :--- | :--- | :--- |
 | `test_platform_detect.py` | 6 tests: OS detection, Windows/Darwin factory routing, unsupported OS rejection. | **Passing (6/6)** |
 | `test_windows_adapter.py` | 7 tests: Windows detection, x86_64/arm64 arch, Launcher manifests, codex.cmd, netstat PID, CIM. | **Passing (7/7)** |
-| `test_macos_adapter.py` | 7 tests: Darwin detection, Apple Silicon vs Intel arch, .app bundle discovery, unix codex, lsof PID, ps. | **Passing (7/7)** |
+| `test_macos_adapter.py` | 14 tests: Darwin detection, Apple Silicon vs Intel arch, .app bundle discovery, unix codex, lsof PID, ps, authentic process ownership, kernel libproc proc_pidpath, lookalike engine prefix rejection, ambiguous path rejection, stale log rejection. | **Passing (14/14)** |
 | `test_editor_lifecycle.py` | 5 tests: Lifecycle detect, prepare with backups, launch args, status offline/online, uninstall revert. | **Passing (5/5)** |
 | `test_plugin_packaging.py` | 4 tests: .codex-plugin/plugin.json schema, marketplace.json catalog, .mcp.json, skill frontmatter. | **Passing (4/4)** |
-| `test_playtest.py` | 3 tests: Saved/Logs resolution, regex telemetry parsing, mock PIE execution flow. | **Passing (3/3)** |
+| `test_playtest.py` | 8 tests: Saved/Logs resolution, regex telemetry parsing, mock PIE execution flow, MCP error validation, evidence requirement, clean run guards, explicit PIEState lifecycle, stop failure recording. | **Passing (8/8)** |
 | `test_configure.py` | 8 tests: Plugin preservation, TOML idempotence, backup creation, IPv4/IPv6 loopback acceptance, public override rejection. | **Passing (8/8)** |
 | `test_diagnostics.py` | 9 tests: Engine checks, version validation, process identity rejection, schema validation, dynamic on-demand toolset discovery. | **Passing (9/9)** |
 | `test_inspect_project.py` | 7 tests: Project metadata, bounded scene limits, property error resilience, asset inventory, Blueprint graphs, read-only guarantees. | **Passing (7/7)** |
-| `test_dependencies.py` | 8 tests: DAG construction, bounded BFS traversal, reverse referencers, Tarjan's SCC cycle detection, blast radius, JSON export. | **Passing (8/8)** |
+| `test_dependencies.py` | 8 tests: Dependency graph construction, bounded BFS traversal, reverse referencers, Tarjan's SCC cycle detection, blast radius, JSON export. | **Passing (8/8)** |
 | `test_blueprint_parser.py` | 5 tests: S-expression tokenization, nested AST visitor, event/function extraction, cyclomatic complexity, compact summaries. | **Passing (5/5)** |
 | `test_project_index.py` | 7 tests: Schema initialization, asset upsert, Blueprint metadata, dependency storage, stale marking, FTS5 search, version migration. | **Passing (7/7)** |
 | `test_query_index.py` | 9 tests: Exact path, exact name, variable lookup, function lookup, class filtering, FTS fallback, relationship enrichment, JSON & Markdown. | **Passing (9/9)** |
 | `test_digest.py` | 4 tests: 10-section digest structure, strict character budgeting, empty database resilience, metadata relevance. | **Passing (4/4)** |
-| `test_blueprint_authoring.py`| 19 tests: Declarative Blueprint node and wire specifications, pin types, graph validation. | **Passing (19/19)** |
-| `test_blueprint_mutation.py` | 16 tests: Pre-flight AST validation, transaction guards, safety verification. | **Passing (16/16)** |
+| `test_blueprint_authoring.py`| 18 tests: Declarative Blueprint node and wire specifications, pin types, graph validation. | **Passing (18/18)** |
+| `test_blueprint_mutation.py` | 14 tests: Pre-flight AST validation, transaction guards, safety verification. | **Passing (14/14)** |
 | `test_bridge.py` | 8 tests: Protocol handling, response unpacking, loopback validation, error mapping. | **Passing (8/8)** |
 | `test_transport.py` | 6 tests: HTTP/SSE transport, redirect refusal, session headers, pagination. | **Passing (6/6)** |
 | `test_install.py` | 4 tests: Plugin enablement, backup generation, INI and marketplace merging. | **Passing (4/4)** |
 | `test_live_guards.py` | 3 tests: Non-colliding map name selection, transform assertions. | **Passing (3/3)** |
-| **Total Test Suite** | **142 unit tests across 20 test modules** | **Passing (142/142 - 100%)** |
+| `test_level_transaction.py` | 9 tests: Guarded save before load, transaction journaling, interrupt recovery. | **Passing (9/9)** |
+| `test_auto_save_manager.py` | 32 tests: Package path normalization, actor/level/OFPA saving, Blueprint/Material/Component auto-save, multi-step transaction checkpoints, uninterrupted graph construction, dirty/exists persistence verification, EditorStateGuard reuse. | **Passing (32/32)** |
+| **Total Test Suite** | **206 unit tests across 22 test modules** | **Passing (206/206 - 100%)** |
 
 ---
 
@@ -192,16 +197,16 @@ The primary milestones across ARC 01, ARC 01.5, and ARC 02 Phase 2 establish a r
 - **Dynamic Toolset Discovery:** Discovered 53 native toolsets totaling 832 tools; implemented on-demand toolset loading in `UnrealSession.load_toolset`.
 - **Level Duplication & Persistence:** Successfully duplicated template maps, spawned static mesh actors, modified transforms, verified properties via reflection, saved to disk (`.umap`), and reloaded without state corruption.
 - **Project Intelligence Foundation:** Implemented read-only discovery in `scripts/inspect_project.py`, extracting project metadata, scene hierarchy, `/Game` assets, and Blueprint graph/variable structures into `reports/project_intelligence.json`.
-- **Asset Dependency Graph Engine:** Implemented directed reference DAG builder (`scripts/project_dependencies.py`) with Tarjan's SCC cycle detection, bounded transitive BFS, reverse referencers, and blast-radius impact analysis. Discovered 185 nodes, 303 edges, and 3 cycles in live test project (`reports/asset_dependencies.json`).
+- **Asset Dependency Graph Engine:** Implemented directed reference graph builder (`scripts/project_dependencies.py`) with Tarjan's SCC cycle detection (handling cyclic engine assets), bounded transitive BFS, reverse referencers, and blast-radius impact analysis. Discovered 185 nodes, 303 edges, and 3 cycles in live test project (`reports/asset_dependencies.json`).
 - **Epic S-Expression Blueprint Parser:** Implemented native tokenizer, nested list AST visitor, event/function/call extractor, and cyclomatic complexity calculator (`scripts/blueprint_parser.py`) for Epic's Lisp-style S-expression graph DSL (`docs/ARC02_BLUEPRINT_INTELLIGENCE.md`).
 - **Persistent SQLite Project Index:** Implemented ACID-compliant schema with FTS5 full-text indexing, deterministic SHA-256 IDs, and incremental filesystem `mtime` change detection (`scripts/project_index.py`), delivering a 46% speedup on refresh.
 - **Sub-10ms Context Retrieval:** Implemented deterministic multi-tier search engine (`scripts/query_project_index.py`) scoring exact paths (1.0), names (0.95), variables/functions (0.90), substrings (0.80), and FTS5 full-text (0.70), enriched with live dependencies and referencers in under 9ms (>1,500x speedup vs live MCP).
 - **Project Context Digest Generator:** Implemented token-budgeted Markdown digest generator (`scripts/generate_project_digest.py`) producing structured context for Codex prompts (~1,410 tokens) in 81ms (`reports/project_digest.md`).
 
 ### Current Test Suite Status:
-- **Total Tests:** 142 unit tests across 20 modules (`tests/`).
-- **Passing:** 142 tests (100% pass rate).
-- **Execution Time:** ~5.26 seconds offline.
+- **Total Tests:** 163 unit tests across 21 modules (`tests/`).
+- **Passing:** 163 tests (100% pass rate).
+- **Execution Time:** ~5.45 seconds offline.
 - **Cross-Platform Support:** Clean platform adapters for Windows 10/11 (`x86_64`, `arm64`) and macOS (`arm64` Apple Silicon & `x86_64` Intel).
 - **Security Hardening:** Completed `guard_listener_overrides` in `scripts/configure.py`, rejecting wildcard and public listener configurations.
 - **Windows CLI Detection:** Resolved `codex.cmd` in `scripts/doctor.py` without `shell=True`.
@@ -225,7 +230,7 @@ The primary milestones across ARC 01, ARC 01.5, and ARC 02 Phase 2 establish a r
 - [x] **Windows CLI Detection:** Implemented `resolve_codex_bin` in `scripts/doctor.py` resolving `codex.cmd`.
 - [x] **Dynamic Toolset Discovery:** Implemented on-demand loading of all 53 toolsets (`scripts/unreal_session.py`).
 - [x] **Project Intelligence Foundation:** Implemented read-only scene/asset/blueprint inspection (`scripts/inspect_project.py`).
-- [x] **Asset Dependency Mapping & Blast Radius:** Built full reference DAG with Tarjan's SCC cycle detection (`scripts/project_dependencies.py`).
+- [x] **Asset Dependency Mapping & Blast Radius:** Built full reference graph with Tarjan's SCC cycle detection (`scripts/project_dependencies.py`).
 - [x] **Blueprint Graph S-Expression AST Parser:** Tokenize, parse, and analyze Epic's graph DSL with cyclomatic complexity (`scripts/blueprint_parser.py`).
 - [x] **Persistent SQLite Project Index:** Built disk-backed index with FTS5 search and incremental `mtime` updates (`scripts/project_index.py`).
 - [x] **Sub-10ms Context Retrieval Engine:** Multi-tier deterministic search with relationship enrichment (`scripts/query_project_index.py`).

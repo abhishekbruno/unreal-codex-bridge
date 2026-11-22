@@ -109,10 +109,23 @@ def verify_process_identity(process, project, engine):
 
 
 class UnrealSession:
-    def __init__(self, endpoint='http://127.0.0.1:8000/mcp', timeout=45):
+    def __init__(self, endpoint='http://127.0.0.1:8000/mcp', timeout=45, auto_save=True):
         self.client = Client(endpoint,timeout)
         self.catalog = []
         self.identity = None
+        self.auto_save_enabled = auto_save
+        self._auto_save_manager = None
+
+    @property
+    def auto_save_manager(self):
+        if self._auto_save_manager is None:
+            from auto_save_manager import AutoSaveManager
+            self._auto_save_manager = AutoSaveManager(self, enabled=self.auto_save_enabled)
+        return self._auto_save_manager
+
+    @auto_save_manager.setter
+    def auto_save_manager(self, manager):
+        self._auto_save_manager = manager
 
     def connect(self, full=False):
         initialized = self.client.initialize()
@@ -174,7 +187,12 @@ class UnrealSession:
         args={'toolset_name':description['name'],'tool_name':tool_name,'arguments':arguments}
         validate_inputs(self.top['call_tool']['inputSchema'],args)
         result = content(self.client.call('call_tool',args))
-        return result['returnValue'] if isinstance(result,dict) and 'returnValue' in result else result
+        ret_val = result['returnValue'] if isinstance(result,dict) and 'returnValue' in result else result
+        if getattr(self, 'auto_save_enabled', False):
+            from auto_save_manager import is_entity_creation_tool
+            if is_entity_creation_tool(toolset, tool_name):
+                self.auto_save_manager.handle_post_invoke(toolset, tool_name, arguments, ret_val)
+        return ret_val
 
     def verify_identity(self, project, engine):
         process = listener_identity(self.client.endpoint)
@@ -190,6 +208,13 @@ class UnrealSession:
             raise MCPError('MCP editor version is not verified as UE 5.8')
         self.identity={'project_file':str(project),'engine':str(engine),'listener':process,'mcp_log_entries':lines}
         return self.identity
+
+    def level_transaction(self, project, engine, target, journal, owned,
+                          complete_world_state_verified=False):
+        """Build a guarded level workflow using this connected transport."""
+        from level_transaction import LevelTransaction
+        return LevelTransaction(self, project, engine, target, journal, owned,
+                                complete_world_state_verified)
 
     def capability_report(self):
         # Absent annotations are not permission to treat a tool as read-only.

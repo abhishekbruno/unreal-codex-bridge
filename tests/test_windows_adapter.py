@@ -1,6 +1,7 @@
 """Unit tests for Windows-specific platform adapter."""
 
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -26,7 +27,10 @@ class WindowsAdapterTests(unittest.TestCase):
     def test_windows_resolve_editor_executable(self):
         root = Path("D:/UE_5.8")
         exe = self.adapter.resolve_editor_executable(root)
-        self.assertEqual(exe, Path("D:/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe"))
+        expected = Path("D:/UE_5.8/Engine/Binaries/Win64/UnrealEditor.exe")
+        if os.name == 'nt':
+            expected = expected.resolve()
+        self.assertEqual(exe, expected)
 
     def test_windows_discover_engine_manifests(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -56,7 +60,10 @@ class WindowsAdapterTests(unittest.TestCase):
         with patch("shutil.which") as mock_which:
             mock_which.side_effect = lambda name: "C:\\Program Files\\nodejs\\codex.cmd" if name == "codex.cmd" else None
             bin_path = self.adapter.resolve_codex_binary()
-            self.assertEqual(bin_path, Path("C:/Program Files/nodejs/codex.cmd").resolve())
+            expected = Path("C:/Program Files/nodejs/codex.cmd")
+            if os.name == 'nt':
+                expected = expected.resolve()
+            self.assertEqual(bin_path, expected)
 
     def test_windows_inspect_port_owner(self):
         mock_netstat = (
@@ -81,6 +88,46 @@ class WindowsAdapterTests(unittest.TestCase):
                 proj = Path("D:/Projects/My Game/My Game.uproject")
                 self.assertTrue(self.adapter.verify_project_identity(8000, proj, Path("D:/UE_5.8")))
                 self.assertFalse(self.adapter.verify_project_identity(8000, Path("D:/Other/Other.uproject"), Path("D:/UE_5.8")))
+
+    def test_windows_verify_project_identity_security(self):
+        with patch.object(self.adapter, "inspect_port_owner", return_value=23088):
+            proj = Path("D:/Projects/My Game/My Game.uproject")
+
+            # 1. Reject lookalike executable
+            mock_cim = json.dumps({
+                "ProcessId": 23088,
+                "ExecutablePath": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\FakeUnrealEditor.exe",
+                "CommandLine": 'UnrealEditor.exe "D:\\Projects\\My Game\\My Game.uproject"'
+            })
+            with patch("subprocess.run", return_value=MagicMock(returncode=0, stdout=mock_cim)):
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, Path("D:/UE_5.8")))
+
+            # 2. Reject relative project path
+            mock_cim = json.dumps({
+                "ProcessId": 23088,
+                "ExecutablePath": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+                "CommandLine": 'UnrealEditor.exe "My Game.uproject"'
+            })
+            with patch("subprocess.run", return_value=MagicMock(returncode=0, stdout=mock_cim)):
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, Path("D:/UE_5.8")))
+
+            # 3. Reject ambiguous multi-project command line
+            mock_cim = json.dumps({
+                "ProcessId": 23088,
+                "ExecutablePath": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+                "CommandLine": 'UnrealEditor.exe "D:\\Projects\\My Game\\My Game.uproject" "D:\\Other\\Other.uproject"'
+            })
+            with patch("subprocess.run", return_value=MagicMock(returncode=0, stdout=mock_cim)):
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, Path("D:/UE_5.8")))
+
+            # 4. Reject prefix spoofing
+            mock_cim = json.dumps({
+                "ProcessId": 23088,
+                "ExecutablePath": "D:\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+                "CommandLine": 'UnrealEditor.exe "D:\\Projects\\My Game\\My Game.uproject.bak"'
+            })
+            with patch("subprocess.run", return_value=MagicMock(returncode=0, stdout=mock_cim)):
+                self.assertFalse(self.adapter.verify_project_identity(8000, proj, Path("D:/UE_5.8")))
 
     def test_windows_launch_editor_args(self):
         with tempfile.TemporaryDirectory() as temp:
