@@ -5,8 +5,20 @@ import re
 ALLOWED_ROOTS = ('/Game/CodexBridgeTests/Blueprints/', '/Game/ARC02_Tests/')
 ROOT = '/Game/CodexBridgeTests/Blueprints/'
 
+EVENT_TYPES = {
+    'AddEvent|EventBeginPlay',
+    'AddEvent|EventTick',
+    'AddEvent|Collision|EventActorBeginOverlap',
+}
+
 PINS = {
     'AddEvent|EventBeginPlay': {'then': ('output', 'Exec')},
+    'AddEvent|EventTick': {'then': ('output', 'Exec'), 'DeltaSeconds': ('output', 'Float')},
+    'AddEvent|Collision|EventActorBeginOverlap': {'then': ('output', 'Exec'), 'OtherActor': ('output', 'Object')},
+    'Actor|K2_AddActorLocalRotation': {'execute': ('input', 'Exec'), 'then': ('output', 'Exec'), 'DeltaRotation': ('input', 'Rotator')},
+    'Actor|K2_DestroyActor': {'execute': ('input', 'Exec'), 'then': ('output', 'Exec'), 'Target': ('input', 'Object')},
+    'Actor|SetActorHiddenInGame': {'execute': ('input', 'Exec'), 'then': ('output', 'Exec'), 'bNewHidden': ('input', 'Boolean')},
+    'Actor|SetActorEnableCollision': {'execute': ('input', 'Exec'), 'then': ('output', 'Exec'), 'bNewActorEnableCollision': ('input', 'Boolean')},
     'Development|PrintString': {'execute': ('input', 'Exec'), 'then': ('output', 'Exec'), 'InString': ('input', 'String')},
 }
 
@@ -104,9 +116,16 @@ def validate_spec(spec):
                 'node.id', 'invalid stable id')
         require(n['id'] not in nodes, 'node.id', 'duplicate id')
         require(isinstance(n['type'], str) and n['type'] in PINS, 'node.type', 'unsupported node')
-        keys(n['defaults'], ('InString',) if n['type'] == 'Development|PrintString' else (),
+        allowed_defaults = ()
+        if n['type'] == 'Development|PrintString':
+            allowed_defaults = ('InString',)
+        elif n['type'] == 'Actor|SetActorHiddenInGame':
+            allowed_defaults = ('bNewHidden',)
+        elif n['type'] == 'Actor|SetActorEnableCollision':
+            allowed_defaults = ('bNewActorEnableCollision',)
+        keys(n['defaults'], allowed_defaults,
              ('InString',) if n['type'] == 'Development|PrintString' else (), 'defaults')
-        if n['defaults']:
+        if n['defaults'] and 'InString' in n['defaults']:
             v = n['defaults']['InString']
             require(isinstance(v, str) and len(v) <= 4096 and not any(ord(ch) < 32 and ch not in '\n\r\t' for ch in v),
                     'InString', 'expected bounded text without control codes')
@@ -115,9 +134,10 @@ def validate_spec(spec):
                     'position', 'expected two bounded integers')
         nodes[n['id']] = n
 
-    require(sum(n['type'] == 'AddEvent|EventBeginPlay' for n in nodes.values()) == 1, 'nodes', 'exactly one BeginPlay required')
-    require(isinstance(g['connections'], list) and len(g['connections']) == len(nodes) - 1,
-            'connections', 'all nodes must form one execution chain')
+    event_roots = [n['id'] for n in nodes.values() if n['type'] in EVENT_TYPES]
+    require(len(event_roots) >= 1, 'nodes', 'at least one event node required')
+    require(isinstance(g['connections'], list) and len(g['connections']) == len(nodes) - len(event_roots),
+            'connections', 'all nodes must form one execution chain' if len(event_roots) == 1 else 'all nodes must form execution chains from event roots')
 
     outgoing = {}
     incoming = set()
@@ -135,15 +155,20 @@ def validate_spec(spec):
         require(pins[0][1] == pins[1][1] == 'Exec', 'connection', 'only compatible execution links supported')
         a, b = c['from']['node'], c['to']['node']
         require(a not in outgoing and b not in incoming, 'connection', 'branch or multiple inputs unsupported')
+        require(nodes[b]['type'] not in EVENT_TYPES, 'connection', 'cannot connect into event root')
         outgoing[a] = b
         incoming.add(b)
 
-    start = next(n['id'] for n in nodes.values() if n['type'] == 'AddEvent|EventBeginPlay')
+    begin_roots = [r for r in event_roots if nodes[r]['type'] == 'AddEvent|EventBeginPlay']
+    other_roots = [r for r in event_roots if nodes[r]['type'] != 'AddEvent|EventBeginPlay']
+    ordered_roots = begin_roots + other_roots
     seen = set()
-    while start:
-        require(start not in seen, 'connections', 'cycle')
-        seen.add(start)
-        start = outgoing.get(start)
+    for root in ordered_roots:
+        curr = root
+        while curr:
+            require(curr not in seen, 'connections', 'cycle')
+            seen.add(curr)
+            curr = outgoing.get(curr)
     require(seen == set(nodes), 'connections', 'disconnected nodes')
     return copy.deepcopy(spec)
 
@@ -152,12 +177,34 @@ def ordered_nodes(spec):
     g = spec['graphs'][0]
     nodes = {n['id']: n for n in g['nodes']}
     nexts = {c['from']['node']: c['to']['node'] for c in g['connections']}
-    current = next(n['id'] for n in nodes.values() if n['type'] == 'AddEvent|EventBeginPlay')
+    event_roots = [n['id'] for n in nodes.values() if n['type'] in EVENT_TYPES]
+    begin_roots = [r for r in event_roots if nodes[r]['type'] == 'AddEvent|EventBeginPlay']
+    other_roots = [r for r in event_roots if nodes[r]['type'] != 'AddEvent|EventBeginPlay']
     result = []
-    while current:
-        result.append(nodes[current])
-        current = nexts.get(current)
+    for root in begin_roots + other_roots:
+        current = root
+        while current:
+            result.append(nodes[current])
+            current = nexts.get(current)
     return result
+
+
+def ordered_chains(spec):
+    g = spec['graphs'][0]
+    nodes = {n['id']: n for n in g['nodes']}
+    nexts = {c['from']['node']: c['to']['node'] for c in g['connections']}
+    event_roots = [n['id'] for n in nodes.values() if n['type'] in EVENT_TYPES]
+    begin_roots = [r for r in event_roots if nodes[r]['type'] == 'AddEvent|EventBeginPlay']
+    other_roots = [r for r in event_roots if nodes[r]['type'] != 'AddEvent|EventBeginPlay']
+    chains = []
+    for root in begin_roots + other_roots:
+        chain = []
+        current = root
+        while current:
+            chain.append(nodes[current])
+            current = nexts.get(current)
+        chains.append(chain)
+    return chains
 
 
 def example_spec(name='BP_CodexBridge_Test'):
@@ -196,5 +243,76 @@ def test_cube_spec(name='BP_ARC02_TestCube', folder='/Game/ARC02_Tests/'):
                 {'id': 'print', 'type': 'Development|PrintString', 'defaults': {'InString': 'Unreal Codex Bridge: ARC02 TestCube Active'}}
             ],
             'connections': [{'from': {'node': 'begin', 'pin': 'then'}, 'to': {'node': 'print', 'pin': 'execute'}}]
+        }]
+    }
+
+
+def collectible_cube_spec(name='BP_ARC02_CollectibleCube', folder='/Game/ARC02_Tests/'):
+    return {
+        'name': name,
+        'parent_class': '/Script/Engine.Actor',
+        'asset_path': folder + name,
+        'variables': [
+            {'name': 'ScoreValue', 'type': 'int', 'default': 1},
+            {'name': 'IsCollected', 'type': 'bool', 'default': False},
+            {'name': 'CubeIndex', 'type': 'int', 'default': 0},
+        ],
+        'components': [
+            {
+                'name': 'CubeMesh',
+                'type': '/Script/Engine.StaticMeshComponent',
+                'properties': {
+                    'StaticMesh': '/Engine/BasicShapes/Cube.Cube',
+                    'CollisionProfileName': 'OverlapAllDynamic',
+                }
+            },
+            {
+                'name': 'RotatingMovement',
+                'type': '/Script/Engine.RotatingMovementComponent',
+                'properties': {
+                    'RotationRate': {'Pitch': 0.0, 'Yaw': 90.0, 'Roll': 0.0}
+                }
+            }
+        ],
+        'graphs': [{
+            'name': 'EventGraph',
+            'nodes': [
+                {'id': 'begin', 'type': 'AddEvent|EventBeginPlay', 'defaults': {}},
+                {'id': 'print_ready', 'type': 'Development|PrintString',
+                 'defaults': {'InString': 'ARC02 Collectible Cube Ready [pickup]'}},
+                {'id': 'overlap', 'type': 'AddEvent|Collision|EventActorBeginOverlap', 'defaults': {}},
+                {'id': 'print_collect', 'type': 'Development|PrintString',
+                 'defaults': {'InString': 'ARC02 Cube Collected! +1 point [pickup] [score]'}},
+                {'id': 'destroy', 'type': 'Actor|K2_DestroyActor', 'defaults': {}}
+            ],
+            'connections': [
+                {'from': {'node': 'begin', 'pin': 'then'}, 'to': {'node': 'print_ready', 'pin': 'execute'}},
+                {'from': {'node': 'overlap', 'pin': 'then'}, 'to': {'node': 'print_collect', 'pin': 'execute'}},
+                {'from': {'node': 'print_collect', 'pin': 'then'}, 'to': {'node': 'destroy', 'pin': 'execute'}}
+            ]
+        }]
+    }
+
+
+def game_manager_spec(name='BP_ARC02_GameManager', folder='/Game/ARC02_Tests/'):
+    return {
+        'name': name,
+        'parent_class': '/Script/Engine.Actor',
+        'asset_path': folder + name,
+        'variables': [
+            {'name': 'CurrentScore', 'type': 'int', 'default': 0},
+            {'name': 'TargetScore', 'type': 'int', 'default': 3},
+        ],
+        'components': [],
+        'graphs': [{
+            'name': 'EventGraph',
+            'nodes': [
+                {'id': 'begin', 'type': 'AddEvent|EventBeginPlay', 'defaults': {}},
+                {'id': 'print_init', 'type': 'Development|PrintString',
+                 'defaults': {'InString': 'ARC02 Game Manager Active. 3 Collectibles Spawned [score]'}}
+            ],
+            'connections': [
+                {'from': {'node': 'begin', 'pin': 'then'}, 'to': {'node': 'print_init', 'pin': 'execute'}}
+            ]
         }]
     }

@@ -1,48 +1,106 @@
 """Semantic graph, component, and variable verification for Blueprints."""
 import json
-from blueprint_spec import ordered_nodes, validate_spec
+from blueprint_spec import ordered_nodes, ordered_chains, validate_spec
 
 
 def compare_graph(spec, infos):
-    expected = ordered_nodes(validate_spec(spec))
-    if len(infos) != len(expected):
-        raise ValueError(f'Node count mismatch: {len(infos)} != {len(expected)}')
-    starts = [n for n in infos if n['type_id'] == 'AddEvent|EventBeginPlay']
-    if len(starts) != 1:
-        raise ValueError('BeginPlay count mismatch')
+    spec = validate_spec(spec)
+    chains = ordered_chains(spec)
+    total_expected = sum(len(c) for c in chains)
+    if len(infos) != total_expected:
+        raise ValueError(f'Node count mismatch: {len(infos)} != {total_expected}')
+
+    # If single BeginPlay chain, maintain exact backward compatibility
+    if len(chains) == 1 and chains[0][0]['type'] == 'AddEvent|EventBeginPlay':
+        starts = [n for n in infos if n['type_id'] == 'AddEvent|EventBeginPlay']
+        if len(starts) != 1:
+            raise ValueError('BeginPlay count mismatch')
+        by_ref = {n['node']['refPath']: n for n in infos}
+        actual = starts[0]
+        mapping = {}
+        seen = set()
+        expected = chains[0]
+        for index, wanted in enumerate(expected):
+            ref = actual['node']['refPath']
+            if ref in seen or actual['type_id'] != wanted['type']:
+                raise ValueError('Unexpected node type or cycle')
+            seen.add(ref)
+            mapping[wanted['id']] = actual['node']
+            if 'position' in wanted and actual['position'] != {'x': wanted['position'][0], 'y': wanted['position'][1]}:
+                raise ValueError('Node position mismatch')
+            for key, value in wanted['defaults'].items():
+                pins = [p for p in actual['input_pins'] if p['name'] == key]
+                if len(pins) != 1 or pins[0]['value'] != value or pins[0]['connected_pins']:
+                    raise ValueError('Pin default or unexpected data connection: ' + key)
+            then = [p for p in actual['output_pins'] if p['name'] == 'then']
+            if len(then) != 1:
+                raise ValueError('Missing execution output')
+            links = then[0]['connected_pins']
+            if index == len(expected) - 1:
+                if links:
+                    raise ValueError('Unexpected trailing execution connection')
+            else:
+                if len(links) != 1 or links[0]['direction'] != 'EGPD_Input':
+                    raise ValueError('Broken execution chain')
+                target = by_ref.get(links[0]['node']['refPath'])
+                if target is None:
+                    raise ValueError('Execution target absent')
+                inputs = [p for p in target['input_pins'] if p['name'] == 'execute']
+                if len(inputs) != 1:
+                    raise ValueError('Execution pins mismatch')
+                if inputs[0].get('pin_id') and inputs[0]['pin_id'] != links[0]:
+                    raise ValueError('Execution pins mismatch')
+                if inputs[0].get('connected_pins') is not None and inputs[0]['connected_pins'] != [then[0]['pin_id']]:
+                    raise ValueError('Execution pins mismatch')
+                actual = target
+        if len(seen) != len(infos):
+            raise ValueError('Unreachable nodes')
+        return mapping
+
+    # Multi-chain verification
     by_ref = {n['node']['refPath']: n for n in infos}
-    actual = starts[0]
     mapping = {}
     seen = set()
-    for index, wanted in enumerate(expected):
-        ref = actual['node']['refPath']
-        if ref in seen or actual['type_id'] != wanted['type']:
-            raise ValueError('Unexpected node type or cycle')
-        seen.add(ref)
-        mapping[wanted['id']] = actual['node']
-        if 'position' in wanted and actual['position'] != {'x': wanted['position'][0], 'y': wanted['position'][1]}:
-            raise ValueError('Node position mismatch')
-        for key, value in wanted['defaults'].items():
-            pins = [p for p in actual['input_pins'] if p['name'] == key]
-            if len(pins) != 1 or pins[0]['value'] != value or pins[0]['connected_pins']:
-                raise ValueError('Pin default or unexpected data connection: ' + key)
-        then = [p for p in actual['output_pins'] if p['name'] == 'then']
-        if len(then) != 1:
-            raise ValueError('Missing execution output')
-        links = then[0]['connected_pins']
-        if index == len(expected) - 1:
-            if links:
-                raise ValueError('Unexpected trailing execution connection')
-        else:
-            if len(links) != 1 or links[0]['direction'] != 'EGPD_Input':
-                raise ValueError('Broken execution chain')
-            target = by_ref.get(links[0]['node']['refPath'])
-            if target is None:
-                raise ValueError('Execution target absent')
-            inputs = [p for p in target['input_pins'] if p['name'] == 'execute']
-            if len(inputs) != 1 or inputs[0]['pin_id'] != links[0] or inputs[0]['connected_pins'] != [then[0]['pin_id']]:
-                raise ValueError('Execution pins mismatch')
-            actual = target
+    used_roots = set()
+
+    for chain in chains:
+        root_spec = chain[0]
+        root_candidates = [n for n in infos if n['type_id'] == root_spec['type'] and n['node']['refPath'] not in used_roots]
+        if not root_candidates:
+            raise ValueError(f"Missing root node for event: {root_spec['type']}")
+        actual = root_candidates[0]
+        used_roots.add(actual['node']['refPath'])
+
+        for index, wanted in enumerate(chain):
+            ref = actual['node']['refPath']
+            if ref in seen or actual['type_id'] != wanted['type']:
+                raise ValueError('Unexpected node type or cycle')
+            seen.add(ref)
+            mapping[wanted['id']] = actual['node']
+            if 'position' in wanted and actual.get('position') != {'x': wanted['position'][0], 'y': wanted['position'][1]}:
+                raise ValueError('Node position mismatch')
+            for key, value in wanted.get('defaults', {}).items():
+                pins = [p for p in actual.get('input_pins', []) if p['name'] == key]
+                if len(pins) != 1 or pins[0]['value'] != value or pins[0].get('connected_pins'):
+                    raise ValueError('Pin default or unexpected data connection: ' + key)
+            then = [p for p in actual.get('output_pins', []) if p['name'] == 'then']
+            if len(then) != 1:
+                raise ValueError('Missing execution output')
+            links = then[0].get('connected_pins', [])
+            if index == len(chain) - 1:
+                if links:
+                    raise ValueError('Unexpected trailing execution connection')
+            else:
+                if len(links) != 1 or links[0].get('direction') != 'EGPD_Input':
+                    raise ValueError('Broken execution chain')
+                target = by_ref.get(links[0]['node']['refPath'])
+                if target is None:
+                    raise ValueError('Execution target absent')
+                inputs = [p for p in target.get('input_pins', []) if p['name'] == 'execute']
+                if len(inputs) != 1:
+                    raise ValueError('Execution pins mismatch')
+                actual = target
+
     if len(seen) != len(infos):
         raise ValueError('Unreachable nodes')
     return mapping

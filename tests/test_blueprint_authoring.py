@@ -4,9 +4,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / 'scripts'))
 
-from blueprint_spec import validate_spec, SpecError, example_spec, test_cube_spec
+from blueprint_spec import validate_spec, SpecError, example_spec, test_cube_spec, collectible_cube_spec, game_manager_spec
 from blueprint_codegen import generate_dsl
-from blueprint_parser import tokenize_dsl, parse_sexpr
+from blueprint_parser import tokenize_dsl, parse_sexpr, BlueprintParser
 
 
 class SpecTests(unittest.TestCase):
@@ -114,6 +114,29 @@ class SpecTests(unittest.TestCase):
     def test_unterminated(self):
         with self.assertRaises(ValueError):
             tokenize_dsl('"broken', strict=True)
+
+    def test_collectible_cube_spec_valid(self):
+        s = validate_spec(collectible_cube_spec())
+        self.assertEqual(s['name'], 'BP_ARC02_CollectibleCube')
+        self.assertEqual(len(s['variables']), 3)
+        self.assertEqual(len(s['components']), 2)
+        dsl = generate_dsl(s)
+        self.assertIn('EventBeginPlay', dsl)
+        self.assertIn('EventActorBeginOverlap', dsl)
+        ast = BlueprintParser().parse(dsl)
+        self.assertEqual(len(ast.events), 2)
+        self.assertIn('Development|PrintString', ast.all_calls)
+        self.assertIn('Actor|K2_DestroyActor', ast.all_calls)
+
+    def test_game_manager_spec_valid(self):
+        s = validate_spec(game_manager_spec())
+        self.assertEqual(s['name'], 'BP_ARC02_GameManager')
+        self.assertEqual(len(s['variables']), 2)
+        dsl = generate_dsl(s)
+        self.assertIn('EventBeginPlay', dsl)
+        ast = BlueprintParser().parse(dsl)
+        self.assertEqual(len(ast.events), 1)
+        self.assertIn('Development|PrintString', ast.all_calls)
 
 
 if __name__ == '__main__':
